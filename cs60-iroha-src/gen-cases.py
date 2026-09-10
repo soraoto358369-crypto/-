@@ -54,6 +54,9 @@ open(f"{ROOT}/index.html", "w", encoding="utf-8").write(html)
 
 # brief.md の numbers_ok を更新（症例ブロックだけ入れ替える）
 nums = []
+# 見出しの「N件」もページ本文に出るので登録する（QA の数字チェック対象）
+nums.append("  - " + "; ".join(f'"{len(data[age])}件"' for age in ages)
+            + f'; "{sum(len(data[a]) for a in ages)}件"')
 for age in ages:
     for c in data[age]:
         nums.append(f'  - "{c["before"]}"; "{c["after"]}"; "{c["delta"]}"; "{c["bf"]}"; "{c["af"]}"; "{c["age"]}"; "{c["h"]}"')
