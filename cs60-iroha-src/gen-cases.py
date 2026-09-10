@@ -28,6 +28,19 @@ for age in ages:
         size = im.size
         total += os.path.getsize(f"{dst}/c{age}_{i}.jpg")
 
+# 体重の前後差と、画像に焼き込まれた delta が合うか照合する。
+# 合わない場合は景表法上のリスクになりうるので必ず報告する（自動修正はしない）。
+def _n(v): return float(v.rstrip("kg%"))
+mismatch = []
+for age in ages:
+    for i, c in enumerate(data[age], 1):
+        calc = round(_n(c["before"]) - _n(c["after"]), 1)
+        if abs(calc - _n(c["delta"])) > 0.05:
+            mismatch.append(f'{age}代{i}件目 {c["age"]}{c["h"]}: {c["before"]}-{c["after"]}={calc}kg / 表示 -{c["delta"]}')
+if mismatch:
+    print("[要確認] 体重差と表示値が一致しない症例:")
+    for m in mismatch: print("  -", m)
+
 blocks = []
 for age in ages:
     items = "\n".join(
