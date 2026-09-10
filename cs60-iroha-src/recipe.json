@@ -1,0 +1,18 @@
+{
+  "title": "湯気が晴れる",
+  "use": "letter",
+  "subject": "service",
+  "structure": "letter",
+  "world": "hinoki",
+  "world_no": 47,
+  "signature": "ripple",
+  "ambient": [],
+  "voice": "問いかけ + 理念",
+  "images": "later",
+  "icon": "photo",
+  "cta": "line",
+  "lang": "ja",
+  "idea": "湯気が晴れると輪郭が出る",
+  "status": "done",
+  "created": "2026-09-10"
+}
