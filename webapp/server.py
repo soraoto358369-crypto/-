@@ -36,7 +36,44 @@ if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
-CLAUDE_BIN = shutil.which("claude")
+def find_claude():
+    """claude CLI の場所を探す。
+
+    毎回呼び直すので、サーバー起動後に claude をインストールした場合でも
+    サーバーを再起動せずに認識される。
+    npm のグローバル bin が PATH に入っていない環境もあるため、
+    よくあるインストール先も併せて確認する。
+    """
+    found = shutil.which("claude")
+    if found:
+        return found
+
+    candidates = []
+    if sys.platform == "win32":
+        for var in ("APPDATA", "LOCALAPPDATA", "ProgramFiles"):
+            base = os.environ.get(var)
+            if base:
+                candidates.append(Path(base) / "npm" / "claude.cmd")
+    else:
+        home = Path.home()
+        candidates += [
+            home / ".local" / "bin" / "claude",
+            home / ".npm-global" / "bin" / "claude",
+            home / ".claude" / "local" / "claude",
+            Path("/usr/local/bin/claude"),
+            Path("/opt/homebrew/bin/claude"),
+        ]
+
+    for c in candidates:
+        try:
+            if c.is_file():
+                return str(c)
+        except OSError:
+            continue
+    return None
+
+
+CLAUDE_BIN = find_claude()
 PY_BIN = sys.executable or shutil.which("python") or "python"
 
 # --model に渡せるモデルの許可リスト（UIのドロップダウンと対応）
@@ -708,7 +745,7 @@ def api_status():
         "python": sys.version.split()[0],
         "chrome": _chrome_ver(),
         "packages_ok": pkg_ok,
-        "claude_cli": bool(CLAUDE_BIN),
+        "claude_cli": bool(find_claude()),
         "logged_in": logged_in,
         "active_account": active,
     }
@@ -754,11 +791,17 @@ def api_send():
             "（start_webapp.bat はこれを自動設定します）。"
             "※確認なしで全コマンドを実行するため、信頼できる作業のみで使用してください。"
         )}, 403
-    if not CLAUDE_BIN:
-        return {"error": "claude CLI が見つかりません。`npm install -g @anthropic-ai/claude-code` でインストールしてください"}, 500
+    claude_bin = find_claude()
+    if not claude_bin:
+        return {"error": (
+            "claude CLI が見つかりません。"
+            "Node.js を入れたうえで `npm install -g @anthropic-ai/claude-code` を実行してください。"
+            "インストール済みなのにこの表示が出る場合は、claude が PATH に無い可能性があります"
+            "（コマンドプロンプトで `where claude` を実行して確認してください）。"
+        )}, 500
 
     cmd = [
-        CLAUDE_BIN, "-p",
+        claude_bin, "-p",
         "--output-format", "stream-json",
         "--verbose",
     ]
@@ -852,6 +895,6 @@ if __name__ == "__main__":
     print("  note-article-system Web UI")
     print(f"  http://{HOST}:{PORT} をブラウザで開いてください")
     print(f"  作業ディレクトリ: {PROJECT_DIR}")
-    print(f"  claude CLI: {CLAUDE_BIN}")
+    print(f"  claude CLI: {CLAUDE_BIN or '見つかりません（要インストール）'}")
     print("=" * 60)
     app.run(host=HOST, port=PORT, threaded=True)
