@@ -36,7 +36,14 @@ if errorlevel 1 (
 )
 
 set NAS_ALLOW_FULL=1
-start "" http://127.0.0.1:8788
+
+rem サーバーが待受を開始してからブラウザを開く。
+rem （先にブラウザを開くと、まだ起動途中のため「接続が拒否されました」になる）
+start "" /b powershell -NoProfile -WindowStyle Hidden -Command "for($i=0;$i -lt 120;$i++){ try{ $c=New-Object Net.Sockets.TcpClient; $c.Connect('127.0.0.1',8788); $c.Close(); Start-Process 'http://127.0.0.1:8788'; break }catch{ Start-Sleep -Milliseconds 500 } }"
+
+echo [INFO] サーバーを起動します。準備ができ次第ブラウザが自動で開きます...
+echo [INFO] 開かない場合は http://127.0.0.1:8788 を手動で開いてください。
+echo.
 %PY% webapp\server.py
 echo.
 echo [INFO] サーバーが終了しました。このウィンドウは閉じて構いません。
