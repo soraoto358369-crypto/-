@@ -1,0 +1,4806 @@
+[
+ {
+  "id": "abyss-gold",
+  "name": "深海クリムゾン",
+  "tag": "ギラギラ・情報商材っぽく",
+  "group": "gira",
+  "colors": {
+   "bg": "#000",
+   "bg2": "#070707",
+   "card": "#111",
+   "ink": "#fff",
+   "body": "#d6d6d6",
+   "muted": "#8b8b8b",
+   "line": "rgba(255,255,255,.1)",
+   "accent": "#d10a1e",
+   "accent2": "#e5c158"
+  },
+  "fonts": [
+   "Bebas Neue",
+   "Noto Sans JP",
+   "Shippori Mincho B1"
+  ],
+  "texture": "グレイン",
+  "prefix": "cinematic photorealistic film still, pure black background, crimson red and metallic gold accent lighting only, volumetric light, subtle film grain, anamorphic",
+  "must": [
+   "金は数字1か所か線1本",
+   "赤帯",
+   "ローダー"
+  ],
+  "forbid": [
+   "パステル",
+   "丸ゴシック",
+   "金の象徴物",
+   "金を全部に塗る"
+  ],
+  "sigs": [
+   "ink-splat",
+   "spotlight",
+   "lightning",
+   "letters-fall"
+  ],
+  "count": "ARM 01 / 深度 -8,000m",
+  "uses": "セールスレター / オプトイン（煽り）",
+  "hero": {
+   "cap": "ARM 01 — SURFACE",
+   "h": "深海から、",
+   "em": "8桁へ。",
+   "btn": "今すぐ受け取る"
+  },
+  "kv": "a lone man in a black coat standing at the edge of a rooftop at night facing a vast dark ocean, a thin line of red light on the horizon",
+  "no": 92
+ },
+ {
+  "id": "paper-black",
+  "name": "黒紙の写真集",
+  "tag": "かっこいい・静か",
+  "group": "cool",
+  "colors": {
+   "bg": "#121110",
+   "bg2": "#1a1917",
+   "card": "#1f1d1a",
+   "ink": "#f1ede4",
+   "body": "#b9b3a6",
+   "muted": "#7d786e",
+   "line": "rgba(241,237,228,.14)",
+   "accent": "#e9d8a6",
+   "accent2": "#e9d8a6"
+  },
+  "fonts": [
+   "Playfair Display",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "紙の繊維 + 朝の光の帯",
+  "prefix": "editorial film photograph, night, single warm lamp light, deep black shadows, muted tones, Kodak Portra grain, quiet composition, lots of negative space",
+  "must": [
+   "マスクからの文字浮上",
+   "ページ番号",
+   "紙の繊維"
+  ],
+  "forbid": [
+   "カラフルな差し色",
+   "太ゴシック",
+   "厚み影ボタン"
+  ],
+  "sigs": [
+   "tear",
+   "spotlight",
+   "letters-fall"
+  ],
+  "count": "p. 02 / Vol. 01 / Fig. 1",
+  "uses": "自己紹介 / ポートフォリオ / 写真家・作家",
+  "hero": {
+   "cap": "p. 02 — About",
+   "h": "Rin ",
+   "em": "Takase",
+   "btn": "READ"
+  },
+  "kv": "a woman photographer seen from behind holding a film camera by a window at dawn, quiet room",
+  "no": 81
+ },
+ {
+  "id": "wafu-dark",
+  "name": "和風ダーク",
+  "tag": "和風・壮大",
+  "group": "dark",
+  "colors": {
+   "bg": "#06070b",
+   "bg2": "#0d0f15",
+   "card": "#151821",
+   "ink": "#efe9dc",
+   "body": "#b8b2a4",
+   "muted": "#7a756b",
+   "line": "rgba(239,233,220,.12)",
+   "accent": "#c0392b",
+   "accent2": "#c9a227"
+  },
+  "fonts": [
+   "Cormorant Garamond",
+   "Shippori Mincho B1",
+   "Zen Kaku Gothic New"
+  ],
+  "texture": "墨のにじみ + 火の粉",
+  "prefix": "dark Japanese fantasy, ukiyo-e influence meets cinematic film still, ink wash, fog, paper lantern light, muted vermilion and gold on black",
+  "must": [
+   "縦書き見出し",
+   "漢数字",
+   "朱の割印バッジ"
+  ],
+  "forbid": [
+   "丸ゴシック",
+   "パステル"
+  ],
+  "sigs": [
+   "lightning",
+   "ink-splat",
+   "letters-fall"
+  ],
+  "count": "壱 弐 参 / 第一幕",
+  "uses": "作品公式サイト / イベント / 和の商材",
+  "hero": {
+   "cap": "Act I",
+   "h": "壱 ",
+   "em": "去りし神々",
+   "btn": "事前登録"
+  },
+  "kv": "a samurai silhouette under a torii gate in fog, paper lanterns, falling embers",
+  "no": 1
+ },
+ {
+  "id": "neon-tokyo",
+  "name": "ネオン",
+  "tag": "かっこいい・テック",
+  "group": "cool",
+  "colors": {
+   "bg": "#070a14",
+   "bg2": "#0b1020",
+   "card": "#111833",
+   "ink": "#eef2ff",
+   "body": "#b7c0e0",
+   "muted": "#6f7aa3",
+   "line": "rgba(238,242,255,.12)",
+   "accent": "#22d3ee",
+   "accent2": "#f0abfc"
+  },
+  "fonts": [
+   "Orbitron",
+   "M PLUS 1p",
+   "DotGothic16"
+  ],
+  "texture": "走査線",
+  "prefix": "rainy neon city night through the window, cyan and magenta reflections, anamorphic lens flare, cyberpunk photography",
+  "must": [
+   "走査線",
+   "ネオン管の点滅",
+   "HUD風の角括弧"
+  ],
+  "forbid": [
+   "明朝",
+   "暖色の金"
+  ],
+  "sigs": [
+   "neon-power",
+   "glitch-title",
+   "spotlight"
+  ],
+  "count": "01 // 02、SYS.01",
+  "uses": "ゲーム・配信者 / ガジェット / コミュニティ",
+  "hero": {
+   "cap": "SYS.01 // ONLINE",
+   "h": "夜を、",
+   "em": "アップデート。",
+   "btn": "[ ENTER ]"
+  },
+  "kv": "a person in a hooded jacket walking through a rainy neon alley, umbrella reflecting cyan and magenta",
+  "no": 82
+ },
+ {
+  "id": "horror-west",
+  "name": "洋画ホラー",
+  "tag": "怖い・映画っぽく",
+  "group": "genre",
+  "colors": {
+   "bg": "#050708",
+   "bg2": "#0b1014",
+   "card": "#141b21",
+   "ink": "#e8e2d3",
+   "body": "#a9a394",
+   "muted": "#6f6a5f",
+   "line": "rgba(232,226,211,.12)",
+   "accent": "#ff4a1f",
+   "accent2": "#4f9a95"
+  },
+  "fonts": [
+   "Bebas Neue",
+   "Special Elite",
+   "Cormorant Garamond"
+  ],
+  "texture": "雨 + グレイン",
+  "prefix": "cinematic film still, 35mm anamorphic, photorealistic, muted teal and bone-white palette, heavy fog outside the window, practical lighting, film grain, unsettling",
+  "must": [
+   "警告帯",
+   "タイプライター文字",
+   "雨"
+  ],
+  "forbid": [
+   "パステル",
+   "丸ゴシック"
+  ],
+  "sigs": [
+   "flare",
+   "lightning",
+   "glitch-title"
+  ],
+  "count": "ACT I / NIGHT 4 / CLASS I",
+  "uses": "作品公式サイト / イベント / ハロウィン",
+  "hero": {
+   "cap": "ACT I — NIGHT 4",
+   "h": "HOLLOW ",
+   "em": "tide",
+   "btn": "SIGN THE LEDGER"
+  },
+  "kv": "an abandoned coastal lighthouse at night in heavy fog, a single window lit",
+  "no": 56
+ },
+ {
+  "id": "midnight-navy",
+  "name": "深夜の紺",
+  "tag": "かっこいい・落ち着き",
+  "group": "dark",
+  "colors": {
+   "bg": "#0b1426",
+   "bg2": "#101b33",
+   "card": "#16233f",
+   "ink": "#eef1f7",
+   "body": "#b8c0d4",
+   "muted": "#7784a0",
+   "line": "rgba(238,241,247,.12)",
+   "accent": "#f2c14e",
+   "accent2": "#f2c14e"
+  },
+  "fonts": [
+   "Cormorant Garamond",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "星の粒",
+  "prefix": "editorial photograph at midnight, deep navy blue tones, one warm desk lamp, soft film grain, calm and quiet",
+  "must": [
+   "星の粒",
+   "細い金線",
+   "大きな余白"
+  ],
+  "forbid": [
+   "ネオン",
+   "太ゴシック"
+  ],
+  "sigs": [
+   "spotlight",
+   "letters-fall",
+   "none"
+  ],
+  "count": "Chapter 1 / 23:00",
+  "uses": "自己紹介 / コーチ・カウンセラー / 夜の商材",
+  "hero": {
+   "cap": "Chapter 1",
+   "h": "眠れない夜に、",
+   "em": "読む手紙。",
+   "btn": "はじめる"
+  },
+  "kv": "a person reading a letter under a desk lamp in a dark navy room, a window full of stars",
+  "no": 2
+ },
+ {
+  "id": "charcoal-brass",
+  "name": "炭と真鍮",
+  "tag": "かっこいい・職人",
+  "group": "cool",
+  "colors": {
+   "bg": "#1a1a1a",
+   "bg2": "#222",
+   "card": "#2a2a2a",
+   "ink": "#efe9df",
+   "body": "#bdb5a8",
+   "muted": "#857c70",
+   "line": "rgba(239,233,223,.12)",
+   "accent": "#b8862b",
+   "accent2": "#b8862b"
+  },
+  "fonts": [
+   "Oswald",
+   "Noto Sans JP",
+   "Zen Old Mincho"
+  ],
+  "texture": "金属のヘアライン",
+  "prefix": "workshop still life, dark charcoal tones with brass and warm tungsten light, macro texture of wood and metal, film grain",
+  "must": [
+   "ヘアライン罫線",
+   "真鍮色の数字",
+   "工具のような角ばったUI"
+  ],
+  "forbid": [
+   "丸角",
+   "パステル"
+  ],
+  "sigs": [
+   "stamp",
+   "letters-fall",
+   "spotlight"
+  ],
+  "count": "No. 01 / LOT 2026",
+  "uses": "職人・工房 / 革・木・コーヒー / 簡易HP",
+  "hero": {
+   "cap": "LOT 2026",
+   "h": "手で、",
+   "em": "作る。",
+   "btn": "注文する"
+  },
+  "kv": "a craftsman's hands shaping leather on a dark workbench with brass tools",
+  "no": 83
+ },
+ {
+  "id": "obsidian-mint",
+  "name": "黒曜石とミント",
+  "tag": "かっこいい・クリーン",
+  "group": "minimal",
+  "colors": {
+   "bg": "#0c0f0e",
+   "bg2": "#111615",
+   "card": "#171d1b",
+   "ink": "#f2fbf7",
+   "body": "#b5c9c0",
+   "muted": "#728a80",
+   "line": "rgba(242,251,247,.12)",
+   "accent": "#5ee3b0",
+   "accent2": "#5ee3b0"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Space Mono"
+  ],
+  "texture": "なし（面と線だけ）",
+  "prefix": "product photography on black glass, single mint green light edge, minimal, sharp shadows, high contrast",
+  "must": [
+   "1色のミント",
+   "極太見出し",
+   "細い等幅キャプション"
+  ],
+  "forbid": [
+   "グラデ",
+   "装飾罫線"
+  ],
+  "sigs": [
+   "spotlight",
+   "none",
+   "letters-fall"
+  ],
+  "count": "01 — 02",
+  "uses": "SaaS・ツール / アプリ / 簡易HP",
+  "hero": {
+   "cap": "01 — PRODUCT",
+   "h": "速い。",
+   "em": "それだけ。",
+   "btn": "試す"
+  },
+  "kv": "a sleek smartphone floating above black glass with a single mint light edge",
+  "no": 71
+ },
+ {
+  "id": "noir-film",
+  "name": "白黒映画",
+  "tag": "かっこいい・クラシック",
+  "group": "cool",
+  "colors": {
+   "bg": "#0a0a0a",
+   "bg2": "#141414",
+   "card": "#1c1c1c",
+   "ink": "#f4f4f4",
+   "body": "#c8c8c8",
+   "muted": "#8a8a8a",
+   "line": "rgba(244,244,244,.14)",
+   "accent": "#f4f4f4",
+   "accent2": "#f4f4f4"
+  },
+  "fonts": [
+   "Playfair Display",
+   "Noto Serif JP",
+   "Special Elite"
+  ],
+  "texture": "フィルムの傷 + グレイン",
+  "prefix": "black and white film noir still, hard venetian blind shadows, cigarette smoke, 1950s, grain",
+  "must": [
+   "白黒のみ",
+   "字幕風キャプション",
+   "フィルムの傷"
+  ],
+  "forbid": [
+   "色",
+   "丸角"
+  ],
+  "sigs": [
+   "spotlight",
+   "tear",
+   "glitch-title"
+  ],
+  "count": "REEL 1 / SCENE 4",
+  "uses": "作家・俳優 / イベント / 作品",
+  "hero": {
+   "cap": "REEL 1 — SCENE 4",
+   "h": "彼女は、",
+   "em": "二度と戻らない。",
+   "btn": "予告を見る"
+  },
+  "kv": "a woman in a 1950s trench coat under a streetlight, venetian blind shadows",
+  "no": 84
+ },
+ {
+  "id": "cyber-grid",
+  "name": "端末の緑",
+  "tag": "テック・ハッカー",
+  "group": "cool",
+  "colors": {
+   "bg": "#050805",
+   "bg2": "#0a100a",
+   "card": "#0f160f",
+   "ink": "#d7ffd7",
+   "body": "#9fd39f",
+   "muted": "#5f8f5f",
+   "line": "rgba(215,255,215,.12)",
+   "accent": "#39ff6a",
+   "accent2": "#39ff6a"
+  },
+  "fonts": [
+   "Space Mono",
+   "BIZ UDPGothic",
+   "VT323"
+  ],
+  "texture": "走査線 + カーソル点滅",
+  "prefix": "close-up of a green phosphor terminal screen reflecting on a desk, dark room, scanlines, retro computing",
+  "must": [
+   "等幅フォント",
+   "カーソル点滅",
+   "> プロンプト表記"
+  ],
+  "forbid": [
+   "セリフ",
+   "丸角",
+   "写真の多用"
+  ],
+  "sigs": [
+   "glitch-title",
+   "neon-power",
+   "none"
+  ],
+  "count": "$ step 01",
+  "uses": "AI・プログラミング講座 / ツール / コミュニティ",
+  "hero": {
+   "cap": "$ run",
+   "h": "echo ",
+   "em": "'hello, world'",
+   "btn": "> execute"
+  },
+  "kv": "hands on a mechanical keyboard in a dark room lit only by a green terminal screen",
+  "no": 85
+ },
+ {
+  "id": "paper-white",
+  "name": "紙・エディトリアル",
+  "tag": "上品・信頼",
+  "group": "light",
+  "colors": {
+   "bg": "#f7f6f2",
+   "bg2": "#efede7",
+   "card": "#fff",
+   "ink": "#1c1b18",
+   "body": "#3f3d38",
+   "muted": "#8a8780",
+   "line": "#d9d6ce",
+   "accent": "#1f3a5f",
+   "accent2": "#1f3a5f"
+  },
+  "fonts": [
+   "Playfair Display",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "紙の繊維",
+  "prefix": "editorial film photograph, natural window light, muted tones, Kodak Portra grain, quiet composition, lots of negative space, bright airy",
+  "must": [
+   "罫線",
+   "ドロップキャップ",
+   "大余白"
+  ],
+  "forbid": [
+   "黒背景",
+   "グロー",
+   "グレイン"
+  ],
+  "sigs": [
+   "tear",
+   "none"
+  ],
+  "count": "p. 02 / Vol. 01",
+  "uses": "簡易HP（士業・医療）/ 自己紹介",
+  "hero": {
+   "cap": "PHOTOGRAPHER, KAMAKURA",
+   "h": "朝の光だけを、",
+   "em": "撮る人。",
+   "btn": "CONTACT"
+  },
+  "kv": "a bright white studio with a single wooden chair and a tall window, morning light",
+  "no": 9
+ },
+ {
+  "id": "mono-minimal",
+  "name": "白黒ミニマル",
+  "tag": "ミニマル・上品",
+  "group": "minimal",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#fafafa",
+   "card": "#fff",
+   "ink": "#000",
+   "body": "#222",
+   "muted": "#888",
+   "line": "#e5e5e5",
+   "accent": "#000",
+   "accent2": "#000"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Inter"
+  ],
+  "texture": "なし",
+  "prefix": "monochrome photography, hard shadow, minimal composition, high key, black and white",
+  "must": [
+   "1px罫線",
+   "極端なサイズ差",
+   "演出は最小"
+  ],
+  "forbid": [
+   "差し色2色以上",
+   "グロー",
+   "カーソル"
+  ],
+  "sigs": [
+   "none",
+   "letters-fall"
+  ],
+  "count": "01 — 02",
+  "uses": "ポートフォリオ / 建築・デザイン",
+  "hero": {
+   "cap": "01 — 02",
+   "h": "LESS.",
+   "em": "",
+   "btn": "MORE"
+  },
+  "kv": "a single black ceramic vase on a white table, hard shadow",
+  "no": 72
+ },
+ {
+  "id": "ivory-serif",
+  "name": "象牙のセリフ",
+  "tag": "上品・高級",
+  "group": "light",
+  "colors": {
+   "bg": "#f4efe6",
+   "bg2": "#ede6d8",
+   "card": "#fff",
+   "ink": "#221c14",
+   "body": "#4a4238",
+   "muted": "#8f867a",
+   "line": "#d8d0c2",
+   "accent": "#8a6d3b",
+   "accent2": "#8a6d3b"
+  },
+  "fonts": [
+   "Cormorant Garamond",
+   "Shippori Mincho B1",
+   "Noto Sans JP"
+  ],
+  "texture": "なし（余白）",
+  "prefix": "luxury still life on ivory linen, soft diffused daylight, champagne gold accents, editorial, refined",
+  "must": [
+   "細いセリフの大見出し",
+   "小さな金の飾り罫",
+   "イタリック"
+  ],
+  "forbid": [
+   "太ゴシック",
+   "原色"
+  ],
+  "sigs": [
+   "none",
+   "tear"
+  ],
+  "count": "I / II / III",
+  "uses": "高単価サービス / サロン / ブライダル",
+  "hero": {
+   "cap": "Maison",
+   "h": "静けさを、",
+   "em": "身にまとう。",
+   "btn": "予約する"
+  },
+  "kv": "a woman in an ivory silk dress seen from behind in a bright salon, champagne gold details",
+  "no": 10
+ },
+ {
+  "id": "linen-sage",
+  "name": "麻とセージ",
+  "tag": "自然派・やさしい",
+  "group": "light",
+  "colors": {
+   "bg": "#f3f1ea",
+   "bg2": "#e9e6dc",
+   "card": "#fff",
+   "ink": "#2f3a30",
+   "body": "#4f5a4f",
+   "muted": "#8b948b",
+   "line": "#d6d9cf",
+   "accent": "#6f8f6a",
+   "accent2": "#6f8f6a"
+  },
+  "fonts": [
+   "Fraunces",
+   "Zen Kaku Gothic New",
+   "Noto Sans JP"
+  ],
+  "texture": "麻の織り",
+  "prefix": "natural lifestyle photography, sage green and linen tones, soft daylight, plants and ceramics, calm",
+  "must": [
+   "麻の質感",
+   "丸みのある見出し",
+   "葉の色1つ"
+  ],
+  "forbid": [
+   "黒背景",
+   "ネオン"
+  ],
+  "sigs": [
+   "ripple",
+   "none",
+   "stamp"
+  ],
+  "count": "Step 01",
+  "uses": "ヨガ・食・暮らし / 教室 / 簡易HP",
+  "hero": {
+   "cap": "MORNING",
+   "h": "深呼吸から、",
+   "em": "はじめる。",
+   "btn": "体験する"
+  },
+  "kv": "a yoga mat on a linen floor next to a potted plant, morning daylight",
+  "no": 11
+ },
+ {
+  "id": "porcelain-blue",
+  "name": "白磁と藍",
+  "tag": "上品・和洋",
+  "group": "light",
+  "colors": {
+   "bg": "#f8f8f6",
+   "bg2": "#eef1f3",
+   "card": "#fff",
+   "ink": "#1b2a44",
+   "body": "#3d4a63",
+   "muted": "#8590a3",
+   "line": "#d7dde5",
+   "accent": "#1f4e8c",
+   "accent2": "#1f4e8c"
+  },
+  "fonts": [
+   "Cormorant Garamond",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "陶器の釉薬",
+  "prefix": "white porcelain and indigo blue still life, soft north light, ceramic glaze texture, refined and calm",
+  "must": [
+   "藍の細線",
+   "白磁のような余白",
+   "縦書きの小見出し"
+  ],
+  "forbid": [
+   "原色",
+   "グレイン"
+  ],
+  "sigs": [
+   "ripple",
+   "tear",
+   "none"
+  ],
+  "count": "一 / 二 / 三",
+  "uses": "工芸 / 器・食 / 旅館",
+  "hero": {
+   "cap": "器",
+   "h": "白と藍だけで、",
+   "em": "足りる。",
+   "btn": "品を見る"
+  },
+  "kv": "a white porcelain bowl with indigo pattern on a wooden table, north light",
+  "no": 12
+ },
+ {
+  "id": "gallery-white",
+  "name": "美術館の白",
+  "tag": "ミニマル・アート",
+  "group": "minimal",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#f5f5f5",
+   "card": "#fff",
+   "ink": "#111",
+   "body": "#333",
+   "muted": "#999",
+   "line": "#e8e8e8",
+   "accent": "#111",
+   "accent2": "#111"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Inter"
+  ],
+  "texture": "なし",
+  "prefix": "art gallery white wall with a single framed photograph, museum lighting, minimal, wide",
+  "must": [
+   "作品を1点だけ大きく",
+   "キャプションは11px",
+   "壁のような余白"
+  ],
+  "forbid": [
+   "装飾",
+   "グラデ"
+  ],
+  "sigs": [
+   "none",
+   "spotlight"
+  ],
+  "count": "No. 1 — 2026",
+  "uses": "ポートフォリオ / 作家・写真家 / 展示",
+  "hero": {
+   "cap": "No. 1 — 2026",
+   "h": "見る人が、",
+   "em": "完成させる。",
+   "btn": "作品一覧"
+  },
+  "kv": "a person standing alone in a white gallery looking at one large framed photograph",
+  "no": 73
+ },
+ {
+  "id": "morning-fog",
+  "name": "霧の朝",
+  "tag": "静か・淡い",
+  "group": "minimal",
+  "colors": {
+   "bg": "#f2f3f4",
+   "bg2": "#e9ebee",
+   "card": "#fff",
+   "ink": "#2a2f36",
+   "body": "#555c66",
+   "muted": "#8f97a3",
+   "line": "#dde1e6",
+   "accent": "#6b7f99",
+   "accent2": "#6b7f99"
+  },
+  "fonts": [
+   "Cormorant Garamond",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "霧のグラデ",
+  "prefix": "foggy morning landscape through the window, pale grey and soft blue tones, soft light, minimal",
+  "must": [
+   "淡い青灰1色",
+   "ぼかしの背景",
+   "薄い文字"
+  ],
+  "forbid": [
+   "ビビッド",
+   "太ゴシック"
+  ],
+  "sigs": [
+   "ripple",
+   "none",
+   "tear"
+  ],
+  "count": "05:40 / 06:10",
+  "uses": "カウンセラー / 朝活 / 読み物",
+  "hero": {
+   "cap": "05:40",
+   "h": "まだ誰も、",
+   "em": "起きていない。",
+   "btn": "読む"
+  },
+  "kv": "a person walking alone on a foggy pale grey morning road",
+  "no": 74
+ },
+ {
+  "id": "swiss-grid",
+  "name": "スイス・グリッド",
+  "tag": "かっこいい・国際様式",
+  "group": "minimal",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#f2f2f2",
+   "card": "#fff",
+   "ink": "#000",
+   "body": "#222",
+   "muted": "#777",
+   "line": "#000",
+   "accent": "#e30613",
+   "accent2": "#e30613"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Inter"
+  ],
+  "texture": "なし（グリッド線）",
+  "prefix": "swiss international style poster, bold red black white, strict grid, helvetica-like typography, flat",
+  "must": [
+   "赤1色",
+   "太い罫線のグリッド",
+   "左寄せ・左揃え"
+  ],
+  "forbid": [
+   "中央揃え",
+   "装飾"
+  ],
+  "sigs": [
+   "letters-fall",
+   "none"
+  ],
+  "count": "01 / 02 / 03",
+  "uses": "デザイン・制作 / 講座 / イベント",
+  "hero": {
+   "cap": "01",
+   "h": "Grid.",
+   "em": "",
+   "btn": "ENTER"
+  },
+  "kv": "a bold red and black geometric poster pinned on a white wall",
+  "no": 75
+ },
+ {
+  "id": "letterpress",
+  "name": "活版印刷",
+  "tag": "上品・クラフト",
+  "group": "light",
+  "colors": {
+   "bg": "#f5efe3",
+   "bg2": "#ece4d4",
+   "card": "#fff9ee",
+   "ink": "#2b241c",
+   "body": "#4e453a",
+   "muted": "#8c8273",
+   "line": "#d9d0bf",
+   "accent": "#a63d2f",
+   "accent2": "#a63d2f"
+  },
+  "fonts": [
+   "Libre Baskerville",
+   "Shippori Mincho B1",
+   "Noto Sans JP"
+  ],
+  "texture": "活版の凹み・インクのかすれ",
+  "prefix": "letterpress printed card on thick cream cotton paper, deep impression, single red ink, macro",
+  "must": [
+   "かすれた文字",
+   "罫線と飾り罫",
+   "番号スタンプ"
+  ],
+  "forbid": [
+   "グロー",
+   "ネオン"
+  ],
+  "sigs": [
+   "stamp",
+   "tear",
+   "none"
+  ],
+  "count": "№ 1 / 1st Edition",
+  "uses": "文具・紙もの / 書籍・出版 / 招待",
+  "hero": {
+   "cap": "1st Edition",
+   "h": "一枚の紙が、",
+   "em": "招待状になる。",
+   "btn": "申し込む"
+  },
+  "kv": "a stack of letterpress printed cards with a red wax seal on cream paper",
+  "no": 13
+ },
+ {
+  "id": "newspaper",
+  "name": "新聞",
+  "tag": "かっこいい・報道",
+  "group": "light",
+  "colors": {
+   "bg": "#f6f4ef",
+   "bg2": "#ebe8e1",
+   "card": "#fff",
+   "ink": "#111",
+   "body": "#333",
+   "muted": "#777",
+   "line": "#111",
+   "accent": "#c8102e",
+   "accent2": "#c8102e"
+  },
+  "fonts": [
+   "Playfair Display",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "新聞のインク",
+  "prefix": "vintage newspaper front page on a desk, black ink on off-white newsprint, one red headline, halftone photo",
+  "must": [
+   "段組",
+   "太い横罫線",
+   "赤は見出し1つ"
+  ],
+  "forbid": [
+   "丸角",
+   "パステル"
+  ],
+  "sigs": [
+   "stamp",
+   "letters-fall"
+  ],
+  "count": "第1面 / 号外",
+  "uses": "号外的セールスレター / ニュース系発信",
+  "hero": {
+   "cap": "号外",
+   "h": "本日、",
+   "em": "発売。",
+   "btn": "読む"
+  },
+  "kv": "a folded vintage newspaper on a cafe table with a cup of coffee, one red headline block",
+  "no": 14
+ },
+ {
+  "id": "pastel-pop",
+  "name": "白地パステル",
+  "tag": "かわいい・明るい",
+  "group": "cute",
+  "colors": {
+   "bg": "#fffdf8",
+   "bg2": "#fff",
+   "card": "#fff",
+   "ink": "#3d3552",
+   "body": "#5b5470",
+   "muted": "#8f89a3",
+   "line": "rgba(61,53,82,.1)",
+   "accent": "#ff7f9f",
+   "accent2": "#5cc9a0"
+  },
+  "fonts": [
+   "Fredoka",
+   "Zen Maru Gothic",
+   "Noto Sans JP"
+  ],
+  "texture": "なし",
+  "prefix": "cute 3D clay render, soft matte materials, pastel mint pink and lemon palette, soft studio lighting, rounded shapes, playful, clean bright background",
+  "must": [
+   "スライドごとの背景色遷移",
+   "白カード",
+   "丸バッジ"
+  ],
+  "forbid": [
+   "黒背景",
+   "グレイン"
+  ],
+  "sigs": [
+   "stamp",
+   "card-flip",
+   "ripple"
+  ],
+  "count": "1 / 7、STEP 1",
+  "uses": "オプトイン / 教室・サロン",
+  "hero": {
+   "cap": "MORNING ROUTINE",
+   "h": "朝の10分で、",
+   "em": "ぜんぶ整う。",
+   "btn": "はじめる"
+  },
+  "kv": "a cheerful young woman jumping with a notebook, pastel background",
+  "no": 18
+ },
+ {
+  "id": "pastel-pop-dark",
+  "name": "黒地パステルクレイ",
+  "tag": "かわいい・でも大人っぽく",
+  "group": "cute",
+  "colors": {
+   "bg": "#15131c",
+   "bg2": "#1c1925",
+   "card": "#221f2d",
+   "ink": "#fff8ee",
+   "body": "#cfc9dc",
+   "muted": "#8d879f",
+   "line": "rgba(255,255,255,.08)",
+   "accent": "#ff6f91",
+   "accent2": "#4fd1a3"
+  },
+  "fonts": [
+   "Fredoka",
+   "Zen Maru Gothic",
+   "Noto Sans JP"
+  ],
+  "texture": "なし",
+  "prefix": "cute 3D clay render, soft matte materials, pastel mint pink and lemon objects on a dark charcoal background, soft studio lighting, rounded shapes, playful",
+  "must": [
+   "ブロブ形マスクの画像",
+   "厚み影ボタン",
+   "漂うクレイ玉"
+  ],
+  "forbid": [
+   "グレイン",
+   "グリッチ",
+   "明朝"
+  ],
+  "sigs": [
+   "stamp",
+   "card-flip",
+   "ripple"
+  ],
+  "count": "1 / 7、DAY 1",
+  "uses": "オプトイン / リンクまとめ / 講座",
+  "hero": {
+   "cap": "7 DAYS FREE LESSON",
+   "h": "がんばらない、",
+   "em": "7日で習慣に。",
+   "btn": "無料で受け取る"
+  },
+  "kv": "a small clay character hugging a coin jar, pastel objects floating around",
+  "no": 19
+ },
+ {
+  "id": "candy-shop",
+  "name": "キャンディショップ",
+  "tag": "かわいい・ビビッド",
+  "group": "cute",
+  "colors": {
+   "bg": "#fff5fa",
+   "bg2": "#ffe9f3",
+   "card": "#fff",
+   "ink": "#3b1f3a",
+   "body": "#5c3d5a",
+   "muted": "#9a7f98",
+   "line": "#f3d3e3",
+   "accent": "#ff3d8a",
+   "accent2": "#3dd6ff"
+  },
+  "fonts": [
+   "Fredoka",
+   "Zen Maru Gothic",
+   "Noto Sans JP"
+  ],
+  "texture": "ドット",
+  "prefix": "candy shop product photography, vivid pink and cyan, glossy plastic, playful, bright",
+  "must": [
+   "ビビッド2色",
+   "ドット背景",
+   "丸いバッジ"
+  ],
+  "forbid": [
+   "黒",
+   "セリフ"
+  ],
+  "sigs": [
+   "ripple",
+   "stamp",
+   "card-flip"
+  ],
+  "count": "No.1 / 2 / 3",
+  "uses": "雑貨・コスメ / 若年層 / イベント",
+  "hero": {
+   "cap": "NEW FLAVOR",
+   "h": "甘さ、",
+   "em": "限界突破。",
+   "btn": "買う"
+  },
+  "kv": "glossy pink and cyan candies spilling out of a glass jar",
+  "no": 20
+ },
+ {
+  "id": "sakura",
+  "name": "桜",
+  "tag": "かわいい・和・春",
+  "group": "cute",
+  "colors": {
+   "bg": "#fff8f9",
+   "bg2": "#fdeef2",
+   "card": "#fff",
+   "ink": "#3a2b30",
+   "body": "#5e4a52",
+   "muted": "#9b878e",
+   "line": "#f1dbe1",
+   "accent": "#e8879e",
+   "accent2": "#7fb58a"
+  },
+  "fonts": [
+   "Zen Maru Gothic",
+   "Klee One",
+   "Noto Sans JP"
+  ],
+  "texture": "花びらの散り",
+  "prefix": "cherry blossom season, soft pink petals, pale spring light, gentle bokeh, Japanese spring",
+  "must": [
+   "花びらの粒",
+   "淡い桃色1つ",
+   "手描き風の罫線"
+  ],
+  "forbid": [
+   "黒",
+   "ネオン"
+  ],
+  "sigs": [
+   "ripple",
+   "stamp",
+   "tear"
+  ],
+  "count": "春 / 一 / 二",
+  "uses": "春の企画 / 教室 / 和菓子",
+  "hero": {
+   "cap": "SPRING",
+   "h": "春だけの、",
+   "em": "おしらせ。",
+   "btn": "見る"
+  },
+  "kv": "a girl in a white blouse under blooming cherry trees, petals falling",
+  "no": 21
+ },
+ {
+  "id": "kawaii-sticker",
+  "name": "シール風",
+  "tag": "かわいい・元気",
+  "group": "cute",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#fff7e0",
+   "card": "#fff",
+   "ink": "#1c1c1c",
+   "body": "#333",
+   "muted": "#777",
+   "line": "#1c1c1c",
+   "accent": "#ffcc00",
+   "accent2": "#ff5a5f"
+  },
+  "fonts": [
+   "Fredoka",
+   "Zen Maru Gothic",
+   "Noto Sans JP"
+  ],
+  "texture": "太い黒縁",
+  "prefix": "sticker sheet illustration, thick black outlines, flat bright colors, die-cut white border, playful",
+  "must": [
+   "太い黒縁",
+   "白フチ",
+   "傾けた配置"
+  ],
+  "forbid": [
+   "セリフ",
+   "グレイン"
+  ],
+  "sigs": [
+   "stamp",
+   "card-flip",
+   "letters-fall"
+  ],
+  "count": "01! / 02!",
+  "uses": "子ども向け / イベント / 楽しい商材",
+  "hero": {
+   "cap": "NEW!",
+   "h": "貼るだけで、",
+   "em": "かわいい。",
+   "btn": "もらう"
+  },
+  "kv": "a cute cat character waving, thick outlines, die-cut white border",
+  "no": 22
+ },
+ {
+  "id": "macaron",
+  "name": "マカロン",
+  "tag": "かわいい・上品",
+  "group": "cute",
+  "colors": {
+   "bg": "#fffbf7",
+   "bg2": "#f9f1ea",
+   "card": "#fff",
+   "ink": "#4a3a3a",
+   "body": "#6b5a5a",
+   "muted": "#a29090",
+   "line": "#eadcd6",
+   "accent": "#e7a0b6",
+   "accent2": "#a8c9c0"
+  },
+  "fonts": [
+   "Cormorant Garamond",
+   "Zen Maru Gothic",
+   "Noto Sans JP"
+  ],
+  "texture": "なし",
+  "prefix": "macaron tower on a pastel table, milky pink mint and lavender, soft studio light, patisserie photography",
+  "must": [
+   "ミルキーな3色",
+   "細いセリフ英字",
+   "丸角カード"
+  ],
+  "forbid": [
+   "黒",
+   "太い縁"
+  ],
+  "sigs": [
+   "ripple",
+   "none",
+   "card-flip"
+  ],
+  "count": "No. 01",
+  "uses": "パティスリー / ギフト / 女性向けサロン",
+  "hero": {
+   "cap": "Pâtisserie",
+   "h": "ひとくちの、",
+   "em": "ごほうび。",
+   "btn": "予約する"
+  },
+  "kv": "a tower of pastel macarons on a marble table next to a small gift box",
+  "no": 23
+ },
+ {
+  "id": "brutal",
+  "name": "ブルータリズム",
+  "tag": "ギラギラ・尖った・明るい",
+  "group": "gira",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#f4f4f4",
+   "card": "#fff",
+   "ink": "#000",
+   "body": "#111",
+   "muted": "#666",
+   "line": "#000",
+   "accent": "#ffe600",
+   "accent2": "#ff3b30"
+  },
+  "fonts": [
+   "Archivo Black",
+   "BIZ UDPGothic",
+   "Space Mono"
+  ],
+  "texture": "なし（4pxの黒罫線）",
+  "prefix": "flat graphic illustration, high contrast, risograph texture, two-color print, bold shapes, yellow and black",
+  "must": [
+   "4pxの黒罫線",
+   "ズレたグリッド",
+   "黄色の塗り"
+  ],
+  "forbid": [
+   "グラデ",
+   "角丸",
+   "影",
+   "明朝"
+  ],
+  "sigs": [
+   "stamp",
+   "letters-fall",
+   "card-flip"
+  ],
+  "count": "№1、[01]",
+  "uses": "号外的セールスレター / イベント / 若年層",
+  "hero": {
+   "cap": "№1 — EXTRA",
+   "h": "デザイナー、",
+   "em": "不要。",
+   "btn": "READ MORE"
+  },
+  "kv": "a black megaphone on a bright yellow background",
+  "no": 93
+ },
+ {
+  "id": "picnic-gingham",
+  "name": "ピクニック",
+  "tag": "かわいい・素朴",
+  "group": "cute",
+  "colors": {
+   "bg": "#fffdf7",
+   "bg2": "#fff3f3",
+   "card": "#fff",
+   "ink": "#3b2c2c",
+   "body": "#5c4a4a",
+   "muted": "#9a8888",
+   "line": "#ead9d9",
+   "accent": "#d94b4b",
+   "accent2": "#4c8b4c"
+  },
+  "fonts": [
+   "Fraunces",
+   "Zen Maru Gothic",
+   "Noto Sans JP"
+  ],
+  "texture": "赤白のギンガムチェック",
+  "prefix": "picnic on a red and white gingham cloth, sunlight, homemade food, warm and cozy",
+  "must": [
+   "ギンガムの帯",
+   "手書き風見出し",
+   "丸いシール"
+  ],
+  "forbid": [
+   "黒",
+   "ネオン"
+  ],
+  "sigs": [
+   "stamp",
+   "ripple",
+   "none"
+  ],
+  "count": "Menu 01",
+  "uses": "カフェ・食 / 手作り / 週末イベント",
+  "hero": {
+   "cap": "PICNIC",
+   "h": "週末は、",
+   "em": "外で食べよう。",
+   "btn": "メニューを見る"
+  },
+  "kv": "a picnic basket, bread and lemonade on a red gingham cloth in sunlight",
+  "no": 24
+ },
+ {
+  "id": "pop-art",
+  "name": "ポップアート",
+  "tag": "ポップ・コミック",
+  "group": "cute",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#fff2b3",
+   "card": "#fff",
+   "ink": "#111",
+   "body": "#222",
+   "muted": "#666",
+   "line": "#111",
+   "accent": "#ff2e63",
+   "accent2": "#1e90ff"
+  },
+  "fonts": [
+   "Bangers",
+   "M PLUS 1p",
+   "Noto Sans JP"
+  ],
+  "texture": "ハーフトーンドット",
+  "prefix": "pop art comic style illustration, halftone dots, bold black outlines, primary colors, speech bubble",
+  "must": [
+   "ハーフトーン",
+   "吹き出し",
+   "太い黒縁の見出し"
+  ],
+  "forbid": [
+   "セリフ",
+   "淡色"
+  ],
+  "sigs": [
+   "stamp",
+   "letters-fall",
+   "card-flip"
+  ],
+  "count": "#01 / POW!",
+  "uses": "イベント / エンタメ / 若年層",
+  "hero": {
+   "cap": "POW!",
+   "h": "ドカンと、",
+   "em": "一撃。",
+   "btn": "見る"
+  },
+  "kv": "a woman's face with a big speech bubble, halftone dots, comic style",
+  "no": 25
+ },
+ {
+  "id": "cream-soda",
+  "name": "クリームソーダ",
+  "tag": "かわいい・レトロ喫茶",
+  "group": "cute",
+  "colors": {
+   "bg": "#f3fbf6",
+   "bg2": "#e6f6ea",
+   "card": "#fff",
+   "ink": "#1f3a2e",
+   "body": "#3f5a4d",
+   "muted": "#8aa596",
+   "line": "#cfe3d6",
+   "accent": "#2ec27e",
+   "accent2": "#ff5a5f"
+  },
+  "fonts": [
+   "Righteous",
+   "Kosugi Maru",
+   "Noto Sans JP"
+  ],
+  "texture": "泡の粒",
+  "prefix": "cream soda in a tall glass at a retro Japanese cafe, emerald green and cherry red, soft window light",
+  "must": [
+   "泡の粒",
+   "エメラルド1色",
+   "丸い赤のさくらんぼ"
+  ],
+  "forbid": [
+   "黒",
+   "太ゴシック"
+  ],
+  "sigs": [
+   "ripple",
+   "card-flip",
+   "stamp"
+  ],
+  "count": "No.1 / 2",
+  "uses": "喫茶・スイーツ / レトロ雑貨",
+  "hero": {
+   "cap": "CREAM SODA",
+   "h": "泡が消える前に。",
+   "em": "",
+   "btn": "注文する"
+  },
+  "kv": "a tall cream soda with a cherry on a retro cafe counter, window light",
+  "no": 26
+ },
+ {
+  "id": "retro-future",
+  "name": "レトロフューチャー",
+  "tag": "レトロ・ポップ",
+  "group": "retro",
+  "colors": {
+   "bg": "#f3e9d2",
+   "bg2": "#e9dcc0",
+   "card": "#fff8ea",
+   "ink": "#2b1d14",
+   "body": "#4a3a2e",
+   "muted": "#8a7a6a",
+   "line": "rgba(43,29,20,.18)",
+   "accent": "#e0662f",
+   "accent2": "#3f7d6a"
+  },
+  "fonts": [
+   "Righteous",
+   "Kosugi Maru",
+   "Zen Kaku Gothic Antique"
+  ],
+  "texture": "放射線 + グレイン",
+  "prefix": "1970s sci-fi poster art, airbrush illustration, warm cream orange and brown palette, grain, retro futurism",
+  "must": [
+   "放射線",
+   "ストライプ帯",
+   "太陽のバッジ"
+  ],
+  "forbid": [
+   "ネオン",
+   "黒背景"
+  ],
+  "sigs": [
+   "card-flip",
+   "ripple",
+   "stamp"
+  ],
+  "count": "PHASE 1、No.01",
+  "uses": "商品LP / イベント / カフェ",
+  "hero": {
+   "cap": "PHASE 1",
+   "h": "未来は、",
+   "em": "丸かった。",
+   "btn": "GO"
+  },
+  "kv": "a rounded retro rocket flying over a desert city",
+  "no": 29
+ },
+ {
+  "id": "showa-kissa",
+  "name": "昭和喫茶",
+  "tag": "レトロ・和",
+  "group": "retro",
+  "colors": {
+   "bg": "#f4ecdc",
+   "bg2": "#eadfc8",
+   "card": "#fff8e8",
+   "ink": "#2c2017",
+   "body": "#4b3d30",
+   "muted": "#8c7d6b",
+   "line": "#d9cbb4",
+   "accent": "#7a4b2a",
+   "accent2": "#2f5d4a"
+  },
+  "fonts": [
+   "Zen Old Mincho",
+   "Kosugi Maru",
+   "Noto Sans JP"
+  ],
+  "texture": "木目 + 色あせ",
+  "prefix": "showa era Japanese cafe interior, dark wood, deep green velvet, cream walls, warm tungsten light, film photo",
+  "must": [
+   "木目",
+   "深緑1色",
+   "縦書きのメニュー"
+  ],
+  "forbid": [
+   "ネオン",
+   "パステル"
+  ],
+  "sigs": [
+   "stamp",
+   "tear",
+   "none"
+  ],
+  "count": "其の一 / 品書き",
+  "uses": "喫茶・食 / 純喫茶的な商材",
+  "hero": {
+   "cap": "品書き",
+   "h": "珈琲は、",
+   "em": "濃いめで。",
+   "btn": "品書きを見る"
+  },
+  "kv": "a cup of coffee and a slice of pudding on a dark wood table, green velvet seat behind",
+  "no": 30
+ },
+ {
+  "id": "vapor-80s",
+  "name": "ヴェイパーウェーブ",
+  "tag": "レトロ・80年代",
+  "group": "retro",
+  "colors": {
+   "bg": "#1a0b2e",
+   "bg2": "#2a1245",
+   "card": "#341a56",
+   "ink": "#ffe6fb",
+   "body": "#e9b8ff",
+   "muted": "#a87fcf",
+   "line": "rgba(255,230,251,.14)",
+   "accent": "#ff71ce",
+   "accent2": "#01cdfe"
+  },
+  "fonts": [
+   "Orbitron",
+   "M PLUS 1p",
+   "Noto Sans JP"
+  ],
+  "texture": "グリッドの地平線",
+  "prefix": "80s vaporwave aesthetic, sunset gradient of pink and purple, neon grid horizon, retro computer, palm silhouettes",
+  "must": [
+   "グリッドの地平線",
+   "ピンク×シアン",
+   "日本語の飾り文字"
+  ],
+  "forbid": [
+   "セリフ",
+   "紙の質感"
+  ],
+  "sigs": [
+   "glitch-title",
+   "neon-power",
+   "ripple"
+  ],
+  "count": "1 9 8 4",
+  "uses": "音楽・アート / 若年層 / イベント",
+  "hero": {
+   "cap": "1 9 8 4",
+   "h": "夕日は、",
+   "em": "ピンクだった。",
+   "btn": "再生"
+  },
+  "kv": "a chrome statue bust between palm trees, pink sunset and neon grid horizon",
+  "no": 31
+ },
+ {
+  "id": "y2k-chrome",
+  "name": "Y2K クローム",
+  "tag": "レトロ・未来",
+  "group": "retro",
+  "colors": {
+   "bg": "#e9f2ff",
+   "bg2": "#dbe8ff",
+   "card": "#fff",
+   "ink": "#0b1a33",
+   "body": "#2a3a5c",
+   "muted": "#7a89a8",
+   "line": "#c9d6ee",
+   "accent": "#3b82f6",
+   "accent2": "#c0c0c0"
+  },
+  "fonts": [
+   "Orbitron",
+   "M PLUS 1p",
+   "Noto Sans JP"
+  ],
+  "texture": "クロームの反射",
+  "prefix": "y2k aesthetic, chrome metallic objects, baby blue and silver, glossy reflections, early 2000s",
+  "must": [
+   "クロームの見出し",
+   "水色1色",
+   "丸いボタン"
+  ],
+  "forbid": [
+   "紙の質感",
+   "セリフ"
+  ],
+  "sigs": [
+   "ripple",
+   "card-flip",
+   "glitch-title"
+  ],
+  "count": "2000 / 01",
+  "uses": "ファッション / 音楽 / 若年層",
+  "hero": {
+   "cap": "2000",
+   "h": "未来は、",
+   "em": "もう来た。",
+   "btn": "OPEN"
+  },
+  "kv": "a chrome flip phone and silver headphones on a baby blue background",
+  "no": 32
+ },
+ {
+  "id": "pixel-8bit",
+  "name": "ドット絵",
+  "tag": "ゲーム・レトロ",
+  "group": "genre",
+  "colors": {
+   "bg": "#0f0f1a",
+   "bg2": "#161626",
+   "card": "#1e1e33",
+   "ink": "#f4f4f4",
+   "body": "#c9c9d9",
+   "muted": "#8a8aa3",
+   "line": "rgba(244,244,244,.12)",
+   "accent": "#ff5555",
+   "accent2": "#ffd23f"
+  },
+  "fonts": [
+   "Press Start 2P",
+   "DotGothic16",
+   "Noto Sans JP"
+  ],
+  "texture": "ドット",
+  "prefix": "8-bit pixel art scene, retro video game style, limited palette, crisp pixels",
+  "must": [
+   "ドットフォント",
+   "ドット絵アイコン",
+   "ライフゲージ"
+  ],
+  "forbid": [
+   "セリフ",
+   "写実"
+  ],
+  "sigs": [
+   "glitch-title",
+   "stamp",
+   "card-flip"
+  ],
+  "count": "STAGE 1 / 1UP",
+  "uses": "ゲーム / ガジェット / 楽しい商材",
+  "hero": {
+   "cap": "STAGE 1",
+   "h": "PRESS ",
+   "em": "START",
+   "btn": "▶ CONTINUE"
+  },
+  "kv": "a pixel art hero standing on a cliff facing a distant castle",
+  "no": 57
+ },
+ {
+  "id": "riso-poster",
+  "name": "リソグラフ",
+  "tag": "レトロ・印刷",
+  "group": "retro",
+  "colors": {
+   "bg": "#fbf7ee",
+   "bg2": "#f3ecdc",
+   "card": "#fff",
+   "ink": "#1c1c1c",
+   "body": "#333",
+   "muted": "#777",
+   "line": "#1c1c1c",
+   "accent": "#ff4fa3",
+   "accent2": "#2f6df6"
+  },
+  "fonts": [
+   "Archivo Black",
+   "BIZ UDPGothic",
+   "Space Mono"
+  ],
+  "texture": "リソのざらつき + 版ズレ",
+  "prefix": "risograph print poster, fluorescent pink and blue overprint, grainy texture, misregistration, bold shapes",
+  "must": [
+   "蛍光2色の重ね",
+   "版ズレ",
+   "ざらつき"
+  ],
+  "forbid": [
+   "グラデ",
+   "写実"
+  ],
+  "sigs": [
+   "stamp",
+   "letters-fall",
+   "card-flip"
+  ],
+  "count": "No.01 / 2色",
+  "uses": "デザイン・ZINE / イベント / 若年層",
+  "hero": {
+   "cap": "2色刷り",
+   "h": "ズレてるのが、",
+   "em": "正解。",
+   "btn": "申し込む"
+  },
+  "kv": "a risograph poster of a bicycle in fluorescent pink and blue",
+  "no": 33
+ },
+ {
+  "id": "vintage-map",
+  "name": "古地図",
+  "tag": "レトロ・旅",
+  "group": "retro",
+  "colors": {
+   "bg": "#efe4cf",
+   "bg2": "#e6d8bc",
+   "card": "#f8f0de",
+   "ink": "#2e2415",
+   "body": "#4d3f2a",
+   "muted": "#8a7b62",
+   "line": "#d4c5a5",
+   "accent": "#8b3a2a",
+   "accent2": "#2f5f6b"
+  },
+  "fonts": [
+   "Libre Baskerville",
+   "Shippori Mincho B1",
+   "Noto Sans JP"
+  ],
+  "texture": "羊皮紙",
+  "prefix": "antique sepia map with compass rose and hand-drawn coastlines, aged paper texture, warm light",
+  "must": [
+   "羊皮紙",
+   "方位記号",
+   "点線の航路"
+  ],
+  "forbid": [
+   "ネオン",
+   "黒背景"
+  ],
+  "sigs": [
+   "tear",
+   "stamp",
+   "none"
+  ],
+  "count": "Ⅰ / Ⅱ / Ⅲ",
+  "uses": "旅・ツアー / 冒険系の講座 / 読み物",
+  "hero": {
+   "cap": "Ⅰ",
+   "h": "地図の外へ。",
+   "em": "",
+   "btn": "出発する"
+  },
+  "kv": "a brass compass and a rolled antique map on a wooden ship deck",
+  "no": 34
+ },
+ {
+  "id": "film-camera",
+  "name": "フィルム写真",
+  "tag": "レトロ・ノスタルジー",
+  "group": "retro",
+  "colors": {
+   "bg": "#f7f1e6",
+   "bg2": "#efe6d6",
+   "card": "#fff",
+   "ink": "#2b2520",
+   "body": "#4f463d",
+   "muted": "#8c8377",
+   "line": "#dccfbc",
+   "accent": "#d2691e",
+   "accent2": "#d2691e"
+  },
+  "fonts": [
+   "Fraunces",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "フィルムの粒子 + 光漏れ",
+  "prefix": "golden hour film photograph, light leaks, warm orange tones, nostalgic, grainy",
+  "must": [
+   "光漏れ",
+   "日付の焼き込み",
+   "粒子"
+  ],
+  "forbid": [
+   "ネオン",
+   "黒背景"
+  ],
+  "sigs": [
+   "tear",
+   "ripple",
+   "none"
+  ],
+  "count": "'26 09 04",
+  "uses": "写真家 / 旅 / 思い出系の商材",
+  "hero": {
+   "cap": "'26 09 04",
+   "h": "撮った日の、",
+   "em": "光のまま。",
+   "btn": "見る"
+  },
+  "kv": "two friends walking on a summer road at golden hour, light leaks",
+  "no": 35
+ },
+ {
+  "id": "watercolor",
+  "name": "水彩・手描き",
+  "tag": "やさしい・手づくり",
+  "group": "nature",
+  "colors": {
+   "bg": "#fbfaf6",
+   "bg2": "#f2efe6",
+   "card": "#fff",
+   "ink": "#1f2a44",
+   "body": "#3d4560",
+   "muted": "#8a8f9e",
+   "line": "rgba(31,42,68,.14)",
+   "accent": "#c0392b",
+   "accent2": "#1f5fa8"
+  },
+  "fonts": [
+   "Caveat",
+   "Klee One",
+   "Zen Kurenaido"
+  ],
+  "texture": "にじみ + 紙",
+  "prefix": "watercolor illustration, ink outline, paper texture, soft washes, hand drawn",
+  "must": [
+   "にじみマスク",
+   "手描き矢印",
+   "紙テクスチャ"
+  ],
+  "forbid": [
+   "黒背景",
+   "ネオン"
+  ],
+  "sigs": [
+   "tear",
+   "ripple",
+   "stamp"
+  ],
+  "count": "一、二、三",
+  "uses": "教室・ハンドメイド / 絵本・エッセイ",
+  "hero": {
+   "cap": "一、はじめに",
+   "h": "にじむくらいが、",
+   "em": "ちょうどいい。",
+   "btn": "よむ →"
+  },
+  "kv": "a watercolor illustration of a small house with a garden and a bicycle",
+  "no": 38
+ },
+ {
+  "id": "sumi-ink",
+  "name": "墨一色",
+  "tag": "和・静謐",
+  "group": "nature",
+  "colors": {
+   "bg": "#f6f5f0",
+   "bg2": "#eeece5",
+   "card": "#fff",
+   "ink": "#141414",
+   "body": "#333",
+   "muted": "#888",
+   "line": "#d8d6cf",
+   "accent": "#141414",
+   "accent2": "#141414"
+  },
+  "fonts": [
+   "Shippori Mincho B1",
+   "Zen Old Mincho",
+   "Noto Sans JP"
+  ],
+  "texture": "墨のかすれ",
+  "prefix": "sumi-e ink painting, single black ink on white washi paper, brush strokes, minimal",
+  "must": [
+   "縦書き",
+   "墨のかすれ",
+   "余白"
+  ],
+  "forbid": [
+   "色",
+   "丸ゴシック"
+  ],
+  "sigs": [
+   "tear",
+   "letters-fall",
+   "none"
+  ],
+  "count": "一 / 二 / 三",
+  "uses": "書・茶・禅 / 和の教室",
+  "hero": {
+   "cap": "一",
+   "h": "余白に、",
+   "em": "書く。",
+   "btn": "読む"
+  },
+  "kv": "a sumi-e ink painting of a single crane standing in water",
+  "no": 39
+ },
+ {
+  "id": "indigo-aizome",
+  "name": "藍染",
+  "tag": "和・落ち着き",
+  "group": "nature",
+  "colors": {
+   "bg": "#0e1f3a",
+   "bg2": "#132a4d",
+   "card": "#1a355e",
+   "ink": "#eef3fa",
+   "body": "#b9c6dc",
+   "muted": "#7c8ea9",
+   "line": "rgba(238,243,250,.12)",
+   "accent": "#e8dcc0",
+   "accent2": "#e8dcc0"
+  },
+  "fonts": [
+   "Shippori Mincho B1",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "布の織り",
+  "prefix": "indigo dyed fabric texture, deep blue with white shibori patterns, natural light, Japanese craft",
+  "must": [
+   "布の織り",
+   "生成りの文字",
+   "絞りの模様"
+  ],
+  "forbid": [
+   "ネオン",
+   "原色"
+  ],
+  "sigs": [
+   "tear",
+   "ripple",
+   "none"
+  ],
+  "count": "一 / 二",
+  "uses": "染め・織り / 民芸 / 旅館",
+  "hero": {
+   "cap": "藍",
+   "h": "深く、",
+   "em": "染まる。",
+   "btn": "工房を見る"
+  },
+  "kv": "indigo-dyed fabric hanging to dry in a wooden workshop, sunlight through the door",
+  "no": 40
+ },
+ {
+  "id": "forest-moss",
+  "name": "森と苔",
+  "tag": "自然・深緑",
+  "group": "nature",
+  "colors": {
+   "bg": "#0f1a12",
+   "bg2": "#15231a",
+   "card": "#1b2d21",
+   "ink": "#e9f0e6",
+   "body": "#b7c6b6",
+   "muted": "#748a77",
+   "line": "rgba(233,240,230,.12)",
+   "accent": "#9ad17a",
+   "accent2": "#9ad17a"
+  },
+  "fonts": [
+   "Fraunces",
+   "Zen Kaku Gothic New",
+   "Noto Sans JP"
+  ],
+  "texture": "木漏れ日",
+  "prefix": "deep forest with moss and soft light rays, dark green tones, misty, nature photography",
+  "must": [
+   "木漏れ日のグラデ",
+   "緑1色",
+   "木目の罫線"
+  ],
+  "forbid": [
+   "ネオン",
+   "ピンク"
+  ],
+  "sigs": [
+   "ripple",
+   "spotlight",
+   "none"
+  ],
+  "count": "Trail 01",
+  "uses": "アウトドア / 自然体験 / 環境系",
+  "hero": {
+   "cap": "TRAIL 01",
+   "h": "森の音を、",
+   "em": "聞きに行く。",
+   "btn": "予約する"
+  },
+  "kv": "a hiker standing in a mossy forest with light rays through the trees",
+  "no": 41
+ },
+ {
+  "id": "ocean-blue",
+  "name": "海の青",
+  "tag": "自然・爽快",
+  "group": "nature",
+  "colors": {
+   "bg": "#f4fbff",
+   "bg2": "#e6f4fc",
+   "card": "#fff",
+   "ink": "#0b2a45",
+   "body": "#2c4a66",
+   "muted": "#7c95ad",
+   "line": "#cfe3f0",
+   "accent": "#0a84ff",
+   "accent2": "#ffb703"
+  },
+  "fonts": [
+   "Fraunces",
+   "Zen Kaku Gothic New",
+   "Noto Sans JP"
+  ],
+  "texture": "波の線",
+  "prefix": "bright ocean and white sand, clear blue water, summer sunlight, wide and airy",
+  "must": [
+   "波の線",
+   "青1色",
+   "白い大余白"
+  ],
+  "forbid": [
+   "黒背景",
+   "グレイン"
+  ],
+  "sigs": [
+   "ripple",
+   "none",
+   "letters-fall"
+  ],
+  "count": "Wave 01",
+  "uses": "マリン・旅 / 夏イベント / 爽やかな商材",
+  "hero": {
+   "cap": "SUMMER",
+   "h": "青が、",
+   "em": "足りない。",
+   "btn": "行く"
+  },
+  "kv": "a surfer walking on white sand toward clear blue water, wide shot",
+  "no": 42
+ },
+ {
+  "id": "autumn-kinmokusei",
+  "name": "金木犀",
+  "tag": "自然・秋",
+  "group": "nature",
+  "colors": {
+   "bg": "#fbf6ee",
+   "bg2": "#f5ecdd",
+   "card": "#fff",
+   "ink": "#3a2a1a",
+   "body": "#5c4a36",
+   "muted": "#9a8b78",
+   "line": "#e3d6c2",
+   "accent": "#e07a1f",
+   "accent2": "#6d4c2b"
+  },
+  "fonts": [
+   "Fraunces",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "落ち葉",
+  "prefix": "autumn afternoon, orange osmanthus flowers and warm golden light, soft focus, cozy",
+  "must": [
+   "橙1色",
+   "落ち葉の粒",
+   "温かい影"
+  ],
+  "forbid": [
+   "ネオン",
+   "黒背景"
+  ],
+  "sigs": [
+   "ripple",
+   "tear",
+   "none"
+  ],
+  "count": "秋 / 一",
+  "uses": "季節企画 / 食・お茶 / 読み物",
+  "hero": {
+   "cap": "AUTUMN",
+   "h": "香りで、",
+   "em": "思い出す。",
+   "btn": "読む"
+  },
+  "kv": "a cup of tea by a window with orange osmanthus branches, autumn light",
+  "no": 43
+ },
+ {
+  "id": "snow-country",
+  "name": "雪国",
+  "tag": "自然・冬",
+  "group": "nature",
+  "colors": {
+   "bg": "#f7f9fb",
+   "bg2": "#eef2f6",
+   "card": "#fff",
+   "ink": "#1f2933",
+   "body": "#3e4c59",
+   "muted": "#8a98a8",
+   "line": "#d9e1ea",
+   "accent": "#c62828",
+   "accent2": "#c62828"
+  },
+  "fonts": [
+   "Shippori Mincho B1",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "雪の粒",
+  "prefix": "snow country landscape, white and pale grey, a single red element, quiet winter light",
+  "must": [
+   "雪の粒",
+   "赤1点",
+   "静かな余白"
+  ],
+  "forbid": [
+   "ネオン",
+   "パステル"
+  ],
+  "sigs": [
+   "ripple",
+   "none",
+   "tear"
+  ],
+  "count": "冬 / 一",
+  "uses": "冬の企画 / 温泉・宿 / 静かな商材",
+  "hero": {
+   "cap": "WINTER",
+   "h": "白の中の、",
+   "em": "赤ひとつ。",
+   "btn": "予約する"
+  },
+  "kv": "a red-roofed hut in a wide snowy field, quiet winter light",
+  "no": 44
+ },
+ {
+  "id": "trust-navy",
+  "name": "信頼の紺",
+  "tag": "ビジネス・信頼",
+  "group": "business",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#f4f6fa",
+   "card": "#fff",
+   "ink": "#0f2140",
+   "body": "#33415c",
+   "muted": "#7d8aa3",
+   "line": "#d7dde8",
+   "accent": "#0f2140",
+   "accent2": "#f2b705"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Inter"
+  ],
+  "texture": "なし",
+  "prefix": "corporate photography, navy blue and white, clean office with daylight, confident and calm",
+  "must": [
+   "紺1色",
+   "太い見出し",
+   "数字のタイル"
+  ],
+  "forbid": [
+   "グレイン",
+   "装飾"
+  ],
+  "sigs": [
+   "none",
+   "letters-fall"
+  ],
+  "count": "01 / 02 / 03",
+  "uses": "士業・コンサル / BtoB / 採用",
+  "hero": {
+   "cap": "SERVICE",
+   "h": "数字で、",
+   "em": "約束する。",
+   "btn": "相談する"
+  },
+  "kv": "a confident consultant in a navy suit standing in a bright office",
+  "no": 48
+ },
+ {
+  "id": "fintech-emerald",
+  "name": "エメラルドの金融",
+  "tag": "ビジネス・堅実",
+  "group": "business",
+  "colors": {
+   "bg": "#0b1f1a",
+   "bg2": "#0f2923",
+   "card": "#14332c",
+   "ink": "#eaf5f0",
+   "body": "#b5cfc4",
+   "muted": "#6f9184",
+   "line": "rgba(234,245,240,.12)",
+   "accent": "#2ecc8f",
+   "accent2": "#d4af37"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Space Mono"
+  ],
+  "texture": "なし",
+  "prefix": "premium financial product photography, deep emerald green and gold accents, dark, sharp",
+  "must": [
+   "深緑1色",
+   "金の細線",
+   "等幅の数字"
+  ],
+  "forbid": [
+   "パステル",
+   "丸角"
+  ],
+  "sigs": [
+   "spotlight",
+   "none",
+   "letters-fall"
+  ],
+  "count": "Q1 / Q2",
+  "uses": "金融・投資 / 高単価コンサル",
+  "hero": {
+   "cap": "Q1 — REPORT",
+   "h": "増やすより、",
+   "em": "減らさない。",
+   "btn": "資料を見る"
+  },
+  "kv": "a black credit card with a gold edge resting on emerald green stone",
+  "no": 49
+ },
+ {
+  "id": "blueprint",
+  "name": "青図面",
+  "tag": "テック・設計",
+  "group": "business",
+  "colors": {
+   "bg": "#0b3d91",
+   "bg2": "#0a3480",
+   "card": "#0d47a1",
+   "ink": "#eaf2ff",
+   "body": "#bcd0f5",
+   "muted": "#7fa0d9",
+   "line": "rgba(234,242,255,.18)",
+   "accent": "#fff",
+   "accent2": "#fff"
+  },
+  "fonts": [
+   "Space Mono",
+   "BIZ UDPGothic",
+   "Noto Sans JP"
+  ],
+  "texture": "方眼 + 白線",
+  "prefix": "architectural blueprint, white technical lines on deep blue paper, grid, measurements",
+  "must": [
+   "白線の方眼",
+   "寸法線",
+   "等幅フォント"
+  ],
+  "forbid": [
+   "セリフ",
+   "丸角"
+  ],
+  "sigs": [
+   "none",
+   "letters-fall",
+   "glitch-title"
+  ],
+  "count": "Fig. 1 / Rev. A",
+  "uses": "建築・製造 / 設計・エンジニア / 講座",
+  "hero": {
+   "cap": "Fig. 1 — Rev. A",
+   "h": "設計図から、",
+   "em": "はじめる。",
+   "btn": "図面を見る"
+  },
+  "kv": "an architect's hands drafting on blueprint paper with a steel ruler",
+  "no": 50
+ },
+ {
+  "id": "data-dashboard",
+  "name": "ダッシュボード",
+  "tag": "テック・数値",
+  "group": "business",
+  "colors": {
+   "bg": "#0d1117",
+   "bg2": "#111827",
+   "card": "#161e2e",
+   "ink": "#e6edf3",
+   "body": "#aab4c2",
+   "muted": "#6b7785",
+   "line": "rgba(230,237,243,.12)",
+   "accent": "#3fb6ff",
+   "accent2": "#ff7a45"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Space Mono"
+  ],
+  "texture": "なし（カードとグラフ）",
+  "prefix": "dark analytics dashboard on a monitor, glowing cyan charts and numbers, clean UI photography",
+  "must": [
+   "数字のタイル",
+   "折れ線のスパークライン",
+   "シアン1色"
+  ],
+  "forbid": [
+   "セリフ",
+   "紙の質感"
+  ],
+  "sigs": [
+   "none",
+   "spotlight"
+  ],
+  "count": "KPI 01",
+  "uses": "SaaS / データ・AI / BtoB",
+  "hero": {
+   "cap": "KPI",
+   "h": "見える数字だけ、",
+   "em": "信じる。",
+   "btn": "デモを見る"
+  },
+  "kv": "a large monitor showing glowing cyan charts in a dark office",
+  "no": 51
+ },
+ {
+  "id": "clinic-clean",
+  "name": "クリニックの白",
+  "tag": "医療・安心",
+  "group": "business",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#f3f8fb",
+   "card": "#fff",
+   "ink": "#1d2b36",
+   "body": "#3d4f5e",
+   "muted": "#84939f",
+   "line": "#dbe6ee",
+   "accent": "#2a9d8f",
+   "accent2": "#2a9d8f"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Inter"
+  ],
+  "texture": "なし",
+  "prefix": "clean medical clinic interior, white and pale teal, soft daylight, calm and hygienic",
+  "must": [
+   "白と水色",
+   "丸みのある見出し",
+   "安心の余白"
+  ],
+  "forbid": [
+   "黒",
+   "ネオン"
+  ],
+  "sigs": [
+   "none",
+   "ripple"
+  ],
+  "count": "Step 1 / 2 / 3",
+  "uses": "医療・歯科 / 整体 / 健康商材",
+  "hero": {
+   "cap": "STEP 1",
+   "h": "まず、",
+   "em": "話を聞く。",
+   "btn": "予約する"
+  },
+  "kv": "a smiling doctor in a white coat in a bright clinic hallway",
+  "no": 52
+ },
+ {
+  "id": "horror-jp",
+  "name": "Jホラー",
+  "tag": "怖い・和・湿った",
+  "group": "genre",
+  "colors": {
+   "bg": "#0a0c0b",
+   "bg2": "#10130f",
+   "card": "#171b16",
+   "ink": "#d9dcd3",
+   "body": "#a2a79c",
+   "muted": "#6a6f66",
+   "line": "rgba(217,220,211,.12)",
+   "accent": "#b1161b",
+   "accent2": "#7f8c7a"
+  },
+  "fonts": [
+   "Yuji Syuku",
+   "Shippori Mincho B1",
+   "Noto Serif JP"
+  ],
+  "texture": "ビデオノイズ + 湿った緑がかった白",
+  "prefix": "Japanese horror film still, desaturated greenish grey, damp abandoned school corridor, fluorescent flicker, VHS grain, unsettling stillness",
+  "must": [
+   "縦書きの筆文字",
+   "色あせた緑白",
+   "赤1点（血ではなく朱）"
+  ],
+  "forbid": [
+   "パステル",
+   "丸ゴシック",
+   "ネオン"
+  ],
+  "sigs": [
+   "glitch-title",
+   "flare",
+   "letters-fall"
+  ],
+  "count": "一日目 / 午前二時",
+  "uses": "ホラー作品 / 怪談イベント / 夏の企画",
+  "hero": {
+   "cap": "午前二時",
+   "h": "振り向いては、",
+   "em": "いけない。",
+   "btn": "扉を開ける"
+  },
+  "kv": "a dark abandoned school corridor with one flickering light and a small figure far at the end",
+  "no": 58
+ },
+ {
+  "id": "horror-gothic",
+  "name": "ゴシックホラー",
+  "tag": "怖い・耽美",
+  "group": "genre",
+  "colors": {
+   "bg": "#0b070d",
+   "bg2": "#130b16",
+   "card": "#1b1020",
+   "ink": "#ece3e6",
+   "body": "#b8a9b3",
+   "muted": "#7d6f79",
+   "line": "rgba(236,227,230,.12)",
+   "accent": "#8e0f24",
+   "accent2": "#c9a24a"
+  },
+  "fonts": [
+   "Cinzel",
+   "Shippori Mincho B1",
+   "Noto Serif JP"
+  ],
+  "texture": "蝋燭の揺れ + ビネット",
+  "prefix": "gothic horror painting, candlelit cathedral interior, deep purple black shadows, crimson velvet, tarnished gold, oil painting texture, dramatic chiaroscuro",
+  "must": [
+   "蝋燭色のビネット",
+   "細いセリフの大見出し",
+   "装飾罫線は1本だけ"
+  ],
+  "forbid": [
+   "丸角",
+   "ポップな色"
+  ],
+  "sigs": [
+   "spotlight",
+   "letters-fall",
+   "tear"
+  ],
+  "count": "Ⅰ / Ⅱ / Ⅲ、第一夜",
+  "uses": "小説・ゲーム作品 / ゴス系ブランド / イベント",
+  "hero": {
+   "cap": "第一夜",
+   "h": "招かれざる",
+   "em": "客。",
+   "btn": "門を叩く"
+  },
+  "kv": "a candlelit gothic cathedral with a lone figure in a black dress",
+  "no": 59
+ },
+ {
+  "id": "horror-vhs",
+  "name": "見つかった映像",
+  "tag": "怖い・記録映像",
+  "group": "genre",
+  "colors": {
+   "bg": "#050605",
+   "bg2": "#0b0d0a",
+   "card": "#121510",
+   "ink": "#d5dccf",
+   "body": "#9aa392",
+   "muted": "#606860",
+   "line": "rgba(213,220,207,.12)",
+   "accent": "#ff2d2d",
+   "accent2": "#7dff8a"
+  },
+  "fonts": [
+   "VT323",
+   "DotGothic16",
+   "BIZ UDPGothic"
+  ],
+  "texture": "走査線 + トラッキングノイズ + REC",
+  "prefix": "found footage night vision still, green tinted camcorder view, heavy VHS noise and tracking lines, dark forest, flashlight beam, blurry motion",
+  "must": [
+   "REC と日時の焼き込み",
+   "トラッキングノイズ",
+   "ナイトビジョンの緑"
+  ],
+  "forbid": [
+   "セリフ",
+   "上品な余白"
+  ],
+  "sigs": [
+   "glitch-title",
+   "flare",
+   "none"
+  ],
+  "count": "TAPE 01 / 23:58:04",
+  "uses": "ホラー作品 / ARG・謎解き / 配信企画",
+  "hero": {
+   "cap": "REC ● 23:58:04",
+   "h": "この映像は、",
+   "em": "編集されていない。",
+   "btn": "再生する"
+  },
+  "kv": "night vision view of a dark forest path with a flashlight beam",
+  "no": 60
+ },
+ {
+  "id": "sf-space",
+  "name": "宇宙SF",
+  "tag": "SF・壮大",
+  "group": "genre",
+  "colors": {
+   "bg": "#04060e",
+   "bg2": "#080c1a",
+   "card": "#0e1426",
+   "ink": "#e8eeff",
+   "body": "#aeb9d8",
+   "muted": "#6c7799",
+   "line": "rgba(232,238,255,.12)",
+   "accent": "#6ea8ff",
+   "accent2": "#ffb547"
+  },
+  "fonts": [
+   "Exo 2",
+   "Noto Sans JP",
+   "Space Mono"
+  ],
+  "texture": "星の粒 + 薄い HUD グリッド",
+  "prefix": "cinematic space photograph, vast starfield, distant planet with thin ring, cold blue light, one warm orange engine glow, wide anamorphic, awe",
+  "must": [
+   "星の粒",
+   "細い HUD 線",
+   "距離・座標の表記"
+  ],
+  "forbid": [
+   "紙の質感",
+   "暖色の金"
+  ],
+  "sigs": [
+   "spotlight",
+   "letters-fall",
+   "glitch-title"
+  ],
+  "count": "SOL 01 / 0.42 AU",
+  "uses": "SF作品 / 宇宙・科学 / 壮大な講座",
+  "hero": {
+   "cap": "SOL 01 — 0.42 AU",
+   "h": "地球が、",
+   "em": "小さく見える。",
+   "btn": "出航する"
+  },
+  "kv": "an astronaut floating in front of a vast ringed planet",
+  "no": 61
+ },
+ {
+  "id": "sf-lab",
+  "name": "白いSF",
+  "tag": "SF・クリーン・冷たい",
+  "group": "genre",
+  "colors": {
+   "bg": "#f4f7fa",
+   "bg2": "#e9eef4",
+   "card": "#fff",
+   "ink": "#0e1a2b",
+   "body": "#34455c",
+   "muted": "#8593a8",
+   "line": "#d3dce6",
+   "accent": "#e8262a",
+   "accent2": "#3b7dd8"
+  },
+  "fonts": [
+   "Michroma",
+   "Noto Sans JP",
+   "Inter"
+  ],
+  "texture": "なし（白い面と細線）",
+  "prefix": "clean white science fiction interior, curved white corridor, soft even lighting, one red indicator light, minimal, wide",
+  "must": [
+   "白い面と細線",
+   "赤のインジケーター1つ",
+   "等間隔の英数字ラベル"
+  ],
+  "forbid": [
+   "グレイン",
+   "装飾"
+  ],
+  "sigs": [
+   "none",
+   "letters-fall",
+   "spotlight"
+  ],
+  "count": "UNIT 01 / SEC.04",
+  "uses": "テック製品 / 研究・医療AI / ミニマルなSF",
+  "hero": {
+   "cap": "UNIT 01 — SEC.04",
+   "h": "静かに、",
+   "em": "起動する。",
+   "btn": "開始"
+  },
+  "kv": "a curved white corridor with a single red indicator light",
+  "no": 62
+ },
+ {
+  "id": "sf-mecha",
+  "name": "メカ・格納庫",
+  "tag": "SF・重厚・警告",
+  "group": "genre",
+  "colors": {
+   "bg": "#0d0e10",
+   "bg2": "#141517",
+   "card": "#1b1c1f",
+   "ink": "#eceae4",
+   "body": "#b3b0a8",
+   "muted": "#75726b",
+   "line": "rgba(236,234,228,.12)",
+   "accent": "#ff7a00",
+   "accent2": "#ffd400"
+  },
+  "fonts": [
+   "Teko",
+   "M PLUS 1p",
+   "BIZ UDPGothic"
+  ],
+  "texture": "黄黒ストライプ + 金属パネル",
+  "prefix": "cinematic hangar interior with a giant mech silhouette, orange warning lights, yellow-black hazard stripes, steel panels, steam, dramatic scale",
+  "must": [
+   "黄黒ストライプ",
+   "警告オレンジ",
+   "型番のラベル（TYPE-01）"
+  ],
+  "forbid": [
+   "パステル",
+   "セリフ"
+  ],
+  "sigs": [
+   "lightning",
+   "glitch-title",
+   "letters-fall"
+  ],
+  "count": "TYPE-01 / UNIT 02",
+  "uses": "ゲーム・ロボ作品 / ガジェット / 製造",
+  "hero": {
+   "cap": "TYPE-01 — HANGAR",
+   "h": "起動まで、",
+   "em": "あと3秒。",
+   "btn": "搭乗する"
+  },
+  "kv": "a giant mech being repaired in a hangar, tiny engineers below",
+  "no": 63
+ },
+ {
+  "id": "game-rpg",
+  "name": "ファンタジーRPG",
+  "tag": "ゲーム・冒険",
+  "group": "genre",
+  "colors": {
+   "bg": "#0f1410",
+   "bg2": "#161d17",
+   "card": "#1e271f",
+   "ink": "#efe6cf",
+   "body": "#c2b89f",
+   "muted": "#857d6a",
+   "line": "rgba(239,230,207,.14)",
+   "accent": "#d6a640",
+   "accent2": "#4f8fd6"
+  },
+  "fonts": [
+   "Cinzel",
+   "Shippori Mincho B1",
+   "Noto Sans JP"
+  ],
+  "texture": "羊皮紙の縁 + 魔法の粒",
+  "prefix": "fantasy RPG concept art, ancient castle on a cliff at dusk, glowing blue magic particles, gold-lit windows, painterly, epic",
+  "must": [
+   "羊皮紙色の見出し",
+   "金の細い縁1本",
+   "クエスト風の番号"
+  ],
+  "forbid": [
+   "ネオン",
+   "丸ゴシック"
+  ],
+  "sigs": [
+   "lightning",
+   "card-flip",
+   "letters-fall"
+  ],
+  "count": "QUEST 01 / LV.5",
+  "uses": "ゲーム作品 / コミュニティ / 冒険系の講座",
+  "hero": {
+   "cap": "QUEST 01",
+   "h": "はじまりの",
+   "em": "村へ。",
+   "btn": "冒険に出る"
+  },
+  "kv": "a young adventurer with a sword looking at a distant castle at dusk",
+  "no": 64
+ },
+ {
+  "id": "game-fps",
+  "name": "バトル・FPS",
+  "tag": "ゲーム・緊張",
+  "group": "genre",
+  "colors": {
+   "bg": "#0a0b0a",
+   "bg2": "#111311",
+   "card": "#181b18",
+   "ink": "#e8e6df",
+   "body": "#aeaca3",
+   "muted": "#6f6e66",
+   "line": "rgba(232,230,223,.12)",
+   "accent": "#ff6a00",
+   "accent2": "#7fa650"
+  },
+  "fonts": [
+   "Black Ops One",
+   "Noto Sans JP",
+   "Space Mono"
+  ],
+  "texture": "HUD + 走査線",
+  "prefix": "tactical shooter key art, soldier silhouette in smoke, orange flare, olive green and black, dust particles, gritty, cinematic",
+  "must": [
+   "HUD 風の角括弧",
+   "オレンジ1色",
+   "カウントダウン"
+  ],
+  "forbid": [
+   "パステル",
+   "セリフ",
+   "丸角"
+  ],
+  "sigs": [
+   "lightning",
+   "glitch-title",
+   "flare"
+  ],
+  "count": "MISSION 01 / 03:00",
+  "uses": "ゲーム・配信 / 大会 / 熱い商材",
+  "hero": {
+   "cap": "MISSION 01",
+   "h": "始まる前に、",
+   "em": "読め。",
+   "btn": "参加する"
+  },
+  "kv": "a soldier silhouette walking through smoke with an orange flare behind",
+  "no": 65
+ },
+ {
+  "id": "game-esports",
+  "name": "eスポーツ",
+  "tag": "ゲーム・競技・派手",
+  "group": "genre",
+  "colors": {
+   "bg": "#08070f",
+   "bg2": "#0e0c19",
+   "card": "#151226",
+   "ink": "#f1efff",
+   "body": "#b9b4d8",
+   "muted": "#736e94",
+   "line": "rgba(241,239,255,.12)",
+   "accent": "#8b5cf6",
+   "accent2": "#22d3ee"
+  },
+  "fonts": [
+   "Rajdhani",
+   "M PLUS 1p",
+   "Noto Sans JP"
+  ],
+  "texture": "斜めカット + 光の筋",
+  "prefix": "esports arena stage with purple and cyan stage lights, dramatic haze, diagonal light beams, crowd silhouettes, high energy",
+  "must": [
+   "斜めカットの帯",
+   "紫×シアン",
+   "チーム名のような大文字英字"
+  ],
+  "forbid": [
+   "紙の質感",
+   "セリフ"
+  ],
+  "sigs": [
+   "neon-power",
+   "glitch-title",
+   "lightning"
+  ],
+  "count": "ROUND 01 / VS",
+  "uses": "大会・チーム / 配信者 / ガジェット",
+  "hero": {
+   "cap": "ROUND 01 — VS",
+   "h": "勝つ準備は、",
+   "em": "できてる。",
+   "btn": "エントリー"
+  },
+  "kv": "a player at a glowing gaming desk on stage with purple and cyan lights",
+  "no": 66
+ },
+ {
+  "id": "anime-kinetic",
+  "name": "アニメ・ポスター",
+  "tag": "エンタメ・熱量・斜め",
+  "group": "genre",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#f3f3f3",
+   "card": "#fff",
+   "ink": "#111",
+   "body": "#222",
+   "muted": "#777",
+   "line": "#111",
+   "accent": "#e60012",
+   "accent2": "#111"
+  },
+  "fonts": [
+   "Zen Kaku Gothic New",
+   "Shippori Mincho B1",
+   "Noto Sans JP"
+  ],
+  "texture": "斜めの赤帯 + 集中線",
+  "prefix": "anime movie poster style illustration, dramatic low angle of a character against a bright sky, bold red diagonal band, speed lines, high contrast",
+  "must": [
+   "極太の斜め帯",
+   "赤1色",
+   "キャッチコピーを縦と横で交差"
+  ],
+  "forbid": [
+   "パステル",
+   "丸角"
+  ],
+  "sigs": [
+   "letters-fall",
+   "stamp",
+   "lightning"
+  ],
+  "count": "第1話 / 予告",
+  "uses": "アニメ・漫画作品 / イベント / 熱い告知",
+  "hero": {
+   "cap": "第1話 予告",
+   "h": "全部、",
+   "em": "ぶつけろ。",
+   "btn": "予告を見る"
+  },
+  "kv": "a determined young character in a school uniform against a bright blue sky, low angle",
+  "no": 67
+ },
+ {
+  "id": "post-apoc",
+  "name": "荒廃した世界",
+  "tag": "SF・荒野・錆",
+  "group": "genre",
+  "colors": {
+   "bg": "#14110d",
+   "bg2": "#1b1712",
+   "card": "#231e18",
+   "ink": "#e6dcc8",
+   "body": "#b5a88e",
+   "muted": "#7a7060",
+   "line": "rgba(230,220,200,.12)",
+   "accent": "#d3552b",
+   "accent2": "#8a9a5b"
+  },
+  "fonts": [
+   "Special Elite",
+   "BIZ UDPGothic",
+   "Noto Sans JP"
+  ],
+  "texture": "砂嵐 + 錆の擦れ",
+  "prefix": "post-apocalyptic wasteland, rusted vehicle in sand, dust storm, muted sand and rust palette, lone figure with a backpack, cinematic wide",
+  "must": [
+   "錆色1つ",
+   "タイプライター文字",
+   "擦れたスタンプ"
+  ],
+  "forbid": [
+   "パステル",
+   "グロー"
+  ],
+  "sigs": [
+   "stamp",
+   "tear",
+   "glitch-title"
+  ],
+  "count": "DAY 214 / SECTOR 7",
+  "uses": "サバイバル系作品 / ゲーム / 硬派な商材",
+  "hero": {
+   "cap": "DAY 214",
+   "h": "残ったのは、",
+   "em": "記録だけ。",
+   "btn": "記録を読む"
+  },
+  "kv": "a lone figure with a backpack walking toward a rusted city in a dust storm",
+  "no": 68
+ },
+ {
+  "id": "deep-ocean",
+  "name": "深海の青",
+  "tag": "ダーク・壮大・静か",
+  "group": "dark",
+  "colors": {
+   "bg": "#03111c",
+   "bg2": "#061a29",
+   "card": "#0a2236",
+   "ink": "#e6f3fa",
+   "body": "#a9c3d1",
+   "muted": "#6c8595",
+   "line": "rgba(230,243,250,.12)",
+   "accent": "#2fc4e0",
+   "accent2": "#8fe3ff"
+  },
+  "fonts": [
+   "Cormorant Garamond",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "水面からの光の筋 + 粒",
+  "prefix": "deep underwater cinematic photograph, dark teal blue, light rays from the surface, floating particles, vast and quiet",
+  "must": [
+   "光の筋",
+   "青緑1色",
+   "深度の表記"
+  ],
+  "forbid": [
+   "暖色の金",
+   "丸ゴシック"
+  ],
+  "sigs": [
+   "spotlight",
+   "ripple",
+   "letters-fall"
+  ],
+  "count": "DEPTH -200m",
+  "uses": "壮大な講座 / 海・旅 / 静かな商材",
+  "hero": {
+   "cap": "DEPTH -200m",
+   "h": "光は、",
+   "em": "上にある。",
+   "btn": "潜る"
+  },
+  "kv": "a diver silhouette far below the surface with light rays coming down",
+  "no": 3
+ },
+ {
+  "id": "volcanic",
+  "name": "溶岩",
+  "tag": "ダーク・熱い",
+  "group": "dark",
+  "colors": {
+   "bg": "#0c0806",
+   "bg2": "#150c08",
+   "card": "#1e110b",
+   "ink": "#f6ebe2",
+   "body": "#c9b3a4",
+   "muted": "#85705f",
+   "line": "rgba(246,235,226,.12)",
+   "accent": "#ff5a1f",
+   "accent2": "#ffb347"
+  },
+  "fonts": [
+   "Oswald",
+   "Noto Sans JP",
+   "BIZ UDPGothic"
+  ],
+  "texture": "火の粉 + 熱のゆらぎ",
+  "prefix": "cinematic photograph of glowing lava cracks on black volcanic rock, orange heat glow, embers, dark",
+  "must": [
+   "火の粉",
+   "橙1色",
+   "温度・段階の表記"
+  ],
+  "forbid": [
+   "パステル",
+   "セリフ"
+  ],
+  "sigs": [
+   "lightning",
+   "flare",
+   "letters-fall"
+  ],
+  "count": "PHASE 01 / 1,200℃",
+  "uses": "熱い商材 / スポーツ / 挑戦系",
+  "hero": {
+   "cap": "PHASE 01",
+   "h": "燃えるなら、",
+   "em": "今。",
+   "btn": "火をつける"
+  },
+  "kv": "a lone figure standing on black volcanic rock facing a glowing lava river",
+  "no": 4
+ },
+ {
+  "id": "storm",
+  "name": "嵐",
+  "tag": "ダーク・緊張",
+  "group": "dark",
+  "colors": {
+   "bg": "#0b0e12",
+   "bg2": "#12161c",
+   "card": "#191e26",
+   "ink": "#e9edf2",
+   "body": "#aeb6c2",
+   "muted": "#6f7886",
+   "line": "rgba(233,237,242,.12)",
+   "accent": "#9ecbff",
+   "accent2": "#ffe066"
+  },
+  "fonts": [
+   "Bebas Neue",
+   "Noto Sans JP",
+   "Noto Serif JP"
+  ],
+  "texture": "雨 + 雷の一瞬の白",
+  "prefix": "dramatic storm photograph, dark grey clouds, a single lightning bolt, rain, high contrast, cinematic wide",
+  "must": [
+   "雨",
+   "雷の一瞬の白",
+   "警報風の表記"
+  ],
+  "forbid": [
+   "パステル",
+   "丸角"
+  ],
+  "sigs": [
+   "lightning",
+   "flare",
+   "letters-fall"
+  ],
+  "count": "WARNING 01 / 風速 30m",
+  "uses": "覚悟系の商材 / 作品 / 告知",
+  "hero": {
+   "cap": "WARNING 01",
+   "h": "嵐は、",
+   "em": "来る。",
+   "btn": "備える"
+  },
+  "kv": "a person with an umbrella on an empty road under a lightning-lit storm sky",
+  "no": 5
+ },
+ {
+  "id": "cinema-black",
+  "name": "映画の予告",
+  "tag": "ダーク・壮大・白黒",
+  "group": "dark",
+  "colors": {
+   "bg": "#000",
+   "bg2": "#0a0a0a",
+   "card": "#111",
+   "ink": "#fff",
+   "body": "#cfcfcf",
+   "muted": "#8a8a8a",
+   "line": "rgba(255,255,255,.14)",
+   "accent": "#fff",
+   "accent2": "#c9c9c9"
+  },
+  "fonts": [
+   "Bebas Neue",
+   "Noto Sans JP",
+   "Cormorant Garamond"
+  ],
+  "texture": "レターボックスの黒帯 + グレイン",
+  "prefix": "black and white cinematic trailer still, widescreen letterbox, high contrast, film grain, dramatic",
+  "must": [
+   "黒帯（上下）",
+   "白黒のみ",
+   "公開日の表記"
+  ],
+  "forbid": [
+   "色",
+   "丸角"
+  ],
+  "sigs": [
+   "letters-fall",
+   "spotlight",
+   "glitch-title"
+  ],
+  "count": "COMING SOON / 2026.09",
+  "uses": "作品告知 / イベント / ローンチ",
+  "hero": {
+   "cap": "COMING SOON",
+   "h": "近日、",
+   "em": "公開。",
+   "btn": "予告を見る"
+  },
+  "kv": "a man walking away down a rainy street at night, widescreen",
+  "no": 6
+ },
+ {
+  "id": "minimal-black",
+  "name": "黒ミニマル",
+  "tag": "ミニマル・黒",
+  "group": "minimal",
+  "colors": {
+   "bg": "#000",
+   "bg2": "#0a0a0a",
+   "card": "#0a0a0a",
+   "ink": "#fff",
+   "body": "#bdbdbd",
+   "muted": "#777",
+   "line": "rgba(255,255,255,.14)",
+   "accent": "#fff",
+   "accent2": "#fff"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Inter"
+  ],
+  "texture": "なし",
+  "prefix": "minimal product photography on pure black, a single object, soft light, lots of empty space",
+  "must": [
+   "白黒のみ",
+   "1px罫線",
+   "極端なサイズ差"
+  ],
+  "forbid": [
+   "差し色",
+   "グロー",
+   "装飾"
+  ],
+  "sigs": [
+   "none",
+   "letters-fall"
+  ],
+  "count": "01",
+  "uses": "ポートフォリオ / ブランド / 高単価",
+  "hero": {
+   "cap": "01",
+   "h": "黒と、",
+   "em": "白だけ。",
+   "btn": "見る"
+  },
+  "kv": "a single white chair in a black room lit by one soft light",
+  "no": 76
+ },
+ {
+  "id": "minimal-warm",
+  "name": "生成りミニマル",
+  "tag": "ミニマル・温かい",
+  "group": "minimal",
+  "colors": {
+   "bg": "#f4efe7",
+   "bg2": "#ece5da",
+   "card": "#fff",
+   "ink": "#2a2622",
+   "body": "#57504a",
+   "muted": "#948b81",
+   "line": "#dcd3c6",
+   "accent": "#2a2622",
+   "accent2": "#b6543a"
+  },
+  "fonts": [
+   "Fraunces",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "紙",
+  "prefix": "warm minimal still life on beige linen, one ceramic object, soft natural light, empty space",
+  "must": [
+   "生成りの面",
+   "物は1つ",
+   "小さなセリフ英字"
+  ],
+  "forbid": [
+   "ビビッド",
+   "黒背景"
+  ],
+  "sigs": [
+   "none",
+   "tear",
+   "ripple"
+  ],
+  "count": "No. 1",
+  "uses": "暮らし・工芸 / サロン / 自己紹介",
+  "hero": {
+   "cap": "No. 1",
+   "h": "少ないほど、",
+   "em": "豊か。",
+   "btn": "見る"
+  },
+  "kv": "a ceramic cup on a beige table by a window, soft light",
+  "no": 77
+ },
+ {
+  "id": "minimal-type",
+  "name": "文字だけ",
+  "tag": "ミニマル・タイポ",
+  "group": "minimal",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#f7f7f7",
+   "card": "#fff",
+   "ink": "#000",
+   "body": "#222",
+   "muted": "#888",
+   "line": "#000",
+   "accent": "#000",
+   "accent2": "#ff3b30"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Zen Kaku Gothic New",
+   "Noto Sans JP"
+  ],
+  "texture": "なし（文字が画像）",
+  "prefix": "giant black typography poster on white, a single word, extreme scale, flat",
+  "must": [
+   "見出し20vw",
+   "画像なし前提",
+   "赤1点"
+  ],
+  "forbid": [
+   "写真",
+   "グラデ"
+  ],
+  "sigs": [
+   "letters-fall",
+   "none"
+  ],
+  "count": "01 / 02",
+  "uses": "文字主役の告知 / デザイン / 講座",
+  "hero": {
+   "cap": "01",
+   "h": "文字だけで、",
+   "em": "勝つ。",
+   "btn": "読む"
+  },
+  "kv": "a huge black letter printed on white paper, close up",
+  "no": 78
+ },
+ {
+  "id": "concrete",
+  "name": "コンクリート",
+  "tag": "クール・硬派",
+  "group": "cool",
+  "colors": {
+   "bg": "#2b2d2f",
+   "bg2": "#333638",
+   "card": "#3b3e41",
+   "ink": "#f1f1f0",
+   "body": "#c3c5c6",
+   "muted": "#8a8d90",
+   "line": "rgba(241,241,240,.12)",
+   "accent": "#f1f1f0",
+   "accent2": "#ff8a00"
+  },
+  "fonts": [
+   "Oswald",
+   "Noto Sans JP",
+   "Space Mono"
+  ],
+  "texture": "打ちっぱなしの質感",
+  "prefix": "brutalist concrete architecture photograph, grey textured walls, hard shadow, minimal, overcast",
+  "must": [
+   "灰の面",
+   "硬い影",
+   "安全オレンジ1点"
+  ],
+  "forbid": [
+   "パステル",
+   "丸角"
+  ],
+  "sigs": [
+   "spotlight",
+   "letters-fall",
+   "none"
+  ],
+  "count": "BLOCK 01",
+  "uses": "建築・不動産 / 男性向け / 硬派な商材",
+  "hero": {
+   "cap": "BLOCK 01",
+   "h": "削ぎ落として、",
+   "em": "残ったもの。",
+   "btn": "見る"
+  },
+  "kv": "a person standing in a concrete stairwell with hard light",
+  "no": 86
+ },
+ {
+  "id": "carbon-red",
+  "name": "カーボン×赤",
+  "tag": "クール・速い",
+  "group": "cool",
+  "colors": {
+   "bg": "#0e0f11",
+   "bg2": "#15171a",
+   "card": "#1c1f23",
+   "ink": "#f5f5f5",
+   "body": "#b9bcc2",
+   "muted": "#767a82",
+   "line": "rgba(245,245,245,.12)",
+   "accent": "#e10600",
+   "accent2": "#f5f5f5"
+  },
+  "fonts": [
+   "Teko",
+   "Noto Sans JP",
+   "Rajdhani"
+  ],
+  "texture": "カーボンの織り + 斜線",
+  "prefix": "carbon fiber texture with a single red racing stripe, studio light, sharp, automotive",
+  "must": [
+   "斜めの赤ライン1本",
+   "カーボンの織り",
+   "ラップタイム風の数字"
+  ],
+  "forbid": [
+   "セリフ",
+   "紙の質感"
+  ],
+  "sigs": [
+   "neon-power",
+   "letters-fall",
+   "lightning"
+  ],
+  "count": "LAP 01 / 0.01s",
+  "uses": "車・スポーツ / ガジェット / 速さ系",
+  "hero": {
+   "cap": "LAP 01",
+   "h": "速さは、",
+   "em": "正義。",
+   "btn": "加速する"
+  },
+  "kv": "a sports car in a dark studio with one red light streak",
+  "no": 87
+ },
+ {
+  "id": "street-mono",
+  "name": "ストリート",
+  "tag": "クール・若い",
+  "group": "cool",
+  "colors": {
+   "bg": "#f2f2f2",
+   "bg2": "#e8e8e8",
+   "card": "#fff",
+   "ink": "#111",
+   "body": "#333",
+   "muted": "#777",
+   "line": "#111",
+   "accent": "#111",
+   "accent2": "#c6ff00"
+  },
+  "fonts": [
+   "Archivo Black",
+   "M PLUS 1p",
+   "Space Mono"
+  ],
+  "texture": "コピー機のざらつき + テープ",
+  "prefix": "street photography, black and white, urban wall with torn posters, one neon yellow-green element, grainy",
+  "must": [
+   "白黒 + 蛍光1色",
+   "テープで貼った風",
+   "傾けた見出し"
+  ],
+  "forbid": [
+   "セリフ",
+   "パステル"
+  ],
+  "sigs": [
+   "stamp",
+   "letters-fall",
+   "glitch-title"
+  ],
+  "count": "VOL.01 / DROP",
+  "uses": "アパレル / 音楽 / 若年層",
+  "hero": {
+   "cap": "DROP 01",
+   "h": "路上から、",
+   "em": "始める。",
+   "btn": "GET"
+  },
+  "kv": "a skater on a city street, black and white, with a neon yellow-green accent",
+  "no": 88
+ },
+ {
+  "id": "gold-rush",
+  "name": "黒金",
+  "tag": "ギラギラ・王道",
+  "group": "gira",
+  "colors": {
+   "bg": "#000",
+   "bg2": "#0b0a07",
+   "card": "#14120b",
+   "ink": "#fff",
+   "body": "#d9d2bd",
+   "muted": "#8f8770",
+   "line": "rgba(229,193,88,.25)",
+   "accent": "#e5c158",
+   "accent2": "#d10a1e"
+  },
+  "fonts": [
+   "Bebas Neue",
+   "Noto Sans JP",
+   "Shippori Mincho B1"
+  ],
+  "texture": "金の粒 + 光の筋",
+  "prefix": "luxurious black and gold cinematic still, golden light rays and particles on black, dramatic",
+  "must": [
+   "金は見出し1つとボタンまで",
+   "赤の帯",
+   "光の筋"
+  ],
+  "forbid": [
+   "パステル",
+   "丸ゴシック",
+   "金の象徴物"
+  ],
+  "sigs": [
+   "spotlight",
+   "letters-fall",
+   "ink-splat"
+  ],
+  "count": "第1章 / ¥",
+  "uses": "セールスレター / 高額商材 / ローンチ",
+  "hero": {
+   "cap": "第1章",
+   "h": "結果で、",
+   "em": "黙らせる。",
+   "btn": "今すぐ手に入れる"
+  },
+  "kv": "golden light rays and floating gold particles over a dark city skyline",
+  "no": 94
+ },
+ {
+  "id": "red-alert",
+  "name": "赤ベタ",
+  "tag": "ギラギラ・セール",
+  "group": "gira",
+  "colors": {
+   "bg": "#d10a1e",
+   "bg2": "#b8081a",
+   "card": "#a10716",
+   "ink": "#fff",
+   "body": "#ffe3e6",
+   "muted": "#f4a3ab",
+   "line": "rgba(255,255,255,.3)",
+   "accent": "#ffe600",
+   "accent2": "#111"
+  },
+  "fonts": [
+   "Archivo Black",
+   "Noto Sans JP",
+   "BIZ UDPGothic"
+  ],
+  "texture": "斜めストライプ",
+  "prefix": "bold red poster background with a single black object, flat, high contrast, sale advertisement style",
+  "must": [
+   "全面の赤",
+   "黄色の見出し",
+   "残り数・期限の表記"
+  ],
+  "forbid": [
+   "セリフ",
+   "グラデ"
+  ],
+  "sigs": [
+   "stamp",
+   "letters-fall",
+   "lightning"
+  ],
+  "count": "本日限り / 残り",
+  "uses": "セール / 期間限定 / キャンペーン",
+  "hero": {
+   "cap": "本日限り",
+   "h": "今日を、",
+   "em": "逃すな。",
+   "btn": "参加する"
+  },
+  "kv": "a black megaphone and yellow burst shapes on a bright red background",
+  "no": 95
+ },
+ {
+  "id": "money-green",
+  "name": "札束グリーン",
+  "tag": "ギラギラ・稼ぐ",
+  "group": "gira",
+  "colors": {
+   "bg": "#061a12",
+   "bg2": "#0a2419",
+   "card": "#0f2f20",
+   "ink": "#eafff3",
+   "body": "#b5d8c4",
+   "muted": "#6f9682",
+   "line": "rgba(234,255,243,.12)",
+   "accent": "#2ecc71",
+   "accent2": "#e5c158"
+  },
+  "fonts": [
+   "Bebas Neue",
+   "Noto Sans JP",
+   "Space Mono"
+  ],
+  "texture": "紙幣の細線パターン",
+  "prefix": "dark green cinematic still with gold coins and green light, wealth mood, dramatic spotlight",
+  "must": [
+   "深緑の面",
+   "等幅の数字",
+   "金は数字1か所"
+  ],
+  "forbid": [
+   "パステル",
+   "丸ゴシック"
+  ],
+  "sigs": [
+   "spotlight",
+   "letters-fall",
+   "neon-power"
+  ],
+  "count": "¥ / 第1章",
+  "uses": "副業・投資系 / 収益化 / 高額商材",
+  "hero": {
+   "cap": "第1章",
+   "h": "数字は、",
+   "em": "嘘をつかない。",
+   "btn": "受け取る"
+  },
+  "kv": "stacks of gold coins on a dark green table under a spotlight",
+  "no": 96
+ },
+ {
+  "id": "flash-yellow",
+  "name": "黄×黒",
+  "tag": "ギラギラ・警告",
+  "group": "gira",
+  "colors": {
+   "bg": "#ffe600",
+   "bg2": "#f5dc00",
+   "card": "#fff",
+   "ink": "#000",
+   "body": "#111",
+   "muted": "#6b6400",
+   "line": "#000",
+   "accent": "#000",
+   "accent2": "#d10a1e"
+  },
+  "fonts": [
+   "Bebas Neue",
+   "Zen Kaku Gothic New",
+   "BIZ UDPGothic"
+  ],
+  "texture": "黄黒の斜線 + 集中線",
+  "prefix": "bright yellow background with bold black shapes and a warning stripe, flat graphic, loud",
+  "must": [
+   "全面の黄",
+   "黒の極太見出し",
+   "警告の斜線"
+  ],
+  "forbid": [
+   "セリフ",
+   "淡色"
+  ],
+  "sigs": [
+   "stamp",
+   "lightning",
+   "letters-fall"
+  ],
+  "count": "激 / 01",
+  "uses": "激安・大量 / 号外 / イベント",
+  "hero": {
+   "cap": "警告",
+   "h": "目を、",
+   "em": "逸らすな。",
+   "btn": "今すぐ見る"
+  },
+  "kv": "a black lightning bolt shape on a bright yellow wall with hazard stripes",
+  "no": 97
+ },
+ {
+  "id": "royal-purple",
+  "name": "紫×金",
+  "tag": "ギラギラ・高級",
+  "group": "gira",
+  "colors": {
+   "bg": "#12061f",
+   "bg2": "#1b0b2c",
+   "card": "#24123a",
+   "ink": "#f7efff",
+   "body": "#cdb9e0",
+   "muted": "#8a72a3",
+   "line": "rgba(247,239,255,.12)",
+   "accent": "#e5c158",
+   "accent2": "#c084fc"
+  },
+  "fonts": [
+   "Cinzel",
+   "Shippori Mincho B1",
+   "Noto Sans JP"
+  ],
+  "texture": "ベルベット + 金の粒",
+  "prefix": "royal purple velvet with gold light particles, luxurious, dramatic spotlight, cinematic",
+  "must": [
+   "紫の面",
+   "金は見出し1つ",
+   "VIP・招待の語彙"
+  ],
+  "forbid": [
+   "パステル",
+   "丸ゴシック",
+   "金の象徴物"
+  ],
+  "sigs": [
+   "spotlight",
+   "letters-fall",
+   "card-flip"
+  ],
+  "count": "Ⅰ / VIP",
+  "uses": "高額コンサル / 会員制 / 占い・スピリチュアル",
+  "hero": {
+   "cap": "VIP",
+   "h": "選ばれた人だけに。",
+   "em": "",
+   "btn": "招待を受ける"
+  },
+  "kv": "a golden key resting on purple velvet under a spotlight",
+  "no": 98
+ },
+ {
+  "id": "aurora",
+  "name": "オーロラ",
+  "tag": "ダーク・壮大・幻想",
+  "group": "dark",
+  "colors": {
+   "bg": "#050a14",
+   "bg2": "#091120",
+   "card": "#0e182c",
+   "ink": "#eaf2ff",
+   "body": "#b4c4dc",
+   "muted": "#6f7f9a",
+   "line": "rgba(234,242,255,.12)",
+   "accent": "#5ef0b0",
+   "accent2": "#b388ff"
+  },
+  "fonts": [
+   "Cormorant Garamond",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "オーロラの帯 + 星",
+  "prefix": "aurora borealis over a snowy field at night, green and violet light curtains, stars, wide, quiet",
+  "must": [
+   "緑と紫の光の帯",
+   "星の粒",
+   "静かな余白"
+  ],
+  "forbid": [
+   "赤",
+   "丸ゴシック"
+  ],
+  "sigs": [
+   "spotlight",
+   "ripple",
+   "letters-fall"
+  ],
+  "count": "NIGHT 01 / 68°N",
+  "uses": "旅・北欧 / 壮大な講座 / 幻想系の作品",
+  "hero": {
+   "cap": "NIGHT 01 — 68°N",
+   "h": "空が、",
+   "em": "動いた夜。",
+   "btn": "見に行く"
+  },
+  "kv": "a person standing in a snowy field watching green aurora curtains",
+  "no": 7
+ },
+ {
+  "id": "eclipse",
+  "name": "日蝕",
+  "tag": "ダーク・壮大・儀式",
+  "group": "dark",
+  "colors": {
+   "bg": "#000",
+   "bg2": "#070707",
+   "card": "#0f0f0f",
+   "ink": "#f5f2ea",
+   "body": "#c4c0b4",
+   "muted": "#7e7b72",
+   "line": "rgba(245,242,234,.12)",
+   "accent": "#f2d58a",
+   "accent2": "#f5f2ea"
+  },
+  "fonts": [
+   "Cinzel",
+   "Shippori Mincho B1",
+   "Noto Sans JP"
+  ],
+  "texture": "コロナの輪 + グレイン",
+  "prefix": "total solar eclipse, black sun with a thin white-gold corona ring, dark desert, cinematic, awe",
+  "must": [
+   "輪は1つ",
+   "白金の細線",
+   "時刻の表記"
+  ],
+  "forbid": [
+   "パステル",
+   "丸角"
+  ],
+  "sigs": [
+   "spotlight",
+   "letters-fall",
+   "flare"
+  ],
+  "count": "TOTALITY 02:14",
+  "uses": "ローンチ / 作品 / 一度きりのイベント",
+  "hero": {
+   "cap": "TOTALITY — 02:14",
+   "h": "太陽が、",
+   "em": "隠れる2分。",
+   "btn": "立ち会う"
+  },
+  "kv": "a crowd silhouette watching a total solar eclipse in a dark desert",
+  "no": 8
+ },
+ {
+  "id": "botanical",
+  "name": "植物図鑑",
+  "tag": "上品・クラシック・自然",
+  "group": "light",
+  "colors": {
+   "bg": "#f7f4ea",
+   "bg2": "#efeadb",
+   "card": "#fff",
+   "ink": "#1f2f22",
+   "body": "#41503f",
+   "muted": "#8a927f",
+   "line": "#d8d3c2",
+   "accent": "#1f5b3a",
+   "accent2": "#b8402e"
+  },
+  "fonts": [
+   "Libre Baskerville",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "古い図鑑の紙 + 銅版画の線",
+  "prefix": "vintage botanical illustration of a fern and leaves on cream paper, copperplate engraving, muted green",
+  "must": [
+   "銅版画風の線",
+   "学名のような小さなラベル",
+   "深緑1色"
+  ],
+  "forbid": [
+   "ネオン",
+   "太ゴシック"
+  ],
+  "sigs": [
+   "tear",
+   "none",
+   "ripple"
+  ],
+  "count": "Fig. 12 / Pl. Ⅲ",
+  "uses": "植物・ハーブ / 教室 / 上品な自然系",
+  "hero": {
+   "cap": "Pl. Ⅲ — Fig. 12",
+   "h": "名前を知ると、",
+   "em": "見え方が変わる。",
+   "btn": "図鑑を開く"
+  },
+  "kv": "an open vintage botanical book on a wooden table with a pressed fern",
+  "no": 15
+ },
+ {
+  "id": "marble",
+  "name": "大理石",
+  "tag": "上品・高級・白",
+  "group": "light",
+  "colors": {
+   "bg": "#f8f7f5",
+   "bg2": "#f0eeeb",
+   "card": "#fff",
+   "ink": "#1a1a1a",
+   "body": "#4a4a4a",
+   "muted": "#8f8f8f",
+   "line": "#dedbd6",
+   "accent": "#1a1a1a",
+   "accent2": "#b89b5e"
+  },
+  "fonts": [
+   "Cormorant Garamond",
+   "Shippori Mincho B1",
+   "Noto Sans JP"
+  ],
+  "texture": "大理石の筋",
+  "prefix": "white marble surface with grey veins, a single gold ring and soft shadow, luxury product photography",
+  "must": [
+   "大理石の筋",
+   "金は細線1本",
+   "細いセリフ"
+  ],
+  "forbid": [
+   "ビビッド",
+   "丸角"
+  ],
+  "sigs": [
+   "none",
+   "tear",
+   "spotlight"
+  ],
+  "count": "Ⅰ / Ⅱ",
+  "uses": "ジュエリー / サロン / 高単価サービス",
+  "hero": {
+   "cap": "Ⅰ",
+   "h": "削って、",
+   "em": "残す。",
+   "btn": "予約する"
+  },
+  "kv": "a woman's hand placing a gold ring on a white marble table",
+  "no": 16
+ },
+ {
+  "id": "kraft",
+  "name": "クラフト紙",
+  "tag": "上品・素朴・手仕事",
+  "group": "light",
+  "colors": {
+   "bg": "#d9c3a0",
+   "bg2": "#cfb68e",
+   "card": "#e8d8bb",
+   "ink": "#2b2218",
+   "body": "#4f4232",
+   "muted": "#8a7a63",
+   "line": "#bfa987",
+   "accent": "#1d1d1d",
+   "accent2": "#b8402e"
+  },
+  "fonts": [
+   "Fraunces",
+   "Zen Maru Gothic",
+   "Noto Sans JP"
+  ],
+  "texture": "クラフト紙の繊維 + スタンプ",
+  "prefix": "fresh bread wrapped in brown kraft paper with a black rubber stamp, warm daylight, rustic",
+  "must": [
+   "クラフト紙の面",
+   "黒のスタンプ",
+   "紐・タグ"
+  ],
+  "forbid": [
+   "ネオン",
+   "グラデ"
+  ],
+  "sigs": [
+   "stamp",
+   "tear",
+   "none"
+  ],
+  "count": "No. 01 / LOT",
+  "uses": "パン・食品 / 手仕事 / ギフト",
+  "hero": {
+   "cap": "LOT 01",
+   "h": "包むところから、",
+   "em": "はじまる。",
+   "btn": "注文する"
+  },
+  "kv": "a bakery counter with loaves wrapped in kraft paper and black stamps",
+  "no": 17
+ },
+ {
+  "id": "shojo-manga",
+  "name": "少女漫画",
+  "tag": "かわいい・キラキラ",
+  "group": "cute",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#fff3f7",
+   "card": "#fff",
+   "ink": "#3a2a34",
+   "body": "#5e4c57",
+   "muted": "#9c8a95",
+   "line": "#f1d8e2",
+   "accent": "#ff7fb0",
+   "accent2": "#7fd3ff"
+  },
+  "fonts": [
+   "Zen Maru Gothic",
+   "Klee One",
+   "Noto Sans JP"
+  ],
+  "texture": "スクリーントーン + キラキラ",
+  "prefix": "shojo manga style illustration, sparkling eyes, screentone dots, flowers and sparkles, pastel pink",
+  "must": [
+   "スクリーントーン",
+   "キラキラの粒",
+   "吹き出し風の見出し"
+  ],
+  "forbid": [
+   "黒背景",
+   "セリフ"
+  ],
+  "sigs": [
+   "stamp",
+   "card-flip",
+   "ripple"
+  ],
+  "count": "第1話 / ♡",
+  "uses": "少女向け / 恋愛系 / 推し活",
+  "hero": {
+   "cap": "第1話",
+   "h": "はじめて、",
+   "em": "ときめいた。",
+   "btn": "つづきを読む"
+  },
+  "kv": "a girl with sparkling eyes holding a letter, shojo manga style, pastel",
+  "no": 27
+ },
+ {
+  "id": "yumekawa",
+  "name": "ゆめかわ",
+  "tag": "かわいい・夢",
+  "group": "cute",
+  "colors": {
+   "bg": "#f6f0ff",
+   "bg2": "#ece3ff",
+   "card": "#fff",
+   "ink": "#4a3a6b",
+   "body": "#6d5e8c",
+   "muted": "#a396bf",
+   "line": "#e2d6f5",
+   "accent": "#c48bff",
+   "accent2": "#8fe3d9"
+  },
+  "fonts": [
+   "Fredoka",
+   "M PLUS Rounded 1c",
+   "Noto Sans JP"
+  ],
+  "texture": "雲 + 星の粒",
+  "prefix": "dreamy pastel clouds and a soft rainbow over a lavender sky, sparkles, cute, airy",
+  "must": [
+   "雲の形",
+   "ラベンダー×ミント",
+   "星の粒"
+  ],
+  "forbid": [
+   "黒",
+   "太ゴシック"
+  ],
+  "sigs": [
+   "ripple",
+   "card-flip",
+   "stamp"
+  ],
+  "count": "1 / 7 ☆",
+  "uses": "雑貨・コスメ / 若年層 / 癒やし系",
+  "hero": {
+   "cap": "☆ DREAM",
+   "h": "ふわふわの、",
+   "em": "毎日を。",
+   "btn": "はじめる"
+  },
+  "kv": "a pastel unicorn plush on a cloud-shaped cushion, lavender room",
+  "no": 28
+ },
+ {
+  "id": "showa-pop",
+  "name": "昭和ポップ",
+  "tag": "レトロ・60年代",
+  "group": "retro",
+  "colors": {
+   "bg": "#fff3d6",
+   "bg2": "#f7e6b8",
+   "card": "#fff9e8",
+   "ink": "#3b2414",
+   "body": "#5c3d2a",
+   "muted": "#9a7d63",
+   "line": "#e0cba0",
+   "accent": "#f26b1d",
+   "accent2": "#2f7a5a"
+  },
+  "fonts": [
+   "Righteous",
+   "Kosugi Maru",
+   "Noto Sans JP"
+  ],
+  "texture": "花柄 + 太い縁取り",
+  "prefix": "1960s Japanese living room with a bold floral pattern, orange telephone, cream and brown, retro pop",
+  "must": [
+   "花柄の帯",
+   "橙1色",
+   "丸い太縁の見出し"
+  ],
+  "forbid": [
+   "ネオン",
+   "黒背景"
+  ],
+  "sigs": [
+   "card-flip",
+   "stamp",
+   "ripple"
+  ],
+  "count": "第1回 / No.1",
+  "uses": "雑貨・喫茶 / 昭和イベント / レトロ商材",
+  "hero": {
+   "cap": "第1回",
+   "h": "あの頃の、",
+   "em": "色で。",
+   "btn": "見る"
+  },
+  "kv": "a woman in a 1960s dress in a room with bold floral wallpaper, orange tones",
+  "no": 36
+ },
+ {
+  "id": "art-deco",
+  "name": "アールデコ",
+  "tag": "レトロ・華麗",
+  "group": "retro",
+  "colors": {
+   "bg": "#0f0e0c",
+   "bg2": "#171512",
+   "card": "#1f1c17",
+   "ink": "#f3ead8",
+   "body": "#c9bfa8",
+   "muted": "#857c69",
+   "line": "rgba(243,234,216,.14)",
+   "accent": "#d4b46a",
+   "accent2": "#f3ead8"
+  },
+  "fonts": [
+   "Cinzel",
+   "Shippori Mincho B1",
+   "Noto Sans JP"
+  ],
+  "texture": "扇形の幾何模様 + 金の線",
+  "prefix": "art deco hotel lobby with gold geometric fan patterns, black and cream, 1920s glamour",
+  "must": [
+   "扇形の幾何模様",
+   "金の細線",
+   "大文字の英字"
+  ],
+  "forbid": [
+   "丸角",
+   "パステル"
+  ],
+  "sigs": [
+   "letters-fall",
+   "spotlight",
+   "card-flip"
+  ],
+  "count": "No. 1 / 1925",
+  "uses": "ホテル・バー / ブライダル / 華やかなイベント",
+  "hero": {
+   "cap": "1925",
+   "h": "夜会は、",
+   "em": "続く。",
+   "btn": "招待を受ける"
+  },
+  "kv": "a couple in evening wear at an art deco hotel bar, gold and black",
+  "no": 37
+ },
+ {
+  "id": "desert",
+  "name": "砂漠",
+  "tag": "自然・乾いた・広い",
+  "group": "nature",
+  "colors": {
+   "bg": "#f3e6d0",
+   "bg2": "#ead9bc",
+   "card": "#fff8ec",
+   "ink": "#3b2a1a",
+   "body": "#5f4a33",
+   "muted": "#9a8467",
+   "line": "#d9c6a6",
+   "accent": "#c8642b",
+   "accent2": "#5b8fb9"
+  },
+  "fonts": [
+   "Fraunces",
+   "Noto Sans JP",
+   "Noto Serif JP"
+  ],
+  "texture": "砂の粒 + 長い影",
+  "prefix": "sand dunes at sunrise with long shadows, warm beige and terracotta, wide and empty",
+  "must": [
+   "砂色の面",
+   "長い影",
+   "テラコッタ1色"
+  ],
+  "forbid": [
+   "ネオン",
+   "黒背景"
+  ],
+  "sigs": [
+   "ripple",
+   "none",
+   "letters-fall"
+  ],
+  "count": "DAY 01 / 42°C",
+  "uses": "旅・冒険 / 乾いた世界観の作品 / ミニマル寄りの商材",
+  "hero": {
+   "cap": "DAY 01",
+   "h": "何もない場所に、",
+   "em": "行く。",
+   "btn": "出発する"
+  },
+  "kv": "a lone traveler walking across sand dunes at sunrise",
+  "no": 45
+ },
+ {
+  "id": "tea-garden",
+  "name": "茶畑",
+  "tag": "和・自然・朝",
+  "group": "nature",
+  "colors": {
+   "bg": "#f4f6ee",
+   "bg2": "#e9eedc",
+   "card": "#fff",
+   "ink": "#1f3322",
+   "body": "#3f5240",
+   "muted": "#889a86",
+   "line": "#d3dcc8",
+   "accent": "#2f6b3c",
+   "accent2": "#8a5a2b"
+  },
+  "fonts": [
+   "Shippori Mincho B1",
+   "Zen Kaku Gothic New",
+   "Noto Sans JP"
+  ],
+  "texture": "茶畑の畝の線 + 朝霧",
+  "prefix": "rows of a green tea plantation in morning mist, soft light, Japanese countryside",
+  "must": [
+   "畝の線",
+   "深緑1色",
+   "朝霧のグラデ"
+  ],
+  "forbid": [
+   "ネオン",
+   "黒背景"
+  ],
+  "sigs": [
+   "ripple",
+   "tear",
+   "none"
+  ],
+  "count": "一番茶 / 朝五時",
+  "uses": "お茶・食 / 産地・農園 / 和の教室",
+  "hero": {
+   "cap": "一番茶",
+   "h": "朝五時の、",
+   "em": "畑から。",
+   "btn": "茶を選ぶ"
+  },
+  "kv": "a tea picker in a straw hat among green tea rows in morning mist",
+  "no": 46
+ },
+ {
+  "id": "hinoki",
+  "name": "檜と湯",
+  "tag": "和・癒やし",
+  "group": "nature",
+  "colors": {
+   "bg": "#f6efe4",
+   "bg2": "#eee3d2",
+   "card": "#fff",
+   "ink": "#3a2c20",
+   "body": "#5e4b3b",
+   "muted": "#9a8672",
+   "line": "#dccbb5",
+   "accent": "#b07a3c",
+   "accent2": "#e8e2d6"
+  },
+  "fonts": [
+   "Zen Old Mincho",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "木目 + 湯気",
+  "prefix": "hinoki wood bath with rising steam and soft window light, Japanese onsen, calm",
+  "must": [
+   "木目",
+   "湯気のグラデ",
+   "縦書きの小見出し"
+  ],
+  "forbid": [
+   "ネオン",
+   "ビビッド"
+  ],
+  "sigs": [
+   "ripple",
+   "none",
+   "tear"
+  ],
+  "count": "一 / 湯",
+  "uses": "温泉・宿 / 癒やし系 / 木の商材",
+  "hero": {
+   "cap": "湯",
+   "h": "力を抜く、",
+   "em": "場所。",
+   "btn": "予約する"
+  },
+  "kv": "a wooden hinoki bath with steam and a view of trees through a window",
+  "no": 47
+ },
+ {
+  "id": "startup-blue",
+  "name": "スタートアップ",
+  "tag": "ビジネス・勢い",
+  "group": "business",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#f3f6ff",
+   "card": "#fff",
+   "ink": "#0b1220",
+   "body": "#334155",
+   "muted": "#7b8798",
+   "line": "#dbe3f0",
+   "accent": "#2563eb",
+   "accent2": "#0b1220"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Inter"
+  ],
+  "texture": "なし（面と太字）",
+  "prefix": "modern coworking office with large windows, bright daylight, clean, people blurred in motion",
+  "must": [
+   "電気的な青1色",
+   "極太の見出し",
+   "数字のタイル"
+  ],
+  "forbid": [
+   "グレイン",
+   "セリフ"
+  ],
+  "sigs": [
+   "letters-fall",
+   "none",
+   "spotlight"
+  ],
+  "count": "01 / 02 / 03",
+  "uses": "SaaS・スタートアップ / 採用 / サービスLP",
+  "hero": {
+   "cap": "01",
+   "h": "速く、",
+   "em": "正しく。",
+   "btn": "始める"
+  },
+  "kv": "a young team at a bright office table with laptops, daylight",
+  "no": 53
+ },
+ {
+  "id": "consult-charcoal",
+  "name": "炭のコンサル",
+  "tag": "ビジネス・重厚",
+  "group": "business",
+  "colors": {
+   "bg": "#1f2937",
+   "bg2": "#111827",
+   "card": "#273244",
+   "ink": "#f3f4f6",
+   "body": "#c7cdd6",
+   "muted": "#8b93a1",
+   "line": "rgba(243,244,246,.12)",
+   "accent": "#f59e0b",
+   "accent2": "#f3f4f6"
+  },
+  "fonts": [
+   "Playfair Display",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "なし（面と細線）",
+  "prefix": "consultant's desk with a leather notebook and a fountain pen, dark charcoal tones, warm lamp",
+  "must": [
+   "炭色の面",
+   "琥珀色1点",
+   "セリフの見出し"
+  ],
+  "forbid": [
+   "パステル",
+   "丸角"
+  ],
+  "sigs": [
+   "spotlight",
+   "none",
+   "letters-fall"
+  ],
+  "count": "Case 01",
+  "uses": "コンサル・士業 / BtoB / 高単価",
+  "hero": {
+   "cap": "CASE 01",
+   "h": "数字の裏に、",
+   "em": "理由がある。",
+   "btn": "相談する"
+  },
+  "kv": "a consultant in a dark grey suit reviewing papers under a warm lamp",
+  "no": 54
+ },
+ {
+  "id": "eco-green",
+  "name": "サステナ",
+  "tag": "ビジネス・環境",
+  "group": "business",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#f2f7f0",
+   "card": "#fff",
+   "ink": "#1c2e22",
+   "body": "#3e5245",
+   "muted": "#889a8e",
+   "line": "#d6e2d8",
+   "accent": "#3a9a5b",
+   "accent2": "#c9a97a"
+  },
+  "fonts": [
+   "Fraunces",
+   "Zen Kaku Gothic New",
+   "Noto Sans JP"
+  ],
+  "texture": "クラフト + 葉",
+  "prefix": "a small plant growing from soil in a white pot, bright clean background, fresh green",
+  "must": [
+   "葉の緑1色",
+   "クラフト色の小物",
+   "丸みのある見出し"
+  ],
+  "forbid": [
+   "ネオン",
+   "黒背景"
+  ],
+  "sigs": [
+   "ripple",
+   "none",
+   "stamp"
+  ],
+  "count": "Step 01",
+  "uses": "環境・食 / 社会貢献 / 自然派ブランド",
+  "hero": {
+   "cap": "STEP 01",
+   "h": "小さく、",
+   "em": "続ける。",
+   "btn": "参加する"
+  },
+  "kv": "hands holding a small plant seedling in soil, bright daylight",
+  "no": 55
+ },
+ {
+  "id": "steampunk",
+  "name": "スチームパンク",
+  "tag": "SF・真鍮・歯車",
+  "group": "genre",
+  "colors": {
+   "bg": "#1a120c",
+   "bg2": "#241912",
+   "card": "#2e2118",
+   "ink": "#f1e4cf",
+   "body": "#c4b39a",
+   "muted": "#87765f",
+   "line": "rgba(241,228,207,.12)",
+   "accent": "#c8873a",
+   "accent2": "#7aa3a8"
+  },
+  "fonts": [
+   "Libre Baskerville",
+   "Shippori Mincho B1",
+   "Special Elite"
+  ],
+  "texture": "真鍮 + 歯車 + 蒸気",
+  "prefix": "steampunk brass airship above a Victorian city, gears and steam, copper and dark brown, painterly",
+  "must": [
+   "歯車のモチーフ",
+   "真鍮色1つ",
+   "タイプライター文字"
+  ],
+  "forbid": [
+   "パステル",
+   "丸ゴシック"
+  ],
+  "sigs": [
+   "card-flip",
+   "stamp",
+   "letters-fall"
+  ],
+  "count": "Vol. Ⅰ / 蒸気圧",
+  "uses": "ゲーム・小説作品 / クラフト / 異世界系",
+  "hero": {
+   "cap": "Vol. Ⅰ",
+   "h": "歯車が、",
+   "em": "回り出す。",
+   "btn": "乗船する"
+  },
+  "kv": "a brass airship over a Victorian city with gears and steam",
+  "no": 69
+ },
+ {
+  "id": "kaiju",
+  "name": "特撮",
+  "tag": "ジャンル・巨大・熱い",
+  "group": "genre",
+  "colors": {
+   "bg": "#0a0a0a",
+   "bg2": "#141414",
+   "card": "#1c1c1c",
+   "ink": "#f2efe6",
+   "body": "#c2bfb4",
+   "muted": "#807d74",
+   "line": "rgba(242,239,230,.12)",
+   "accent": "#e5261d",
+   "accent2": "#f2c13d"
+  },
+  "fonts": [
+   "Bebas Neue",
+   "Zen Kaku Gothic New",
+   "Noto Sans JP"
+  ],
+  "texture": "フィルムの粒子 + 赤い空",
+  "prefix": "giant monster silhouette rising behind a city at dusk, red sky, film grain, tokusatsu movie still",
+  "must": [
+   "赤い空",
+   "極太の見出し",
+   "警報の帯"
+  ],
+  "forbid": [
+   "パステル",
+   "丸角"
+  ],
+  "sigs": [
+   "lightning",
+   "letters-fall",
+   "flare"
+  ],
+  "count": "第1報 / 出現",
+  "uses": "特撮・映画作品 / イベント / 熱い告知",
+  "hero": {
+   "cap": "第1報",
+   "h": "街が、",
+   "em": "揺れる。",
+   "btn": "警報を見る"
+  },
+  "kv": "a giant monster silhouette rising behind a city skyline at dusk, red sky",
+  "no": 70
+ },
+ {
+  "id": "notebook-grid",
+  "name": "方眼ノート",
+  "tag": "ミニマル・道具",
+  "group": "minimal",
+  "colors": {
+   "bg": "#fff",
+   "bg2": "#fafafa",
+   "card": "#fff",
+   "ink": "#1a1a1a",
+   "body": "#3a3a3a",
+   "muted": "#8a8a8a",
+   "line": "#dfe3e8",
+   "accent": "#1a1a1a",
+   "accent2": "#2b5cd6"
+  },
+  "fonts": [
+   "Inter",
+   "Noto Sans JP",
+   "Space Mono"
+  ],
+  "texture": "方眼の薄い線",
+  "prefix": "a blank grid notebook with a blue pen, top view, white desk, soft light",
+  "must": [
+   "方眼の線",
+   "青ペン1色",
+   "手書き風のメモ"
+  ],
+  "forbid": [
+   "グロー",
+   "黒背景"
+  ],
+  "sigs": [
+   "none",
+   "letters-fall",
+   "stamp"
+  ],
+  "count": "p.1 / □",
+  "uses": "ノート術・学習 / 講座 / 文具",
+  "hero": {
+   "cap": "p.1",
+   "h": "書いて、",
+   "em": "考える。",
+   "btn": "はじめる"
+  },
+  "kv": "a student writing in a grid notebook with a blue pen, top view",
+  "no": 79
+ },
+ {
+  "id": "pale-air",
+  "name": "淡い空",
+  "tag": "ミニマル・軽い",
+  "group": "minimal",
+  "colors": {
+   "bg": "#fbfdff",
+   "bg2": "#f0f6fc",
+   "card": "#fff",
+   "ink": "#1c2733",
+   "body": "#4a5764",
+   "muted": "#8f9aa6",
+   "line": "#dbe6f0",
+   "accent": "#1c2733",
+   "accent2": "#7fb3e6"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Inter"
+  ],
+  "texture": "なし（淡い青のグラデ）",
+  "prefix": "a single white balloon against a pale blue sky, minimal, airy, soft light",
+  "must": [
+   "淡い青のグラデ",
+   "細い見出し",
+   "大余白"
+  ],
+  "forbid": [
+   "黒",
+   "ビビッド"
+  ],
+  "sigs": [
+   "ripple",
+   "none"
+  ],
+  "count": "01",
+  "uses": "軽やかなサービス / 子育て / 空気感の商材",
+  "hero": {
+   "cap": "01",
+   "h": "軽く、",
+   "em": "はじめる。",
+   "btn": "見る"
+  },
+  "kv": "a child holding a white balloon under a pale blue sky",
+  "no": 80
+ },
+ {
+  "id": "mode-black",
+  "name": "モード",
+  "tag": "クール・雑誌・白黒",
+  "group": "cool",
+  "colors": {
+   "bg": "#000",
+   "bg2": "#0a0a0a",
+   "card": "#111",
+   "ink": "#fff",
+   "body": "#c8c8c8",
+   "muted": "#808080",
+   "line": "rgba(255,255,255,.16)",
+   "accent": "#fff",
+   "accent2": "#c8c8c8"
+  },
+  "fonts": [
+   "Playfair Display",
+   "Noto Serif JP",
+   "Inter"
+  ],
+  "texture": "なし（写真1枚と文字）",
+  "prefix": "fashion editorial photograph, black and white, a model against a black backdrop, high contrast, magazine",
+  "must": [
+   "写真1枚を大きく",
+   "細いセリフの巨大見出し",
+   "白黒のみ"
+  ],
+  "forbid": [
+   "色",
+   "丸角"
+  ],
+  "sigs": [
+   "letters-fall",
+   "spotlight",
+   "none"
+  ],
+  "count": "ISSUE 01 / FW",
+  "uses": "アパレル・美容 / モデル / 雑誌的ブランド",
+  "hero": {
+   "cap": "ISSUE 01 — FW",
+   "h": "黒は、",
+   "em": "語らない。",
+   "btn": "コレクションを見る"
+  },
+  "kv": "a fashion model in a black coat on a black backdrop, black and white",
+  "no": 89
+ },
+ {
+  "id": "military",
+  "name": "ミリタリー",
+  "tag": "クール・硬派・実用",
+  "group": "cool",
+  "colors": {
+   "bg": "#3b4a2f",
+   "bg2": "#334128",
+   "card": "#44553a",
+   "ink": "#f0ecdc",
+   "body": "#c8c4b0",
+   "muted": "#8f8c78",
+   "line": "rgba(240,236,220,.14)",
+   "accent": "#f0ecdc",
+   "accent2": "#d9a441"
+  },
+  "fonts": [
+   "Black Ops One",
+   "BIZ UDPGothic",
+   "Space Mono"
+  ],
+  "texture": "ステンシル + 帆布の織り",
+  "prefix": "canvas military backpack on an olive green background, stencil lettering style, hard light",
+  "must": [
+   "ステンシル風の英字",
+   "オリーブ1色",
+   "帆布の質感"
+  ],
+  "forbid": [
+   "パステル",
+   "セリフ"
+  ],
+  "sigs": [
+   "stamp",
+   "letters-fall",
+   "none"
+  ],
+  "count": "UNIT 01 / SPEC",
+  "uses": "アウトドア・ギア / 硬派なブランド / 男性向け",
+  "hero": {
+   "cap": "UNIT 01",
+   "h": "装備は、",
+   "em": "少なく強く。",
+   "btn": "装備を見る"
+  },
+  "kv": "a hiker with a canvas backpack on a ridge, olive and sand tones",
+  "no": 90
+ },
+ {
+  "id": "glass-blue",
+  "name": "ガラスと青",
+  "tag": "クール・テック・透明",
+  "group": "cool",
+  "colors": {
+   "bg": "#070b16",
+   "bg2": "#0c1224",
+   "card": "#121a30",
+   "ink": "#eaf1ff",
+   "body": "#b3c1e0",
+   "muted": "#6f7ea3",
+   "line": "rgba(234,241,255,.14)",
+   "accent": "#38bdf8",
+   "accent2": "#eaf1ff"
+  },
+  "fonts": [
+   "Inter Tight",
+   "Noto Sans JP",
+   "Space Mono"
+  ],
+  "texture": "すりガラスの面 + 青い光",
+  "prefix": "frosted glass panels lit by cool blue light in a dark room, reflections, clean, futuristic",
+  "must": [
+   "すりガラスの面（backdrop-blur）",
+   "青い光1つ",
+   "細い等幅ラベル"
+  ],
+  "forbid": [
+   "紙の質感",
+   "暖色"
+  ],
+  "sigs": [
+   "spotlight",
+   "neon-power",
+   "none"
+  ],
+  "count": "v1.0 / 01",
+  "uses": "アプリ・ツール / テック製品 / AI系",
+  "hero": {
+   "cap": "v1.0",
+   "h": "透けて、",
+   "em": "見える。",
+   "btn": "試す"
+  },
+  "kv": "a person behind a frosted glass panel lit by blue light",
+  "no": 91
+ },
+ {
+  "id": "neon-sale",
+  "name": "ネオンセール",
+  "tag": "ギラギラ・派手・夜",
+  "group": "gira",
+  "colors": {
+   "bg": "#0a0510",
+   "bg2": "#120a1c",
+   "card": "#1a1026",
+   "ink": "#fff0fa",
+   "body": "#e6b8dc",
+   "muted": "#9a7a95",
+   "line": "rgba(255,240,250,.14)",
+   "accent": "#ff2d95",
+   "accent2": "#ffe600"
+  },
+  "fonts": [
+   "Bangers",
+   "M PLUS 1p",
+   "Noto Sans JP"
+  ],
+  "texture": "ネオン管の光 + レンガ",
+  "prefix": "hot pink and yellow neon tubes glowing on a black brick wall at night, vivid, loud",
+  "must": [
+   "ネオンの光",
+   "ピンク×黄",
+   "太い英字"
+  ],
+  "forbid": [
+   "セリフ",
+   "紙の質感"
+  ],
+  "sigs": [
+   "neon-power",
+   "stamp",
+   "lightning"
+  ],
+  "count": "SALE / 24H",
+  "uses": "セール / ナイトイベント / 若年層向け商材",
+  "hero": {
+   "cap": "24H ONLY",
+   "h": "今夜だけ、",
+   "em": "光る。",
+   "btn": "参加する"
+  },
+  "kv": "a crowd under hot pink and yellow neon lights on a night street",
+  "no": 99
+ },
+ {
+  "id": "platinum",
+  "name": "プラチナ",
+  "tag": "ギラギラ・高級・銀",
+  "group": "gira",
+  "colors": {
+   "bg": "#050506",
+   "bg2": "#0c0c0e",
+   "card": "#131316",
+   "ink": "#f7f7f9",
+   "body": "#c9c9cf",
+   "muted": "#83838b",
+   "line": "rgba(247,247,249,.14)",
+   "accent": "#e6e6ee",
+   "accent2": "#b9b9c6"
+  },
+  "fonts": [
+   "Cinzel",
+   "Noto Serif JP",
+   "Noto Sans JP"
+  ],
+  "texture": "銀の光の筋 + 黒ベルベット",
+  "prefix": "silver light streaks and sparkles on black velvet, luxurious, cinematic, cool tones",
+  "must": [
+   "銀の光1つ",
+   "黒の面",
+   "細いセリフの大文字"
+  ],
+  "forbid": [
+   "パステル",
+   "丸ゴシック",
+   "宝石の象徴物"
+  ],
+  "sigs": [
+   "spotlight",
+   "letters-fall",
+   "card-flip"
+  ],
+  "count": "Ⅰ / MEMBER",
+  "uses": "会員制 / 高額商材 / 上位プラン",
+  "hero": {
+   "cap": "MEMBER",
+   "h": "選ばれた席が、",
+   "em": "ひとつ。",
+   "btn": "申し込む"
+  },
+  "kv": "a silver key on black velvet with light streaks",
+  "no": 100
+ }
+]

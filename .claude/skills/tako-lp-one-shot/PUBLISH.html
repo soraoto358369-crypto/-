@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tako_LP_One-Shot 公開マニュアル</title>
+<style>
+:root{--ink:#151515;--body:#3a3a3a;--muted:#8a8a8a;--line:#e6e6e6;--paper:#f7f7f5;--card:#fff;--red:#d10a1e;--gold:#b8962e;--code:#1b1b1b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--body);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI","Meiryo",system-ui,sans-serif;font-size:15px;line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav{position:sticky;top:0;height:100vh;overflow:auto;background:#111;color:#ddd;padding:28px 22px}
+nav .t{font-family:Impact,"Arial Narrow",sans-serif;letter-spacing:.06em;font-size:22px;color:#fff;line-height:1.1}
+nav .t small{display:block;font-family:inherit;font-size:11px;letter-spacing:.3em;color:var(--red);margin-top:6px}
+nav ol{list-style:none;padding:0;margin:24px 0 0}
+nav li a{display:block;color:#bbb;padding:7px 10px;border-radius:6px;font-size:13.5px}
+nav li a:hover{background:#1e1e1e;color:#fff;text-decoration:none}
+nav li a b{color:var(--red);font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;margin-right:8px;letter-spacing:.05em}
+nav .back{margin-top:26px;font-size:12px;color:#888}
+main{padding:48px clamp(24px,5vw,80px) 120px;max-width:980px;min-width:0}
+main h1{font-size:clamp(26px,3.4vw,38px);line-height:1.25;color:var(--ink);margin:0 0 16px}
+main h2{font-size:24px;color:var(--ink);margin:64px 0 14px;padding-top:24px;border-top:2px solid var(--ink);scroll-margin-top:24px}
+main h2 b{font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;color:var(--red);letter-spacing:.06em;margin-right:12px}
+main h3{font-size:17px;color:var(--ink);margin:30px 0 8px}
+p{margin:0 0 14px;max-width:44em}
+ul,ol{padding-left:1.4em;margin:0 0 14px;max-width:44em}li{margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:12px 0 22px;font-size:14px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#f0f0ee;color:var(--ink);font-weight:700;white-space:nowrap}
+code{font-family:Consolas,"SFMono-Regular",Menlo,monospace;font-size:.92em;background:#eee;padding:2px 6px;border-radius:4px;color:var(--ink)}
+pre{background:var(--code);color:#f2f2f2;padding:16px 18px;border-radius:8px;overflow:auto;font-size:13.5px;line-height:1.7;margin:10px 0 20px;max-width:44em;white-space:pre-wrap}
+pre code{background:none;padding:0;color:inherit}
+strong{color:var(--ink)}
+main>p:first-of-type{font-size:16px;margin-bottom:30px}
+code,td,li,p{overflow-wrap:anywhere}
+footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto}table{display:block;overflow-x:auto;white-space:nowrap}table td,table th{white-space:normal;min-width:160px}}
+@media print{nav{display:none}.wrap{display:block}main{padding:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <div class="t">PUBLISH<small>公開マニュアル</small></div>
+  <ol>
+    <li><a href="#s1"><b>01</b>1. アカウントを作る</a></li>
+    <li><a href="#s2"><b>02</b>2. アップロードして公開する（ドラッグ&amp;ドロップ）</a></li>
+    <li><a href="#s3"><b>03</b>3. サイト名（URL）を変える</a></li>
+    <li><a href="#s4"><b>04</b>4. 独自ドメインを付ける（任意）</a></li>
+    <li><a href="#s5"><b>05</b>5. 更新する（内容を直した後）</a></li>
+    <li><a href="#s6"><b>06</b>6. 登録フォーム（メール・LINE）</a></li>
+    <li><a href="#s7"><b>07</b>7. 公開前チェック（スキルの QA と同じ）</a></li>
+    <li><a href="#s8"><b>08</b>8. 消す・止める</a></li>
+    <li><a href="#s9"><b>09</b>9. お金の話</a></li>
+    <li><a href="#s10"><b>10</b>困ったとき</a></li>
+  </ol>
+  <p class="back"><a href="MANUAL.html" style="color:#bbb">← 使い方マニュアルへ</a></p>
+</nav>
+<main>
+<h1>公開マニュアル — Cloudflare Pages で無料公開する（登録から更新まで）</h1>
+<p>所要 10 分。クレジットカード不要。<strong>無料でも帯域・アクセス数の上限が無い</strong>ので、バズっても止まりません（Netlify の無料枠は帯域を超えると全サイトが止まるため、このスキルは Cloudflare Pages を標準にしています）。</p>
+<p>一番簡単なのは <strong>メニュー 7「公開する」</strong> です。スキルが Cloudflare にログインする画面を開き（ブラウザで Allow を1回押すだけ）、フォルダをアップして URL を出します。以下は自分でやる時の手順です。</p>
+<h2 id="s1"><b>01</b>1. アカウントを作る</h2>
+<ol>
+<li>https://dash.cloudflare.com/sign-up を開く</li>
+<li>メールアドレスとパスワードで登録（無料プラン。カード不要）</li>
+<li>届いた確認メールのリンクを押す</li>
+<li>ドメインの追加を聞かれても <strong>スキップ</strong> してよい（Pages に必要ない）</li>
+</ol>
+<h2 id="s2"><b>02</b>2. アップロードして公開する（ドラッグ&amp;ドロップ）</h2>
+<ol>
+<li>https://dash.cloudflare.com → 左メニュー <strong>Workers &amp; Pages</strong> → <strong>Create</strong> → <strong>Pages</strong> タブ → <strong>Upload assets</strong></li>
+<li><strong>Project name</strong> に英数字とハイフンで名前を入れる（例: <code>mame-kakeibo</code>）。これが URL になる → <strong>Create project</strong></li>
+<li>スキルが作った <strong>サイトのフォルダ</strong>（例: <code>mame-kakeibo/</code>。中に <code>index.html</code> と <code>assets/</code> がある）を、点線の枠にドラッグ&amp;ドロップ
+   - フォルダごと落とす。<code>index.html</code> だけ落とすと画像が出ない
+   - zip でもよい（zip の直下に <code>index.html</code> が来るように）</li>
+<li><strong>Deploy site</strong> → 数十秒で <code>https://&lt;名前&gt;.pages.dev</code> が発行される</li>
+<li>その URL を開いて動作確認する。スマホでも開く。<strong>初回は反映まで1〜2分かかることがある</strong>（522 が出たら少し待つ）</li>
+</ol>
+<h2 id="s3"><b>03</b>3. サイト名（URL）を変える</h2>
+<p>URL はプロジェクト名で決まります。変えたい時は Pages の画面 → <strong>Settings</strong> → <strong>General</strong> → <strong>Project name</strong> を変更（URL も変わるので、配布済みのリンクがあれば貼り直す）。</p>
+<h2 id="s4"><b>04</b>4. 独自ドメインを付ける（任意）</h2>
+<ol>
+<li>ドメインを取得する（Cloudflare Registrar が一番簡単。お名前.com などでも可）。<strong>WHOIS 代行公開を必ずオン</strong>にする（本名・住所が公開されるのを防ぐ）</li>
+<li>Pages の画面 → <strong>Custom domains</strong> → <strong>Set up a custom domain</strong> → ドメインを入力</li>
+<li>Cloudflare で取ったドメインなら自動で繋がる。他社なら表示される <code>CNAME</code>（<code>&lt;名前&gt;.pages.dev</code>）をドメイン会社の DNS 設定に入れる</li>
+<li>反映まで数分〜数時間。HTTPS 証明書は自動で発行される</li>
+</ol>
+<h2 id="s5"><b>05</b>5. 更新する（内容を直した後）</h2>
+<p>方法 A（簡単）: Pages の画面 → <strong>Deployments</strong> → <strong>Create deployment</strong> → 新しいフォルダをドラッグ&amp;ドロップ → <strong>Deploy</strong>。数十秒で差し替わる。URL は変わらない。過去の版にも戻せる（Rollback）。</p>
+<p>方法 B（スキルに頼む）: メニュー 7 か「公開して」と言う。スキルが <code>scripts/publish.ps1</code>（Mac: <code>publish.sh</code>）を実行する。中身はこれ:</p>
+<pre><code>npx -y wrangler login                                   # 初回だけ。ブラウザで Allow
+npx -y wrangler pages project create &lt;名前&gt; --production-branch main   # 初回だけ
+npx -y wrangler pages deploy &lt;フォルダ&gt; --project-name &lt;名前&gt; --branch main --commit-dirty=true
+</code></pre>
+<h2 id="s6"><b>06</b>6. 登録フォーム（メール・LINE）</h2>
+<p>Cloudflare Pages にはフォーム受信の機能が無いので、受け皿は外部に置きます（スキルの <code>cta:</code> が自動で判定）。</p>
+<table>
+<thead>
+<tr>
+<th>やりたいこと</th>
+<th>やり方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LINE に登録させる</td>
+<td>友だち追加 URL を貼るだけ（<code>cta: line</code>）</td>
+</tr>
+<tr>
+<td>UTAGE / MyASP などの登録フォーム</td>
+<td>埋め込みコードか登録ページ URL を貼る（<code>cta: embed</code> / <code>auto</code>）</td>
+</tr>
+<tr>
+<td>配信ツールが無い</td>
+<td><strong>Google フォーム</strong>を作って埋め込む（<code>cta: gform</code>）。無料・無制限。回答はスプレッドシートに溜まる</td>
+</tr>
+<tr>
+<td>note の販売ページなどへ飛ばす</td>
+<td>URL を貼る（<code>cta: link</code>）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s7"><b>07</b>7. 公開前チェック（スキルの QA と同じ）</h2>
+<ul>
+<li>フォルダに <code>index.html</code> <code>assets/</code> があるか</li>
+<li>画像が全部表示されるか（相対パス <code>assets/img/...</code> になっているか）</li>
+<li>スマホで見て崩れていないか</li>
+<li>ボタンの飛び先（LINE / note / フォーム）が正しいか。1回テスト送信する</li>
+<li>OGP 画像（SNS で共有した時のカード）が出るか。X の Card Validator で確認</li>
+</ul>
+<h2 id="s8"><b>08</b>8. 消す・止める</h2>
+<p>Pages の画面 → <strong>Settings</strong> → <strong>General</strong> → 一番下の <strong>Delete project</strong>。URL は即座に無効になる。</p>
+<h2 id="s9"><b>09</b>9. お金の話</h2>
+<ul>
+<li>Cloudflare Pages: 無料。帯域・アクセス数の上限なし。1ファイル 25MB まで、1サイト 2万ファイルまで、デプロイ月500回まで（個人の LP なら到達しない）</li>
+<li>独自ドメイン: 年 1,000〜2,000 円程度（任意）</li>
+<li>スキルの QA が「総重量 3MB 以内」に収めるので、表示も速い</li>
+</ul>
+<h2 id="s10"><b>10</b>困ったとき</h2>
+<table>
+<thead>
+<tr>
+<th>症状</th>
+<th>原因と直し方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>画像が出ない</td>
+<td><code>index.html</code> だけ上げている。フォルダごと上げ直す</td>
+</tr>
+<tr>
+<td>522 / 開けない</td>
+<td>初回デプロイ直後は反映に1〜2分かかる。少し待って再読み込み</td>
+</tr>
+<tr>
+<td>更新したのに変わらない</td>
+<td>ブラウザのキャッシュ。シークレットウィンドウで確認。Deployments で最新が Production になっているか見る</td>
+</tr>
+<tr>
+<td>ログインの画面が出ない（メニュー 7）</td>
+<td>表示された URL をブラウザで開いて Allow。それでも駄目なら方法 A（ドラッグ&amp;ドロップ）で上げる</td>
+</tr>
+<tr>
+<td>Project name が使えない</td>
+<td>誰かが使っている名前。末尾に数字を足す（例: <code>mame-kakeibo-2026</code>）</td>
+</tr>
+<tr>
+<td>フォームが届かない</td>
+<td>Pages はフォームを受け取れない。<code>gform</code> / <code>embed</code> / <code>line</code> のどれかにする</td>
+</tr>
+<tr>
+<td>独自ドメインが繋がらない</td>
+<td>DNS 反映待ち（最大 48 時間）。<code>CNAME</code> の値が <code>&lt;名前&gt;.pages.dev</code> になっているか確認</td>
+</tr>
+</tbody>
+</table>
+  <footer>Tako_LP_One-Shot 公開マニュアル（PUBLISH.md から生成）。このファイルはダブルクリックで開けます。</footer>
+</main>
+</div>
+</body>
+</html>

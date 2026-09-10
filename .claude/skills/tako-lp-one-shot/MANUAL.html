@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tako_LP_One-Shot 使い方マニュアル</title>
+<style>
+:root{--ink:#151515;--body:#3a3a3a;--muted:#8a8a8a;--line:#e6e6e6;--paper:#f7f7f5;--card:#fff;--red:#d10a1e;--gold:#b8962e;--code:#1b1b1b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--body);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI","Meiryo",system-ui,sans-serif;font-size:15px;line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav{position:sticky;top:0;height:100vh;overflow:auto;background:#111;color:#ddd;padding:28px 22px}
+nav .t{font-family:Impact,"Arial Narrow",sans-serif;letter-spacing:.06em;font-size:22px;color:#fff;line-height:1.1}
+nav .t small{display:block;font-family:inherit;font-size:11px;letter-spacing:.3em;color:var(--red);margin-top:6px}
+nav ol{list-style:none;padding:0;margin:24px 0 0}
+nav li a{display:block;color:#bbb;padding:7px 10px;border-radius:6px;font-size:13.5px}
+nav li a:hover{background:#1e1e1e;color:#fff;text-decoration:none}
+nav li a b{color:var(--red);font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;margin-right:8px;letter-spacing:.05em}
+main{padding:48px clamp(24px,5vw,80px) 120px;max-width:980px}
+h1{font-size:clamp(28px,3.6vw,40px);line-height:1.25;color:var(--ink);margin:0 0 8px}
+.lead{font-size:16px;color:var(--body);margin:0 0 36px;max-width:40em}
+h2{font-size:24px;color:var(--ink);margin:64px 0 14px;padding-top:24px;border-top:2px solid var(--ink);scroll-margin-top:24px}
+h2 b{font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;color:var(--red);letter-spacing:.06em;margin-right:12px}
+h3{font-size:17px;color:var(--ink);margin:30px 0 8px}
+p{margin:0 0 14px;max-width:44em}
+ul,ol{padding-left:1.4em;margin:0 0 14px;max-width:44em}li{margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:12px 0 22px;font-size:14px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#f0f0ee;color:var(--ink);font-weight:700;white-space:nowrap}
+code{font-family:Consolas,"SFMono-Regular",Menlo,monospace;font-size:.92em;background:#eee;padding:2px 6px;border-radius:4px;color:var(--ink)}
+pre{background:var(--code);color:#f2f2f2;padding:16px 18px;border-radius:8px;overflow:auto;font-size:13.5px;line-height:1.7;margin:10px 0 20px;max-width:44em}
+pre code{background:none;padding:0;color:inherit}
+.box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--red);padding:16px 18px;margin:16px 0 22px;max-width:44em;border-radius:0 8px 8px 0}
+.box.gold{border-left-color:var(--gold)}
+.box b{color:var(--ink)}
+.steps{counter-reset:s;list-style:none;padding:0;max-width:44em}
+.steps li{position:relative;padding:12px 16px 12px 58px;background:var(--card);border:1px solid var(--line);border-radius:8px;margin:8px 0}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:10px;font-family:Impact,"Arial Narrow",sans-serif;font-size:26px;color:var(--red);letter-spacing:.04em}
+.kbd{display:inline-block;background:#111;color:#fff;padding:2px 10px;border-radius:4px;font-weight:700;font-size:.92em}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:44em}
+.grid2 .box{margin:0}
+.muted{color:var(--muted);font-size:13px}
+footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+main{min-width:0}
+code,td,li,p{overflow-wrap:anywhere}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto}.grid2{grid-template-columns:1fr}table{display:block;overflow-x:auto;white-space:nowrap}table td,table th{white-space:normal;min-width:160px}}
+@media print{nav{display:none}.wrap{display:block}main{padding:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <div class="t">TAKO LP<br>ONE-SHOT<small>使い方マニュアル</small></div>
+  <ol>
+    <li><a href="#s0"><b>00</b>これは何？</a></li>
+    <li><a href="#s1"><b>01</b>導入（最初の1回）</a></li>
+    <li><a href="#s2"><b>02</b>「スタート」とメニュー</a></li>
+    <li><a href="#s3"><b>03</b>作り方を選ぶ</a></li>
+    <li><a href="#s4"><b>04</b>方向性と見本帳</a></li>
+    <li><a href="#s5"><b>05</b>10案から選ぶ</a></li>
+    <li><a href="#s6"><b>06</b>画像の4つの経路</a></li>
+    <li><a href="#s7"><b>07</b>確認して直す</a></li>
+    <li><a href="#s8"><b>08</b>公開する（Cloudflare）</a></li>
+    <li><a href="#s9"><b>09</b>LINE・登録フォーム</a></li>
+    <li><a href="#s10"><b>10</b>困った時</a></li>
+    <li><a href="#s11"><b>11</b>フォルダの中身</a></li>
+    <li><a href="PUBLISH.html" style="color:#d10a1e"><b>＋</b>公開マニュアル →</a></li>
+    <li><a href="MIGRATE.html" style="color:#d10a1e"><b>＋</b>移行マニュアル →</a></li>
+  </ol>
+</nav>
+<main>
+  <h1>質問に答えて、番号を選ぶ。<br>それだけで公開できるLPが出てくる。</h1>
+  <p class="lead">このページは Tako_LP_One-Shot の使い方です。ブラウザで開いたまま、横で Claude Code（または Codex）を動かしてください。所要は導入10分、1本目のLPは目安20分です。</p>
+
+  <h2 id="s0"><b>00</b>これは何？</h2>
+  <p>Claude Code / Codex に入れて使う「LP制作スキル」です。<span class="kbd">スタート</span> と打つとメニューが出て、質問に答え、10案から番号を選ぶと、公開用のフォルダ（index.html と画像一式）が完成します。</p>
+  <div class="grid2">
+    <div class="box"><b>できること</b><br>セールスレター / メール・LINE登録ページ / 簡易ホームページ / 自己紹介 / ポートフォリオの入口 / リンクまとめ の6用途。文章、画像、動き、スマホ対応、公開前チェックまで。</div>
+    <div class="box gold"><b>できないこと</b><br>決済、会員機能、ブログ、複数ページのサイト。1ページ完結のLP専用です。複数作る時は別フォルダで別LPにします。</div>
+  </div>
+
+  <h2 id="s1"><b>01</b>導入（最初の1回だけ。ターミナルは使いません）</h2>
+  <p>Claude Code か Codex の<b>デスクトップアプリだけ</b>で完結します。黒い画面（ターミナル）は開きません。</p>
+  <ol class="steps">
+    <li><b>デスクトップアプリを入れる。</b>Claude Code（Pro 以上のプラン）または Codex。すでに使っていればスキップ。</li>
+    <li><b>スキルのフォルダを置く。</b>ダウンロードした zip を展開し、<code>Tako_LP_One-Shot</code> フォルダを次の場所に入れる。<br>
+      Claude Code: <code>C:\Users\&lt;あなた&gt;\.claude\skills\</code>（Mac: <code>/Users/&lt;あなた&gt;/.claude/skills/</code>）<br>
+      Codex: <code>C:\Users\&lt;あなた&gt;\.codex\skills\</code>（Mac: <code>~/.codex/skills/</code>）<br>
+      <span class="muted">隠しフォルダです。エクスプローラーのアドレス欄に <code>%USERPROFILE%\.claude\skills</code> と打つと開きます（Mac は Finder で Cmd+Shift+G → <code>~/.claude/skills</code>）。</span><br>
+      自分で置くのが不安な人は、アプリのチャットにこう貼るだけでも入ります: <span class="kbd">ダウンロードフォルダの Tako_LP_One-Shot.zip をスキルとして導入して</span></li>
+    <li><b>アプリを開き直して、チャットに <span class="kbd">セットアップ</span> と打つ。</b>スキルが必要なものを全部入れます（数分）。「許可しますか」のダイアログが出たら「はい」「許可」を押してください。</li>
+    <li><b>Codex のログイン</b>（画像の自動生成に使います）。ブラウザが開くので <b>Authorize</b> を1回押す。これだけ。</li>
+    <li><b>チャットに <span class="kbd">スタート</span> と打つ。</b>メニューが出れば準備完了です。</li>
+  </ol>
+  <h3>「セットアップ」で入るもの</h3>
+  <table>
+    <tr><th>入るもの</th><th>何に使う</th></tr>
+    <tr><td>Node.js</td><td>プレビュー、公開前チェック、HyperFrames</td></tr>
+    <tr><td>Python + Pillow</td><td>画像の変換</td></tr>
+    <tr><td>Codex CLI</td><td>画像の自動生成（ChatGPT の有料プランの枠で動く）。Codex アプリが入っていれば同梱のものを使う</td></tr>
+    <tr><td>HyperFrames</td><td>ヒーローの背景をゆっくり動かす短いループ動画。<b>必ず入ります</b></td></tr>
+  </table>
+  <div class="box"><b>うまく入らなかった時。</b>結果に <code>[NG ]</code> が出た項目は、スキルが「このページを開いてインストーラーを実行してください」と案内します。入れ直したらもう一度「セットアップ」。ChatGPT の有料プランが無い人は Codex が <code>[-- ]</code> のままで構いません（画像は別の経路で作れます。06章）。</div>
+
+  <h2 id="s2"><b>02</b>「スタート」とメニュー</h2>
+  <p><span class="kbd">スタート</span> と打つと、環境チェック（数秒）のあとにメニューが出ます。初めてなら <b>1</b>。</p>
+<pre><code>Tako_LP_One-Shot ── 何をしますか？
+1  新しくLPを作る
+2  brief.md から作る（すでに書いてある人）
+3  完成例を見る（3サイトの公開URL + 世界観見本帳）
+4  作ったLPを直す
+5  画像だけ作る
+6  使い方を読む
+7  公開する（Cloudflare Pages）
+8  環境を整える
+9  続きから</code></pre>
+  <div class="box"><b>止まるのは3回だけ。</b>①質問への回答 ②10案の選択 ③（ChatGPT で手動で画像を作る人だけ）画像を入れた合図。それ以外は最後まで自動で進みます。</div>
+
+  <h2 id="s3"><b>03</b>作り方を選ぶ</h2>
+<pre><code>作り方を選んでください
+1 おまかせ（6問、5分）
+2 詳細ヒアリング（20問、15分。仕上がりにこだわる人）
+3 素材を貼る（SNS・自己紹介記事・既存LPの URL や文章。質問はほぼ不要）</code></pre>
+  <ul>
+    <li>迷ったら <b>1</b>。質問は1つのメッセージにまとまって来ます。<b>分からない項目は空欄で構いません。</b>スキルが補い、納品時に「補った箇所」を列挙します。</li>
+    <li>Threads / X / Instagram のプロフィールや note の自己紹介記事があるなら <b>3</b>。URL を貼るだけで口調・実績・リンクを読み取ります。1 や 2 と併用すると一番速くて質が高いです。</li>
+    <li>数字（実績）は、あなたが書いたものだけが使われます。書いていない数字をスキルが作ることはありません。</li>
+  </ul>
+  <h3>おまかせの6問</h3>
+  <table>
+    <tr><th>#</th><th>質問</th><th>答え方</th></tr>
+    <tr><td>1</td><td>何のページ？</td><td>セールスレター / メール・LINE登録 / 簡易ホームページ / 自己紹介 / ポートフォリオ入口 / リンクまとめ</td></tr>
+    <tr><td>2</td><td>名前と、一言で何者か</td><td>人・商品・作品名</td></tr>
+    <tr><td>3</td><td>読者にしてほしい行動と受け皿</td><td>LINE の友だち追加URL、UTAGE の登録ページ、note の販売ページなど、URL をそのまま貼る</td></tr>
+    <tr><td>4</td><td>使ってよい実績・数字</td><td>本人の言葉どおり。無ければ「なし」</td></tr>
+    <tr><td>5</td><td>誰に読ませたいか</td><td>一言で</td></tr>
+    <tr><td>6</td><td>見た目の方向性</td><td>①〜⑩の番号（次の章）</td></tr>
+  </table>
+
+  <h2 id="s4"><b>04</b>方向性と見本帳</h2>
+  <p>見た目は10グループから番号で選びます（2つまで。「おまかせ」も可）。</p>
+  <table>
+    <tr><th>番号</th><th>グループ</th><th>例</th></tr>
+    <tr><td>①</td><td>ダーク・壮大</td><td>和風ダーク、深海の青、映画の予告、オーロラ</td></tr>
+    <tr><td>②</td><td>明るい・上品</td><td>紙・エディトリアル、象牙のセリフ、大理石、活版印刷</td></tr>
+    <tr><td>③</td><td>かわいい・ポップ</td><td>白地パステル、キャンディショップ、桜、少女漫画</td></tr>
+    <tr><td>④</td><td>レトロ</td><td>レトロフューチャー、昭和喫茶、Y2K、アールデコ</td></tr>
+    <tr><td>⑤</td><td>和・自然</td><td>水彩、墨一色、藍染、森と苔、茶畑</td></tr>
+    <tr><td>⑥</td><td>ビジネス・テック</td><td>信頼の紺、ダッシュボード、スタートアップ、クリニックの白</td></tr>
+    <tr><td>⑦</td><td>ジャンル（ホラー・SF・ゲーム）</td><td>Jホラー、宇宙SF、ファンタジーRPG、eスポーツ、アニメ・ポスター</td></tr>
+    <tr><td>⑧</td><td>ミニマル</td><td>白黒ミニマル、黒ミニマル、文字だけ、美術館の白</td></tr>
+    <tr><td>⑨</td><td>かっこいい・クール</td><td>黒紙の写真集、ネオン、コンクリート、カーボン×赤、モード</td></tr>
+    <tr><td>⑩</td><td>商材屋（ギラギラ）</td><td>深海クリムゾン、黒金、赤ベタ、札束グリーン、プラチナ</td></tr>
+  </table>
+  <div class="box gold"><b>世界観見本帳（特典）</b>。100の世界観を画像で見比べられるページです。購入時に案内された URL をブラウザで開いてください。上の画像がその世界観で作ったLPの1画面目、下が比較用の同じ被写体です。<b>見本であって上限ではありません。</b>色を変える、2つを混ぜる、6問に答えて独自の世界観を作る（custom）ができます。</div>
+
+  <h2 id="s5"><b>05</b>10案から選ぶ</h2>
+  <p>組み立てる前に、必ず10案が表で出ます。各案に「アイデア（比喩）」「文字の主役」「レイアウトの型」「世界観の No.」が書いてあります。</p>
+<pre><code>| # | 案の名前 | 一言 | 世界観 | 骨格 | 演出 | 画像 | アイコン |
+| 1 | 黄色い号外 | 黄色い紙に黒の巨大文字 | No.061 brutal | deck | letters-fall | なし | 本人写真 |
+| 2 | 白い目次   | 雑誌の目次。番号と罫線 | No.009 paper-white | editorial | none | 手持ち1枚 | 本人写真 |
+...
+
+見本帳で見比べる用
+No.061
+No.009
+...</code></pre>
+  <ol class="steps">
+    <li>末尾の <b>No. のリストをコピー</b>して、見本帳の検索欄に貼る。10案の世界観だけが並ぶので、画像で見比べる。</li>
+    <li><b>番号で返事する。</b>「3番で」「2と5を混ぜて」「3で色だけ白に」「全部黒背景で出し直して」も可。「おまかせ」なら1番で進む。</li>
+    <li>「アイコン」列が「生成エンブレム」の案を選ばなければ、勝手にエンブレムは付きません。</li>
+  </ol>
+
+  <h2 id="s6"><b>06</b>画像の4つの経路</h2>
+  <table>
+    <tr><th>あなたの状況</th><th>どうなる</th></tr>
+    <tr><td>Codex CLI がある</td><td>画像を自動生成（1枚1分）。その間に本体が組まれる</td></tr>
+    <tr><td>ChatGPT はあるが Codex は無い</td><td>画像なしで完成 → <code>prompts.md</code> が出る → ChatGPT でプロンプトを貼って画像を作り、<code>images/</code> に保存 → 「画像を入れた」と言う → 差し替わる</td></tr>
+    <tr><td>手持ちの写真・画像がある</td><td>最初の質問で場所を伝えれば取り込む。本人写真もここ</td></tr>
+    <tr><td>画像は要らない</td><td>文字・色・図形だけで完成。あとから入れることもできる</td></tr>
+  </table>
+  <p class="muted">KV（一番上の1枚）だけでも入れると見た目が大きく変わります。Canva や Midjourney で作った画像も使えます。</p>
+
+  <h2 id="s7"><b>07</b>確認して直す</h2>
+  <p>納品メッセージに、案の名前 / 動く演出 / 公開手順 / <b>スキルが勝手に決めた箇所</b> / 残タスク が書かれます。勝手に決めた箇所だけ目を通してください。</p>
+  <h3>文言は 台本.md で自分で直せる</h3>
+  <p>サイトのフォルダの隣に <code>&lt;サイト名&gt;-src/台本.md</code> ができます。見出しや本文が「## キー」ごとに並んでいるので、本文を書き換えて保存するだけです。</p>
+<pre><code># 反映（保存のたびに自動で反映したい時）
+python scripts/watch-copy.py &lt;サイトのフォルダ&gt;
+
+# 1回だけ反映
+python scripts/apply-copy.py &lt;サイトのフォルダ&gt;</code></pre>
+  <h3>Claude に頼む言い方</h3>
+  <table>
+    <tr><th>やりたいこと</th><th>こう言う</th></tr>
+    <tr><td>文言を変える</td><td>「ヒーローの見出しを『○○』に」「2つ目のカードの本文を短く」</td></tr>
+    <tr><td>色・雰囲気</td><td>「全体をもう少し明るく」「金を減らして白を増やして」「世界観を No.012 にして作り直して」</td></tr>
+    <tr><td>画像</td><td><code>assets/img/</code> の同名ファイルを上書きして「画像を差し替えた」</td></tr>
+    <tr><td>演出</td><td>「開幕のローダーを消して」「スクロールの動きをもっと派手に」</td></tr>
+    <tr><td>セクション</td><td>「FAQ を足して」「年表を消して」</td></tr>
+    <tr><td>フォーム</td><td>「このURLのフォームを付けて https://…」</td></tr>
+    <tr><td>数字や受け皿</td><td><code>&lt;サイト名&gt;-src/brief.md</code> を書き換えて「反映して」</td></tr>
+  </table>
+
+  <h2 id="s8"><b>08</b>公開する（Cloudflare Pages、無料）</h2>
+  <p>一番簡単なのは、チャットに <span class="kbd">公開して</span> と打つことです（メニュー 7 も同じ）。</p>
+  <ol class="steps">
+    <li>スキルが Cloudflare のログイン画面をブラウザで開く。<b>Allow</b> を1回押す（初回だけ。アカウントが無ければ https://dash.cloudflare.com/sign-up で作る。無料・カード不要）。</li>
+    <li>スキルがフォルダをアップして、<code>https://&lt;名前&gt;.pages.dev</code> の URL を出す。</li>
+    <li>その URL をスマホでも開いて確認する。初回は反映まで1〜2分かかることがある。</li>
+  </ol>
+  <div class="box"><b>今 Netlify にあるLPを移したい人</b>は <code>MIGRATE.html</code>。チャットに「Netlify の https://… を Cloudflare Pages に移行して」と言えば、取り出しから公開までスキルがやります。</div>
+  <div class="box"><b>無料でも止まりません。</b>Cloudflare Pages はアクセス数・帯域の上限が無いので、バズっても 503 になりません。更新は「公開して」と言えば同じ URL に上書きされます。自分でドラッグ&ドロップしたい人、独自ドメイン、フォームの受け皿は <code>PUBLISH.html</code>（メニュー <b>7</b>）に書いてあります。</div>
+
+  <h2 id="s9"><b>09</b>LINE・登録フォーム</h2>
+  <p>質問3の「受け皿」に URL や埋め込みコードを<b>そのまま貼る</b>だけで、スキルが種類を判定して設置します。</p>
+  <table>
+    <tr><th>貼るもの</th><th>設置のされ方</th></tr>
+    <tr><td>LINE の友だち追加 URL（lin.ee / line.me）</td><td>LINE 色のボタン。QR 画像があれば横に</td></tr>
+    <tr><td>UTAGE / MyASP などの登録ページ URL</td><td>ページ内にフォームを埋め込む、または登録ページへ飛ばす</td></tr>
+    <tr><td>配信ツールの埋め込みコード</td><td>そのまま埋め込む</td></tr>
+    <tr><td>Google フォームの埋め込み（配信ツールが無い人）</td><td>iframe を貼るだけで動く。回答はスプレッドシートへ</td></tr>
+    <tr><td>note / 販売ページの URL</td><td>購入ボタンにする</td></tr>
+  </table>
+  <p>「テスト送信して届くか確認してください」と言われたら1回だけ送ってみてください。詳細は <code>parts/forms.md</code>。</p>
+
+  <h2 id="s10"><b>10</b>困った時</h2>
+  <table>
+    <tr><th>困りごと</th><th>直し方</th></tr>
+    <tr><td>.claude / .codex フォルダが見つからない</td><td>隠しフォルダ。Windows はエクスプローラーの「表示 → 隠しファイル」、Mac は Finder で <code>Cmd+Shift+.</code>。アドレス欄に <code>%USERPROFILE%\.claude</code> と打っても開ける</td></tr>
+    <tr><td>「スタート」と打っても別のスキルが反応する</td><td><code>/Tako_LP_One-Shot</code> と打つか、「たこLP」と打つ</td></tr>
+    <tr><td>python と打つと Microsoft Store が開く</td><td>https://www.python.org/ から入れ、インストール時に「Add to PATH」にチェック</td></tr>
+    <tr><td>画像生成が FAIL になる</td><td>Codex のログイン切れが多い。<code>codex login</code> してから「画像だけ作り直して」。「モデルが新しいバージョンを要求」と出たら <code>npm i -g @openai/codex@latest</code></td></tr>
+    <tr><td>10案のどれもピンとこない</td><td>「2と5を混ぜて」「全部黒背景で出し直して」。出し直しは何度でも可</td></tr>
+    <tr><td>途中で止まった / 会話が長くなった</td><td>新しい会話で「スタート」→ 9 続きから</td></tr>
+    <tr><td>プレビューのスクショが真っ黒</td><td>Claude Code のブラウザ画面の癖。自分のブラウザで index.html をダブルクリックして見る</td></tr>
+    <tr><td>公開したのに画像が出ない</td><td>index.html だけ上げている。フォルダごと上げ直す</td></tr>
+    <tr><td>更新したのに変わらない</td><td>ブラウザのキャッシュ。シークレットウィンドウで確認</td></tr>
+  </table>
+  <p>もっと詳しい一覧は <code>TROUBLESHOOTING.md</code>（メニュー 6 のあとに「困った時」と言うと表示）。</p>
+
+  <h2 id="s11"><b>11</b>フォルダの中身（消さないで）</h2>
+  <table>
+    <tr><th>フォルダ / ファイル</th><th>役割</th><th>触る？</th></tr>
+    <tr><td><code>SKILL.md</code></td><td>スキルの手順書そのもの。Claude / Codex が読む</td><td>触らない</td></tr>
+    <tr><td><code>recipes/</code></td><td>辞書。骨格7種・世界観100種・演出10種・ヒアリングの質問・10案の作り方・センスの基準。<b>これが無いとLPが作れません</b></td><td>触らない</td></tr>
+    <tr><td><code>worlds/</code></td><td>あなたが「独自に作って」で作った世界観（custom）の保存先。最初は空</td><td>自動で増える</td></tr>
+    <tr><td><code>parts/</code></td><td>フォームの設置方法、演出の実装、共通のモーション</td><td>触らない</td></tr>
+    <tr><td><code>scripts/</code></td><td>画像生成・変換・検査・台本の反映などの道具。Claude が実行する</td><td>自分で使うのは台本の2つだけ</td></tr>
+    <tr><td><code>brief.template.md</code></td><td>発注書のひな形。メニュー 2 で使う</td><td>コピーして使う</td></tr>
+    <tr><td><code>history.json</code></td><td>直近に作ったLPの組み合わせ。次に同じ顔にならないための記録</td><td>触らない</td></tr>
+    <tr><td><code>MANUAL.html</code> / <code>SETUP.md</code> / <code>TROUBLESHOOTING.md</code></td><td>このマニュアルと各手順書</td><td>読む</td></tr>
+    <tr><td><code>PUBLISH.html</code> / <code>MIGRATE.html</code></td><td>公開マニュアル（Cloudflare Pages）/ 移行マニュアル（Netlify から移す）。ブラウザで開く</td><td>読む</td></tr>
+  </table>
+  <p>作ったLPは、このフォルダの外（あなたが指定した場所）に <code>&lt;サイト名&gt;/</code> と <code>&lt;サイト名&gt;-src/</code> の2つで出ます。公開するのは前者、台本や brief は後者です。</p>
+
+  <footer>Tako_LP_One-Shot 使い方マニュアル。このファイル（MANUAL.html）はダブルクリックでいつでも開けます。印刷にも対応。</footer>
+</main>
+</div>
+</body>
+</html>

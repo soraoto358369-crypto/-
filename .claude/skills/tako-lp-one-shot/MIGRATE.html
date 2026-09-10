@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tako_LP_One-Shot 移行マニュアル</title>
+<style>
+:root{--ink:#151515;--body:#3a3a3a;--muted:#8a8a8a;--line:#e6e6e6;--paper:#f7f7f5;--card:#fff;--red:#d10a1e;--gold:#b8962e;--code:#1b1b1b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--body);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI","Meiryo",system-ui,sans-serif;font-size:15px;line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav{position:sticky;top:0;height:100vh;overflow:auto;background:#111;color:#ddd;padding:28px 22px}
+nav .t{font-family:Impact,"Arial Narrow",sans-serif;letter-spacing:.06em;font-size:22px;color:#fff;line-height:1.1}
+nav .t small{display:block;font-family:inherit;font-size:11px;letter-spacing:.3em;color:var(--red);margin-top:6px}
+nav ol{list-style:none;padding:0;margin:24px 0 0}
+nav li a{display:block;color:#bbb;padding:7px 10px;border-radius:6px;font-size:13.5px}
+nav li a:hover{background:#1e1e1e;color:#fff;text-decoration:none}
+nav li a b{color:var(--red);font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;margin-right:8px;letter-spacing:.05em}
+nav .back{margin-top:26px;font-size:12px;color:#888}
+main{padding:48px clamp(24px,5vw,80px) 120px;max-width:980px;min-width:0}
+main h1{font-size:clamp(26px,3.4vw,38px);line-height:1.25;color:var(--ink);margin:0 0 16px}
+main h2{font-size:24px;color:var(--ink);margin:64px 0 14px;padding-top:24px;border-top:2px solid var(--ink);scroll-margin-top:24px}
+main h2 b{font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;color:var(--red);letter-spacing:.06em;margin-right:12px}
+main h3{font-size:17px;color:var(--ink);margin:30px 0 8px}
+p{margin:0 0 14px;max-width:44em}
+ul,ol{padding-left:1.4em;margin:0 0 14px;max-width:44em}li{margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:12px 0 22px;font-size:14px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#f0f0ee;color:var(--ink);font-weight:700;white-space:nowrap}
+code{font-family:Consolas,"SFMono-Regular",Menlo,monospace;font-size:.92em;background:#eee;padding:2px 6px;border-radius:4px;color:var(--ink)}
+pre{background:var(--code);color:#f2f2f2;padding:16px 18px;border-radius:8px;overflow:auto;font-size:13.5px;line-height:1.7;margin:10px 0 20px;max-width:44em;white-space:pre-wrap}
+pre code{background:none;padding:0;color:inherit}
+strong{color:var(--ink)}
+main>p:first-of-type{font-size:16px;margin-bottom:30px}
+code,td,li,p{overflow-wrap:anywhere}
+footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto}table{display:block;overflow-x:auto;white-space:nowrap}table td,table th{white-space:normal;min-width:160px}}
+@media print{nav{display:none}.wrap{display:block}main{padding:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <div class="t">MIGRATE<small>移行マニュアル</small></div>
+  <ol>
+    <li><a href="#s1"><b>01</b>なぜ移すのか（購入者向けの短い説明）</a></li>
+    <li><a href="#s2"><b>02</b>A. 手元にサイトのフォルダがある場合（一番簡単）</a></li>
+    <li><a href="#s3"><b>03</b>B. 手元にフォルダが無い場合（Netlify にしか残っていない）</a></li>
+    <li><a href="#s4"><b>04</b>C. 移行後にやること</a></li>
+    <li><a href="#s5"><b>05</b>よくある質問</a></li>
+  </ol>
+  <p class="back"><a href="MANUAL.html" style="color:#bbb">← 使い方マニュアルへ</a></p>
+</nav>
+<main>
+<h1>移行マニュアル — 今 Netlify にあるLPを Cloudflare Pages に移す</h1>
+<p>所要 5〜10 分。Claude Code / Codex に任せられます。URL は <code>https://&lt;名前&gt;.pages.dev</code> に変わるので、配布済みのリンクは貼り替えてください。</p>
+<h2 id="s1"><b>01</b>なぜ移すのか（購入者向けの短い説明）</h2>
+<ul>
+<li>Netlify の無料枠は <strong>月100GBの帯域を超えると、そのアカウントの全サイトが止まります</strong>（503 "usage_exceeded"）。LPがバズった瞬間に落ちる、という一番困るタイミングで止まります。</li>
+<li>Cloudflare Pages は <strong>無料でも帯域・アクセス数の上限がありません</strong>。カード不要、操作も同じ「フォルダをアップするだけ」です。</li>
+<li>だからこのスキルは、公開先を Cloudflare Pages に統一しています。</li>
+</ul>
+<h2 id="s2"><b>02</b>A. 手元にサイトのフォルダがある場合（一番簡単）</h2>
+<p>チャットに <strong>「このフォルダを Cloudflare Pages に公開して」</strong> と言うだけ。スキルが <code>scripts/publish.ps1</code>（Mac: <code>publish.sh</code>）を実行し、初回はブラウザで Cloudflare のログイン画面が開くので <strong>Allow</strong> を押します。終わると新しい URL が出ます。</p>
+<p>自分でやる場合: https://dash.cloudflare.com → Workers &amp; Pages → Create → Pages → Upload assets → フォルダをドラッグ&amp;ドロップ（<code>PUBLISH.md</code> 2章）。</p>
+<h2 id="s3"><b>03</b>B. 手元にフォルダが無い場合（Netlify にしか残っていない）</h2>
+<p>Netlify が止まっていても、API からファイルを取り出せます。チャットにこう言ってください。</p>
+<pre><code>Netlify の https://xxxx-yyyy-123456.netlify.app を手元に取り出して、Cloudflare Pages に移行して
+</code></pre>
+<p>スキルがやること:
+1. <code>npx -y netlify-cli login</code>（初回だけ。ブラウザで Authorize を押す）
+2. <code>python scripts/migrate-netlify.py &lt;URL&gt; &lt;保存先&gt;</code> で全ファイルを取り出す
+3. 取り出したフォルダの中に、Netlify でしか動かないもの（<code>data-netlify</code> のフォーム、<code>.netlify.app</code> へのリンク）が無いか点検して、あれば直す
+4. <code>scripts/publish.ps1</code> で Cloudflare Pages に上げて URL を出す</p>
+<p>自分でやる場合: Netlify の管理画面 → サイト → <strong>Deploys</strong> → 一番上のデプロイを開く → 右上の <strong>Download</strong> で zip を落とし、展開したフォルダを Cloudflare にアップロード。</p>
+<h2 id="s4"><b>04</b>C. 移行後にやること</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>やること</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>リンクの貼り替え</td>
+<td>note / SNS / プロフィールに書いた旧 URL（<code>.netlify.app</code>）を新 URL（<code>.pages.dev</code>）に。X のプロフィールリンク、LINE のリッチメニューも忘れずに</td>
+</tr>
+<tr>
+<td>LPの中のリンク</td>
+<td>別のLPやサンプルへ <code>.netlify.app</code> でリンクしていたら、<code>台本.md</code> か index.html を直して再公開</td>
+</tr>
+<tr>
+<td>フォーム</td>
+<td>Netlify Forms（<code>data-netlify</code>）は動かない。Google フォーム（<code>gform</code>）/ 配信ツールの埋め込み（<code>embed</code>）/ LINE（<code>line</code>）に切り替える（<code>parts/forms.md</code>）</td>
+</tr>
+<tr>
+<td>独自ドメイン</td>
+<td>Netlify 側でドメインを外し、Cloudflare Pages の Custom domains に付け直す。DNS の <code>CNAME</code> を <code>&lt;名前&gt;.pages.dev</code> に</td>
+</tr>
+<tr>
+<td>旧サイト</td>
+<td>新 URL で問題なく動くのを確認してから、Netlify 側を削除（Site configuration → Delete site）。残しておくと帯域超過の原因になる</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s5"><b>05</b>よくある質問</h2>
+<ul>
+<li><strong>URL を変えずに移せますか？</strong> <code>.netlify.app</code> の URL は Netlify のものなので引き継げません。独自ドメインを使っていた場合はそのドメインごと移せるので URL は変わりません。</li>
+<li><strong>Cloudflare にもアップロード制限はありますか？</strong> 1ファイル 25MB、1サイト 2万ファイル、デプロイ月500回。LPで到達することはありません。</li>
+<li><strong>Netlify にログインできない（パスワードを忘れた）</strong> Netlify の管理画面からダウンロードできないので、手元にフォルダが無ければ再生成が必要です。スキルの <code>9 続きから</code> で <code>recipe.json</code> と <code>台本.md</code> があれば同じLPを作り直せます。</li>
+</ul>
+  <footer>Tako_LP_One-Shot 移行マニュアル（MIGRATE.md から生成）。このファイルはダブルクリックで開けます。</footer>
+</main>
+</div>
+</body>
+</html>

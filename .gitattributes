@@ -3,3 +3,11 @@
 *.bat text eol=crlf
 *.py  text eol=lf
 *.md  text eol=lf
+
+# スキルのスクリプト: .sh は必ず LF（CRLF だと Mac/Linux で bad interpreter エラー）
+# .ps1 は CRLF（Windows PowerShell 用）
+*.sh  text eol=lf
+*.ps1 text eol=crlf
+*.js  text eol=lf
+*.html text eol=lf
+*.json text eol=lf
