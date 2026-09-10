@@ -1,0 +1,13 @@
+{
+  "accounts": {
+    "メイン": {
+      "chrome_data_dir": "chrome_data_メイン",
+      "pen_name": "あなたの名前"
+    }
+  },
+  "active_account": "メイン",
+  "chrome_profile_dir": "Profile 1",
+  "obsidian_vault_path": "あなたのobsidianフォルダ",
+  "blank_lines": 1,
+  "blank_every": 2
+}

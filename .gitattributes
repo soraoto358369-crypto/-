@@ -1,0 +1,5 @@
+# Windows のバッチファイルは必ず CRLF（LF だと cmd.exe が if(...) ブロックを誤解釈して
+# 「ダブルクリックしても何も起きない」原因になる）
+*.bat text eol=crlf
+*.py  text eol=lf
+*.md  text eol=lf

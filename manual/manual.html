@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>note-article-system ver4 完全マニュアル（Webアプリ版）</title>
+<style>
+@page { size: A4; margin: 18mm 15mm; }
+* { box-sizing: border-box; }
+:root{
+  --accent:#ff7a18; --accent-d:#e06400; --ink:#1a1a22; --muted:#5b6270;
+  --line:#e6e2db; --soft:#fff7f0;
+}
+body {
+  font-family: 'Inter','Meiryo','Yu Gothic','Hiragino Sans','Noto Sans JP',sans-serif;
+  line-height: 1.85; color: var(--ink); max-width: 800px; margin: 0 auto;
+  padding: 40px 24px 80px; background: #fbfaf8; font-size: 15px;
+}
+@media print { body { max-width:none; background:#fff; padding:0; font-size:13px; } .no-print{display:none!important;} .page-break{page-break-before:always;} }
+
+/* 表紙 */
+.cover { text-align:center; padding:110px 20px 70px; color:#fff; border-radius:16px; margin-bottom:50px;
+  background: radial-gradient(700px 320px at 50% -40px, rgba(255,154,77,.55), transparent 70%), linear-gradient(135deg,#241a12 0%,#0b0b0e 100%); }
+.cover .eyebrow { display:inline-block; padding:5px 14px; border-radius:999px; background:var(--accent); color:#fff; font-weight:800; letter-spacing:.16em; font-size:12px; }
+.cover h1 { font-size:34px; margin:18px 0 12px; letter-spacing:1px; font-weight:900; }
+.cover h1 .o{ color:var(--accent); }
+.cover .subtitle { font-size:17px; opacity:.92; margin:0 0 30px; }
+.cover .version { font-size:13px; opacity:.7; }
+
+/* 見出し */
+h2 { font-size:23px; color:var(--accent-d); border-bottom:3px solid var(--accent); padding-bottom:8px; margin-top:48px; }
+h3 { font-size:18px; color:#2a2a33; margin-top:32px; padding-left:12px; border-left:4px solid var(--accent); }
+h4 { font-size:15px; color:#444; margin-top:22px; }
+
+/* 目次 */
+.toc { background:var(--soft); border:1px solid var(--line); border-radius:12px; padding:22px 30px; margin:26px 0 46px; }
+.toc h2 { border:none; margin-top:0; color:#2a2a33; }
+.toc ol { padding-left:20px; } .toc li { margin:5px 0; }
+.toc a { color:var(--accent-d); text-decoration:none; } .toc a:hover { text-decoration:underline; }
+
+/* フロー */
+.flow { display:flex; align-items:center; justify-content:center; gap:0; flex-wrap:wrap; margin:26px 0; }
+.flow-step { background:linear-gradient(135deg,var(--accent),var(--accent-d)); color:#fff; padding:12px 16px; border-radius:10px; text-align:center; min-width:120px; font-size:13px; font-weight:bold; }
+.flow-step .sub { display:block; font-size:11px; font-weight:normal; opacity:.9; margin-top:3px; }
+.flow-arrow { font-size:24px; color:var(--accent); padding:0 6px; font-weight:bold; }
+
+/* ステップ */
+.step-box { background:#fff; border:2px solid #f2e6d8; border-radius:12px; padding:18px 22px 18px 26px; margin:18px 0; position:relative; }
+.step-box .step-num { position:absolute; top:-13px; left:18px; background:var(--accent); color:#fff; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:13px; }
+
+/* コード */
+pre, code { font-family:'Consolas','Source Code Pro',monospace; }
+pre { background:#14141b; color:#e7e3da; padding:14px 18px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6; }
+code { background:#fdeee0; color:var(--accent-d); padding:2px 6px; border-radius:4px; font-size:13px; }
+pre code { background:none; color:inherit; padding:0; }
+
+/* テーブル */
+table { width:100%; border-collapse:collapse; margin:18px 0; font-size:14px; }
+th { background:var(--accent); color:#fff; padding:9px 13px; text-align:left; }
+td { padding:9px 13px; border-bottom:1px solid var(--line); }
+tr:nth-child(even) td { background:#fff7f0; }
+
+/* 注記 */
+.warn { background:#fff3cd; border-left:4px solid #ffb020; padding:13px 17px; border-radius:0 8px 8px 0; margin:15px 0; font-size:14px; }
+.warn::before { content:"⚠ "; font-weight:bold; }
+.tip { background:#fdeede; border-left:4px solid var(--accent); padding:13px 17px; border-radius:0 8px 8px 0; margin:15px 0; font-size:14px; }
+.tip::before { content:"POINT "; font-weight:bold; color:var(--accent-d); }
+.danger { background:#f8d7da; border-left:4px solid #dc3545; padding:13px 17px; border-radius:0 8px 8px 0; margin:15px 0; font-size:14px; }
+.danger::before { content:"重要 "; font-weight:bold; color:#dc3545; }
+
+/* アプリ画面モックアップ（ダーク） */
+.app { border:1px solid #2a2a33; border-radius:12px; overflow:hidden; margin:20px 0; box-shadow:0 6px 18px rgba(0,0,0,.12); background:#0b0b0e; }
+.app-bar { background:#1b1b22; padding:8px 14px; display:flex; align-items:center; gap:8px; border-bottom:1px solid #3a3a44; }
+.dot { width:11px; height:11px; border-radius:50%; }
+.dot.r{background:#ff5f57;} .dot.y{background:#febc2e;} .dot.g{background:#28c840;}
+.app-url { background:#11111a; flex:1; padding:4px 10px; border-radius:14px; color:#b4bac4; font-size:12px; }
+.app-body { display:flex; min-height:150px; }
+.app-side { width:140px; background:#1b1b22; border-right:1px solid #3a3a44; padding:10px; }
+.app-side .grp { color:#b4bac4; font-size:9px; text-transform:uppercase; letter-spacing:.08em; margin:8px 0 4px; }
+.app-side .b { background:#26262f; border:1px solid #3a3a44; border-radius:6px; color:#f7f8fa; font-size:11px; padding:5px 7px; margin-bottom:4px; }
+.app-side .b.cta { background:var(--accent); border:0; color:#fff; font-weight:800; }
+.app-main { flex:1; padding:14px; color:#f7f8fa; font-size:12px; }
+.app-main .bubble { background:#1b1b22; border:1px solid #3a3a44; border-radius:8px; padding:8px 11px; margin-bottom:8px; }
+
+/* ツリー */
+.tree { background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:18px 22px; margin:18px 0; font-family:'Consolas',monospace; font-size:13.5px; line-height:1.8; white-space:pre; overflow-x:auto; }
+
+.lead { font-size:16px; color:var(--muted); }
+.badge { display:inline-block; background:var(--accent); color:#fff; border-radius:999px; padding:2px 10px; font-size:12px; font-weight:700; }
+hr.sep { border:0; border-top:1px dashed var(--line); margin:40px 0; }
+</style>
+</head>
+<body>
+
+<!-- 表紙 -->
+<div class="cover">
+  <span class="eyebrow">note article system</span>
+  <h1>note-<span class="o">article-system</span></h1>
+  <p class="subtitle">完全マニュアル — ローカルWebアプリ版（ver4）</p>
+  <p class="version">たこすけ式 note記事 生成・投稿システム ／ ブラウザで操作</p>
+</div>
+
+<!-- 目次 -->
+<div class="toc">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#about">1. このアプリについて</a></li>
+    <li><a href="#setup">2. 初回セットアップ（はじめに）</a></li>
+    <li><a href="#start">3. 起動と画面の見方</a></li>
+    <li><a href="#make">4. 記事をつくる（5つの方法）</a></li>
+    <li><a href="#knowledge">5. ナレッジ（文体・構成の管理と切替）</a></li>
+    <li><a href="#panel">6. 右パネル（テーマ・記事の管理）</a></li>
+    <li><a href="#history">7. 会話履歴・中断</a></li>
+    <li><a href="#mechanism">8. 仕組みとデータ</a></li>
+    <li><a href="#trouble">9. 困ったときは</a></li>
+    <li><a href="#files">10. ファイル構成</a></li>
+  </ol>
+</div>
+
+<!-- 1 -->
+<h2 id="about">1. このアプリについて</h2>
+<p class="lead">テーマ決め → 記事生成 → note.com への下書き投稿までを、<b>ブラウザの画面でボタン操作</b>できる、たこすけ式のnote記事自動化ツールです。</p>
+<p>ver4 から、これまでのターミナル操作をやめて <b>ローカルWebアプリ</b>になりました。中身（記事生成・投稿・テーマ管理）はそのままに、入口が「ブラウザ画面」になっています。</p>
+<div class="flow">
+  <div class="flow-step">テーマ<span class="sub">指定 / 売れ筋 / Obsidian</span></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">記事生成<span class="sub">あなたの文体で</span></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">保存<span class="sub">articles/</span></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">note下書き投稿<span class="sub">自動</span></div>
+</div>
+<div class="tip">操作はすべて画面のボタン or チャット欄から。コマンドを打つ必要はありません。</div>
+
+<!-- 2 -->
+<h2 id="setup">2. 初回セットアップ（はじめに）</h2>
+<h3>必要なもの</h3>
+<table>
+  <tr><th>項目</th><th>説明</th></tr>
+  <tr><td>Python 3.x</td><td>記事投稿・サーバーの実行に使用</td></tr>
+  <tr><td>Google Chrome</td><td>note.com への自動投稿に使用</td></tr>
+  <tr><td>claude CLI</td><td>記事生成の本体。<code>npm install -g @anthropic-ai/claude-code</code></td></tr>
+  <tr><td>Pythonパッケージ</td><td>selenium / Pillow / psutil / flask（不足分は自動導入）</td></tr>
+</table>
+
+<h3>かんたんセットアップ</h3>
+<div class="step-box"><span class="step-num">1</span>
+  フォルダ内の <code>start_webapp.bat</code> を<b>ダブルクリック</b>。ブラウザで <code>http://127.0.0.1:8788</code> が自動で開きます。
+</div>
+<div class="step-box"><span class="step-num">2</span>
+  画面左上の <span class="badge">🚀 セットアップ（初回設定をガイド）</span> を押す。環境を自動チェックし、足りないものだけ1ステップずつ案内します。
+</div>
+<div class="step-box"><span class="step-num">3</span>
+  左の <b>🔑 note.com にログイン</b> を押す → 専用のChromeウィンドウが開くので、そこで note.com にログイン。完了すると窓は自動で閉じます。
+</div>
+<div class="warn">ログインは必ず「自動で開いた専用ウィンドウ」で行ってください。普段使いのChromeでログインしても投稿システムには反映されません（保存先プロファイルが別のため）。</div>
+<div class="tip">画面上部に赤い「サーバーに接続できません」バナーが出ていなければ、接続は正常です。</div>
+
+<!-- 3 -->
+<h2 id="start" class="page-break">3. 起動と画面の見方</h2>
+<p><code>start_webapp.bat</code> をダブルクリック → ブラウザで <code>http://127.0.0.1:8788</code>。終了するときは、起動時に出る黒いウィンドウ（コマンドプロンプト）を閉じます。</p>
+
+<div class="app">
+  <div class="app-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+    <span class="app-url">127.0.0.1:8788　｜　モデル / モード / 🎭筆者 / 📝構成　🕘履歴　🗘新規</span></div>
+  <div class="app-body">
+    <div class="app-side">
+      <div class="grp">はじめに</div>
+      <div class="b cta">🚀 セットアップ</div>
+      <div class="b">✓ 環境チェック</div>
+      <div class="b">🔑 ログイン</div>
+      <div class="grp">記事をつくる</div>
+      <div class="b">1 テーマ指定</div>
+      <div class="b">2 売れ筋取得</div>
+      <div class="b">3 複数件 生成</div>
+      <div class="b">4 テーマ追加</div>
+      <div class="b">5 Obsidian</div>
+      <div class="grp">ナレッジ</div>
+      <div class="b">🎭 筆者ルール</div>
+      <div class="b">📝 記事構成</div>
+      <div class="b">✨ 自動生成</div>
+    </div>
+    <div class="app-main">
+      <div class="bubble">左のボタンで操作、または下の入力欄から「○○のテーマで記事を書いて」と指示できます。</div>
+      <div class="bubble" style="border-color:var(--accent)">🐙 承知しました。記事を生成して note に下書き投稿します…</div>
+      <div style="color:#b4bac4">［ 入力欄 ］ ［送信］［中断］［キャンセル］</div>
+    </div>
+  </div>
+</div>
+
+<table>
+  <tr><th>場所</th><th>役割</th></tr>
+  <tr><td>ヘッダー</td><td>モデル／モード切替、🎭筆者・📝構成の参照切替、🕘履歴、🗘新規</td></tr>
+  <tr><td>左パネル</td><td>操作メニュー（はじめに／記事をつくる／ナレッジ／フォルダ）</td></tr>
+  <tr><td>中央</td><td>チャット。生成の進捗や報告が表示される。送信／中断／キャンセル</td></tr>
+  <tr><td>右パネル</td><td>環境ステータス／テーマ残数・一覧／記事（未投稿・投稿済）</td></tr>
+</table>
+<h4>モードについて</h4>
+<p>ヘッダーの「モード」は通常 <b>フルオート</b>でOK（確認なしで生成〜投稿まで実行）。慎重に進めたいときは「制限」「計画のみ」も選べます。</p>
+
+<!-- 4 -->
+<h2 id="make" class="page-break">4. 記事をつくる（5つの方法）</h2>
+
+<h3>① テーマ指定で1件 生成＋投稿</h3>
+<p>ボタンを押すとテーマを聞かれます。入力すると、あなたの文体で記事を生成 → 保存 → note に下書き投稿まで一気に実行します。</p>
+
+<h3>② 売れ筋からテーマ取得</h3>
+<p>キーワードを入力すると、<b>note の非公式API</b>から売れ筋の有料記事を収集し、それを分析して30個のテーマ案を作って <code>themes.json</code> に追加します。</p>
+<div class="tip">ver4 ではブラウザ自動操作（スクレイピング）をやめ、安全な公開APIに切替。「今売れている記事(24h)」＋「スキの多い記事」をバランスよく集め、丸パクリにならないよう"切り口の型"を抽出してテーマ化します。</div>
+
+<h3>③ 複数件 生成（一覧から選択）</h3>
+<p>未着手テーマの<b>残数と全一覧</b>が表示されます。チェックボックスで作りたいものを選び、「下書き投稿まで／保存のみ」を選んで一括生成。</p>
+
+<h3>④ テーマを追加</h3>
+<p>自分で思いついたテーマを <code>themes.json</code> の未着手に追加します。</p>
+
+<h3>⑤ Obsidianから生成（フォルダ指定）</h3>
+<p>Obsidian のメモ（.md）から記事を作ります。<b>「📂 フォルダを開いて選ぶ」</b>でフォルダ選択ダイアログから直接指定でき、サブフォルダのドリルダウンも可能。<b>件数指定</b>と<b>「下書き投稿まで／保存のみ」</b>を選んで一気通貫で実行します。</p>
+
+<!-- 5 -->
+<h2 id="knowledge" class="page-break">5. ナレッジ（文体・構成の管理と切替）</h2>
+<p>「どんな文体・思考で書くか（筆者ルール）」と「どんな構成で書くか（記事構成）」を、<b>あなたが自由に編集・切替</b>できます。記事生成時は、選択中（⭐）のものが参照されます。</p>
+
+<h3>🎭 筆者ルール / 📝 記事構成</h3>
+<ul>
+  <li>カテゴリごとに<b>複数のキャラ／構成を保存</b>でき、<b>タブで切替</b>。⭐が付いているものが「参照中」</li>
+  <li>編集・新規作成・リネーム・削除が可能</li>
+  <li><b>ヘッダーのドロップダウン</b>（🎭筆者／📝構成）でワンタッチ切替もできます</li>
+</ul>
+
+<h3>✨ 参照情報から自動生成</h3>
+<p>真似たい文章サンプルや「こういうトーンにしたい」という方針を貼り付けると、<b>既存ナレッジの構造を踏襲して</b>新しい筆者ルール・記事構成を自動作成します。「生成後そのまま参照先にする」にチェックすれば即適用。</p>
+<div class="tip">複数のキャラ（例：たこすけ／ビジネス女子／毒舌系）を使い分けたいときに便利。ヘッダーで切り替えるだけで、次の記事から文体が変わります。</div>
+
+<!-- 6 -->
+<h2 id="panel">6. 右パネル（テーマ・記事の管理）</h2>
+<h3>テーマ</h3>
+<ul>
+  <li>未着手テーマを<b>全件表示</b>。各テーマの<b>文字をクリックでそのテーマを単体生成</b></li>
+  <li>チェックを入れて <b>🗑 削除</b>（全選／解除あり）で不要なテーマを掃除できます</li>
+</ul>
+<h3>記事</h3>
+<ul>
+  <li><b>未投稿</b>：上の <b>「📤 未投稿 N件 を下書き投稿」</b>でまとめて投稿。各記事はクリックで本文編集</li>
+  <li><b>投稿済み</b>：チェック＋ <b>🗑</b> でローカルファイルを削除（※note.com 上の下書きは消えません）</li>
+</ul>
+<div class="tip">下書き投稿に成功すると、対応するテーマが <code>themes.json</code> で「未着手 → 完了」へ自動で移動します。</div>
+
+<!-- 7 -->
+<h2 id="history">7. 会話履歴・中断</h2>
+<ul>
+  <li><b>🕘 履歴</b>：過去の会話がブラウザに自動保存され、一覧から開いて続きから再開できます。各会話の削除・全削除も可能</li>
+  <li><b>🗘 新規</b>：新しい会話を開始（過去の会話は履歴に残ります）</li>
+  <li><b>中断</b>：実行中の生成を途中で止める／<b>キャンセル</b>：入力欄をクリア</li>
+</ul>
+
+<!-- 8 -->
+<h2 id="mechanism" class="page-break">8. 仕組みとデータ</h2>
+<table>
+  <tr><th>場所 / ファイル</th><th>役割</th></tr>
+  <tr><td><code>themes.json</code></td><td>テーマ管理（pending=未着手／done=完了）。投稿成功で自動更新</td></tr>
+  <tr><td><code>articles/</code></td><td>生成記事（未投稿）。投稿後は <code>articles/posted/</code> へ移動</td></tr>
+  <tr><td><code>prompt_knowledge/筆者/</code></td><td>筆者ルール（複数）。<code>.active</code> が参照中のファイル</td></tr>
+  <tr><td><code>prompt_knowledge/手順/</code></td><td>記事構成（複数）。<code>.active</code> が参照中のファイル</td></tr>
+  <tr><td><code>note_poster.py</code></td><td>note.com への下書き投稿（Selenium）＋themes.json 自動更新</td></tr>
+  <tr><td><code>note_scraper.py</code></td><td>売れ筋リサーチ（note 非公式API・Chrome不要）</td></tr>
+  <tr><td><code>webapp/</code></td><td>Webアプリ本体（server.py＝サーバー、static/index.html＝画面）</td></tr>
+</table>
+<div class="tip">記事を書く前に、システムは選択中（.active）の筆者ルールと記事構成だけを読み込みます。選んでいないキャラは混ざりません。</div>
+
+<!-- 9 -->
+<h2 id="trouble">9. 困ったときは</h2>
+<table>
+  <tr><th>症状</th><th>対処</th></tr>
+  <tr><td>赤いバナー／ボタンが反応しない</td><td>サーバー未起動。<code>start_webapp.bat</code> を起動し、実ブラウザで <code>http://127.0.0.1:8788</code> を開く（Claude内のプレビューでは動きません）</td></tr>
+  <tr><td>機能を追加・更新したのに反映されない</td><td>画面だけの変更は<b>Ctrl+Shift+R</b>で再読込。サーバー側（server.py）の変更は<b>再起動</b>が必要。<code>start_webapp.bat</code> は古いサーバーを自動終了してから起動します</td></tr>
+  <tr><td>「取得失敗（HTTP 404）」</td><td>古いサーバーが動いたまま。バッチを再実行して最新版で起動</td></tr>
+  <tr><td>投稿で止まる</td><td>note.com 未ログイン。左の「🔑 ログイン」でログイン</td></tr>
+  <tr><td>フォルダ選択ダイアログが見当たらない</td><td>サーバーを動かしているPCのデスクトップに出ます（最前面）。最小化やタスクバーを確認</td></tr>
+</table>
+
+<!-- 10 -->
+<h2 id="files">10. ファイル構成</h2>
+<div class="tree">note-article-system_ver4/
+├── start_webapp.bat        ← ダブルクリックで起動
+├── webapp/
+│   ├── server.py           ← ローカルサーバー（claude CLI を呼ぶ）
+│   └── static/index.html   ← 画面
+├── CLAUDE.md               ← システムへの指示書
+├── note_poster.py          ← note下書き投稿（Selenium）＋themes自動更新
+├── note_scraper.py         ← 売れ筋リサーチ（非公式API・Chrome不要）
+├── themes.json             ← テーマ（未着手 / 完了）
+├── config.json             ← 設定（アカウント・Obsidianパス等）
+├── articles/               ← 生成記事
+│   └── posted/             ← 投稿済み
+├── prompt_knowledge/       ← 執筆ナレッジ（Web UIから編集・切替）
+│   ├── 筆者/  （筆者ルール・複数／.active が参照中）
+│   └── 手順/  （記事構成・複数／.active が参照中）
+└── manual/                 ← このマニュアル
+</div>
+
+<hr class="sep">
+<p style="text-align:center; color:var(--muted); font-size:13px">
+note-article-system ver4 — ローカルWebアプリ版<br>
+起動：<code>start_webapp.bat</code> → <code>http://127.0.0.1:8788</code>
+</p>
+
+</body>
+</html>
