@@ -16,7 +16,12 @@ dst = f"{ROOT}/assets/img/cases"; os.makedirs(dst, exist_ok=True)
 
 size = None; total = 0
 for age in ages:
-    files = sorted(glob.glob(f"{SRC}/cases/{age}/*.png") + glob.glob(f"{SRC}/cases/{age}/*.jpg"))
+    # 末尾の数字で並べる。文字列順だと c40_10 が c40_2 より前に来て、
+    # 写真と説明文の対応がずれる（別の方の数値が表示される）。
+    def _num(f):
+        m = re.search(r"_(\d+)\.[a-z]+$", f)
+        return int(m.group(1)) if m else 0
+    files = sorted(glob.glob(f"{SRC}/cases/{age}/*.png") + glob.glob(f"{SRC}/cases/{age}/*.jpg"), key=_num)
     if len(files) != len(data[age]):
         sys.exit(f"[NG] {age}代: 写真 {len(files)}枚 と cases.json {len(data[age])}件 が一致しません")
     for i, p in enumerate(files, 1):
