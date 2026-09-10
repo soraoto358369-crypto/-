@@ -3,7 +3,7 @@ site: cs60-iroha
 
 - [PASS] タグ整合: index.html
 - [PASS] 参照ファイルが全部存在
-- [PASS] 総重量 0.06MB (上限 3MB)
+- [PASS] 総重量 1.12MB (上限 3MB)
 - [PASS] 外部通信は許可ホストのみ
 - [PASS] メタ: <title>
 - [PASS] メタ: description
