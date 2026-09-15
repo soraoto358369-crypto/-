@@ -1,5 +1,5 @@
 """
-webapp/server.py - note-article-system Web UI サーバー
+webapp/server.py - salon-article-system Web UI サーバー
 
 ブラウザのチャット画面から claude CLI をヘッドレス起動し、
 CLAUDE.md のメニュー / 記事生成フローを Web アプリとして操作する。
@@ -12,7 +12,8 @@ CLAUDE.md のメニュー / 記事生成フローを Web アプリとして操�
   - メッセージごとに `claude -p --output-format stream-json` を起動
   - 2回目以降は `--resume <session_id>` で会話を継続
   - 出力を NDJSON でブラウザにストリーミング
-  - テーマ(themes.json) / 記事(articles/) / ログインは専用 API で操作
+  - テーマ(themes.json) / 記事(articles/) / ナレッジは専用 API で操作
+  - 自動投稿はしない（記事は articles/ に保存するだけ）
 """
 
 import json
@@ -147,7 +148,7 @@ def api_open_folder():
 
 
 # ==============================
-# 記事ファイル解析（note_poster.py と同じロジックの軽量版）
+# 記事ファイル解析（article_formatter.py と同じロジックの軽量版）
 # ==============================
 def _parse_article(path: Path):
     """(title, char_count) を返す。"""
@@ -188,10 +189,10 @@ def _parse_article(path: Path):
 
 @app.get("/api/articles")
 def api_articles():
-    """articles/ (未投稿) と articles/posted/ (投稿済み) の一覧を返す。"""
+    """articles/ (未公開) と articles/published/ (公開済み) の一覧を返す。"""
     adir = PROJECT_DIR / "articles"
-    pdir = adir / "posted"
-    pending, posted = [], []
+    pdir = adir / "published"
+    pending, published = [], []
     if adir.is_dir():
         for p in sorted(adir.glob("*.txt"), key=lambda x: x.stat().st_mtime):
             title, chars = _parse_article(p)
@@ -200,9 +201,9 @@ def api_articles():
     if pdir.is_dir():
         for p in sorted(pdir.glob("*.txt"), key=lambda x: x.stat().st_mtime, reverse=True):
             title, chars = _parse_article(p)
-            posted.append({"name": p.name, "title": title, "chars": chars,
-                           "path": f"articles/posted/{p.name}"})
-    return {"pending": pending, "posted": posted}
+            published.append({"name": p.name, "title": title, "chars": chars,
+                              "path": f"articles/published/{p.name}"})
+    return {"pending": pending, "published": published}
 
 
 @app.get("/api/themes")
@@ -245,7 +246,7 @@ def api_themes_delete():
 
 @app.post("/api/articles-delete")
 def api_articles_delete():
-    """記事 .txt（articles/ 直下・articles/posted/）を削除する。ローカルファイルのみ（note上の下書きは消えない）。"""
+    """記事 .txt（articles/ 直下・articles/published/）を削除する。"""
     data = request.get_json(force=True, silent=True) or {}
     paths = data.get("paths") or []
     if not paths:
@@ -258,7 +259,7 @@ def api_articles_delete():
             continue
         ok = (t.suffix == ".txt" and (
             t.parent.name == "articles"
-            or (t.parent.name == "posted" and t.parent.parent.name == "articles")
+            or (t.parent.name == "published" and t.parent.parent.name == "articles")
         ))
         if ok and t.is_file():
             try:
@@ -283,7 +284,7 @@ def api_read_file():
 
 @app.post("/api/save-file")
 def api_save_file():
-    """記事 .txt（articles/ 直下・posted/）/ themes.json / prompt_knowledge の .txt・.md のみ編集を許可する。"""
+    """記事 .txt（articles/ 直下・published/）/ themes.json / prompt_knowledge の .txt・.md のみ編集を許可する。"""
     data = request.get_json(force=True, silent=True) or {}
     rel = data.get("path") or ""
     content = data.get("content")
@@ -296,7 +297,7 @@ def api_save_file():
 
     is_article = (target.suffix == ".txt"
                   and (target.parent.name == "articles"
-                       or (target.parent.name == "posted"
+                       or (target.parent.name == "published"
                            and target.parent.parent.name == "articles")))
     is_themes = target.name == "themes.json" and target.parent == PROJECT_DIR.resolve()
     kb_root = (PROJECT_DIR / "prompt_knowledge").resolve()
@@ -541,92 +542,48 @@ def api_obsidian_config():
     return {"ok": True, "path": p}
 
 
-@app.get("/api/accounts")
-def api_accounts():
-    """投稿アカウント一覧と選択中を返す。"""
+@app.get("/api/salon")
+def api_salon_get():
+    """config.json の salon（サロン情報）を返す。"""
     cfg = _load_project_config()
-    accounts = cfg.get("accounts") or {}
-    active = cfg.get("active_account", "")
-    if not active and accounts:
-        active = next(iter(accounts))
-    return {"active": active,
-            "accounts": [{"name": k, "pen_name": (v or {}).get("pen_name", "")}
-                         for k, v in accounts.items()]}
+    return {"salon": cfg.get("salon", {})}
 
 
-@app.post("/api/account-switch")
-def api_account_switch():
-    """active_account を切り替える。"""
+@app.post("/api/salon")
+def api_salon_set():
+    """サロン情報（名前・エリア・予約URL 等）を config.json に保存する。"""
     data = request.get_json(force=True, silent=True) or {}
-    name = (data.get("name") or "").strip()
+    incoming = data.get("salon")
+    if not isinstance(incoming, dict):
+        return {"error": "サロン情報が不正です"}, 400
     cfg = _load_project_config()
-    if name not in (cfg.get("accounts") or {}):
-        return {"error": "そのアカウントがありません"}, 404
-    cfg["active_account"] = name
+    salon = cfg.get("salon") or {}
+    allowed = ("name", "owner_name", "area", "business_hours", "closed",
+               "reserve_url", "reserve_label", "menu", "target", "strength")
+    for k in allowed:
+        if k not in incoming:
+            continue
+        v = incoming[k]
+        if k == "menu":
+            if isinstance(v, str):
+                v = [s.strip() for s in v.splitlines() if s.strip()]
+            if not isinstance(v, list):
+                continue
+            salon[k] = [str(s)[:120] for s in v][:20]
+        else:
+            salon[k] = str(v)[:300]
+    url = (salon.get("reserve_url") or "").strip()
+    if url and not url.startswith(("http://", "https://")):
+        return {"error": "予約URLは http:// または https:// で始めてください"}, 400
+    cfg["salon"] = salon
     (PROJECT_DIR / "config.json").write_text(
         json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
-    return {"ok": True, "active": name}
-
-
-@app.post("/api/account-add")
-def api_account_add():
-    """新しいアカウントを追加して選択中にする（chrome_data_dir を自動採番）。"""
-    data = request.get_json(force=True, silent=True) or {}
-    name = (data.get("name") or "").strip()
-    pen = (data.get("pen_name") or "").strip()
-    if not name or "/" in name or "\\" in name:
-        return {"error": "アカウント名が不正です"}, 400
-    cfg = _load_project_config()
-    cfg.setdefault("accounts", {})
-    if name in cfg["accounts"]:
-        return {"error": "同名のアカウントが既にあります"}, 409
-    cfg["accounts"][name] = {"chrome_data_dir": f"chrome_data_{name}", "pen_name": pen}
-    cfg["active_account"] = name
-    (PROJECT_DIR / "config.json").write_text(
-        json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
-    return {"ok": True, "active": name}
-
-
-def _note_scraper():
-    """note_scraper モジュールを遅延インポート（プロジェクト直下）。"""
-    import importlib
-    if str(PROJECT_DIR) not in sys.path:
-        sys.path.insert(0, str(PROJECT_DIR))
-    return importlib.import_module("note_scraper")
-
-
-@app.get("/api/reactions")
-def api_reactions():
-    """note の自分の記事のスキ数を集計して返す（反応分析）。"""
-    urlname = (request.args.get("urlname") or "").strip().strip("@/ ")
-    if not urlname:
-        urlname = (_load_project_config().get("note_urlname") or "").strip()
-    if not urlname:
-        return {"configured": False}
-    try:
-        data = _note_scraper().reactions(urlname)
-    except Exception as e:
-        return {"error": f"取得失敗: {e}"}, 500
-    return {"configured": True, **data}
-
-
-@app.post("/api/reactions-config")
-def api_reactions_config():
-    """反応分析の対象 note ユーザー名を config.json に保存。"""
-    data = request.get_json(force=True, silent=True) or {}
-    u = (data.get("urlname") or "").strip().strip("@/ ")
-    if not u:
-        return {"error": "note のユーザー名を入力してください"}, 400
-    cfg = _load_project_config()
-    cfg["note_urlname"] = u
-    (PROJECT_DIR / "config.json").write_text(
-        json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
-    return {"ok": True, "urlname": u}
+    return {"ok": True, "salon": salon}
 
 
 @app.get("/api/format-config")
 def api_format_config_get():
-    """note投稿の整形設定（空行・折返し）を返す。"""
+    """貼り付け用テキストの整形設定（空行・折返し）を返す。"""
     cfg = _load_project_config()
     return {
         "blank_lines": cfg.get("blank_lines", 2),
@@ -637,7 +594,7 @@ def api_format_config_get():
 
 @app.post("/api/format-config")
 def api_format_config_set():
-    """note投稿の整形設定を config.json に保存する。"""
+    """貼り付け用テキストの整形設定を config.json に保存する。"""
     data = request.get_json(force=True, silent=True) or {}
     cfg = _load_project_config()
     bl = data.get("blank_lines")
@@ -701,70 +658,90 @@ def api_pick_folder():
 
 
 # ==============================
-# 環境ステータス & ログイン
+# 環境ステータス
 # ==============================
 @app.get("/api/status")
 def api_status():
-    """環境チェック（Python / Chrome / パッケージ / note.comログイン状態）。"""
-    def _chrome_ver():
-        path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-        try:
-            if os.path.exists(path):
-                import subprocess as sp
-                out = sp.check_output([
-                    "powershell", "-command",
-                    f"(Get-Item '{path}').VersionInfo.ProductVersion"
-                ], text=True, encoding="utf-8", errors="replace").strip()
-                return out or None
-        except Exception:
-            return None
-        return None
+    """環境チェック（Python / claude CLI / サロン情報 / ナレッジの選択状態）。"""
+    cfg = _load_project_config()
+    salon = cfg.get("salon") or {}
+    name = (salon.get("name") or "").strip()
+    url = (salon.get("reserve_url") or "").strip()
+    name_ok = bool(name) and "（" not in name
+    url_ok = url.startswith(("http://", "https://"))
 
-    # パッケージ確認
-    pkg_ok = True
-    for mod in ("selenium", "PIL", "psutil"):
+    kb = {}
+    for cat in ("筆者", "手順"):
         try:
-            __import__(mod)
+            kb[cat] = _get_active(cat)
         except Exception:
-            pkg_ok = False
-            break
-
-    # ログイン状態（config の chrome_data_dir にプロファイルがあるか）
-    cfg = {}
-    try:
-        cfg = json.loads((PROJECT_DIR / "config.json").read_text(encoding="utf-8"))
-    except Exception:
-        pass
-    accounts = cfg.get("accounts", {})
-    active = cfg.get("active_account", "")
-    acct = accounts.get(active) or (next(iter(accounts.values()), {}) if accounts else {})
-    data_dir = acct.get("chrome_data_dir", "cloned_chrome_data")
-    logged_in = (PROJECT_DIR / data_dir).is_dir()
+            kb[cat] = ""
 
     return {
         "python": sys.version.split()[0],
-        "chrome": _chrome_ver(),
-        "packages_ok": pkg_ok,
         "claude_cli": bool(find_claude()),
-        "logged_in": logged_in,
-        "active_account": active,
+        "salon_name": name if name_ok else "",
+        "salon_name_ok": name_ok,
+        "reserve_url_ok": url_ok,
+        "kb_author": kb.get("筆者", ""),
+        "kb_flow": kb.get("手順", ""),
     }
 
 
-@app.post("/api/login")
-def api_login():
-    """note.com ログイン窓を起動する（note_poster.py --login をバックグラウンド実行）。"""
-    poster = PROJECT_DIR / "note_poster.py"
-    if not poster.exists():
-        return {"error": "note_poster.py が見つかりません"}, 404
+# ==============================
+# 公開済みへの移動 / 貼り付け用の整形
+# ==============================
+@app.post("/api/articles-publish")
+def api_articles_publish():
+    """記事を articles/published/ へ移動する（公開が済んだ印）。"""
+    data = request.get_json(force=True, silent=True) or {}
+    paths = data.get("paths") or []
+    if not paths:
+        return {"error": "対象がありません"}, 400
+    dest = PROJECT_DIR / "articles" / "published"
+    dest.mkdir(parents=True, exist_ok=True)
+    moved = []
+    for rel in paths:
+        try:
+            src = _safe_target(rel)
+        except ValueError:
+            continue
+        if src.suffix != ".txt" or src.parent.name != "articles" or not src.is_file():
+            continue
+        target = dest / src.name
+        if target.exists():                      # 同名は連番を付けて退避
+            i = 2
+            while (dest / f"{src.stem}_{i}.txt").exists():
+                i += 1
+            target = dest / f"{src.stem}_{i}.txt"
+        try:
+            shutil.move(str(src), str(target))
+            moved.append(target.name)
+        except Exception:
+            pass
+    return {"ok": True, "moved": moved}
+
+
+@app.get("/api/format-preview")
+def api_format_preview():
+    """記事を貼り付け用に整形して返す（article_formatter.py を使用）。"""
+    rel = request.args.get("path", "")
     try:
-        subprocess.Popen(
-            [PY_BIN, str(poster), "--login"],
-            cwd=str(PROJECT_DIR),
-        )
+        target = _safe_target(rel)
+    except ValueError:
+        return {"error": "プロジェクト外のファイルは読めません"}, 400
+    if not target.is_file() or target.suffix != ".txt":
+        return {"error": "記事ファイルが見つかりません"}, 404
+    try:
+        import importlib
+        if str(PROJECT_DIR) not in sys.path:
+            sys.path.insert(0, str(PROJECT_DIR))
+        fmt = importlib.import_module("article_formatter")
+        importlib.reload(fmt)                    # config.json の変更を毎回反映
+        title, body = fmt.format_file(target)
     except Exception as e:
-        return {"error": f"ログイン窓を起動できませんでした: {e}"}, 500
-    return {"ok": True, "message": "ログイン専用Chromeを起動しました。開いた窓でnote.comにログインしてください（完了で自動的に閉じます）。"}
+        return {"error": f"整形に失敗しました: {e}"}, 500
+    return {"ok": True, "title": title, "text": body}
 
 
 # ==============================
@@ -810,9 +787,9 @@ def api_send():
         # 制限モード: 記事生成フローに必要なツールだけを許可する
         allowed_tools = ",".join([
             "Read", "Write", "Edit", "Glob", "Grep",      # プロジェクト内のファイル操作
-            "WebSearch", "WebFetch",                       # 売れ筋・市場リサーチ
+            "WebSearch", "WebFetch",                       # 季節ネタ・下調べ
             "Task", "TodoWrite", "Skill",                  # サブエージェント・進捗・スキル
-            "Bash(python:*)",                              # note_poster.py / note_scraper.py / generate_pdf.py
+            "Bash(python:*)",                              # article_formatter.py
             "Bash(mkdir:*)", "Bash(ls:*)", "Bash(cat:*)",  # フォルダ作成・確認
         ])
         cmd += ["--allowedTools", allowed_tools]
@@ -892,7 +869,7 @@ def api_send():
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("  note-article-system Web UI")
+    print("  salon-article-system Web UI（よもぎ蒸しサロン記事生成）")
     print(f"  http://{HOST}:{PORT} をブラウザで開いてください")
     print(f"  作業ディレクトリ: {PROJECT_DIR}")
     print(f"  claude CLI: {CLAUDE_BIN or '見つかりません（要インストール）'}")

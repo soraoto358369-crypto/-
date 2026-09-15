@@ -1,13 +1,22 @@
 {
-  "accounts": {
-    "メイン": {
-      "chrome_data_dir": "chrome_data_メイン",
-      "pen_name": "あなたの名前"
-    }
+  "salon": {
+    "name": "（サロン名を入れてください）",
+    "owner_name": "（オーナー名）",
+    "area": "（エリア・最寄り駅）",
+    "business_hours": "10:00〜19:00（最終受付 18:00）",
+    "closed": "不定休",
+    "reserve_url": "https://utage-system.com/p/4c7aaEeJEnHu",
+    "reserve_label": "ご予約・詳細はこちら",
+    "menu": [
+      "よもぎ蒸し 40分",
+      "よもぎ蒸し 60分",
+      "よもぎ蒸し＋ハーブパック"
+    ],
+    "target": "30〜40代の女性／冷え・生理前のゆらぎ・妊活中・産後の疲れが気になる方",
+    "strength": "完全予約制の個室／ひとりで静かに過ごせる時間"
   },
-  "active_account": "メイン",
-  "chrome_profile_dir": "Profile 1",
-  "obsidian_vault_path": "あなたのobsidianフォルダ",
+  "obsidian_vault_path": "",
   "blank_lines": 1,
-  "blank_every": 2
+  "blank_every": 2,
+  "line_wrap": ""
 }

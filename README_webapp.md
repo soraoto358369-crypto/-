@@ -1,7 +1,7 @@
-# note-article-system — Web UI（アプリ版）
+# よもぎ蒸しサロン 記事生成システム — Web UI（アプリ版）
 
-`note-article-system-cli_ver2` を **ブラウザで操作できるアプリ**にしたものです。
-（AUTO-content-system_ver05 の webapp と同じ仕組み：ローカルFlaskサーバ＋claude CLI）
+サロンのブログ記事を Claude Code に書かせて、`articles/` に保存するアプリです。
+**自動投稿はしません。** できあがった記事をコピーして、ブログ・UTAGE・SNS に貼り付けてお使いください。
 
 ## 起動方法
 
@@ -16,42 +16,70 @@
 
 - Python 3.x がインストール済み
 - `claude` CLI がインストール済み（`npm install -g @anthropic-ai/claude-code`）
-- selenium / Pillow / psutil（投稿に使用）
+
+※ Selenium や Chrome の設定は不要になりました（自動投稿をしないため）。
+
+## 最初にやること
+
+左パネルの **🏠「サロン情報を登録・編集」** から、次を登録してください。
+ここで登録した内容が、記事の最後の「ご予約・ご相談はこちら」に自動で入ります。
+
+- サロン名／エリア・最寄り駅／営業時間
+- **ご予約ページのURL**（UTAGE の予約ページなど）
+- メニュー／どんな方に来てほしいか
 
 ## 画面の使い方
 
-- **中央のチャット**：「○○のテーマで記事を書いて投稿して」など自由に指示。claude が CLAUDE.md に従って動きます
-- **左パネル（クイック操作）**：メニュー[1]〜[7] 相当のボタン、環境チェック、**note.comログイン**、フォルダを開く
-- **右パネル**：環境ステータス／テーマ残数（themes.json）／記事一覧（未投稿・投稿済）
-  - テーマをクリック → そのテーマで生成＋投稿を指示
+- **中央のチャット**：「○○のテーマでブログを書いて」など自由に指示。claude が CLAUDE.md に従って動きます
+- **左パネル（クイック操作）**：記事生成、テーマ追加、ナレッジ編集、サロン情報、フォルダを開く
+- **右パネル**：環境ステータス／テーマ残数（themes.json）／記事一覧（未公開・公開済）
+  - テーマをクリック → そのテーマで記事生成
   - 記事をクリック → その場で本文を編集・保存
-- **ヘッダー**：モデル選択（Opus/Sonnet/Haiku/Fable）・動作モード切替
+  - 記事の **📋** → 貼り付け用に整形したテキストを表示（そのままコピーできます）
+  - **✅ 公開済みに** → 公開が済んだ記事を `articles/published/` へ移動
+- **ヘッダー**：モデル選択（Opus/Sonnet/Haiku/Fable）・動作モード・目標文字数・参照ナレッジの切替
 
-## note.com ログイン
+## 記事を書くときのルール（重要）
 
-左パネルの「🔑 note.com にログイン」を押すと、**専用のChromeウィンドウ**が開きます。
-その窓で note.com にログインすると自動で閉じ、以降は自動投稿できます。
-（普段使いのChromeではログインしないでください。保存先プロファイルが別です）
+よもぎ蒸しサロンは医療機関ではないため、**効果・効能を断定する表現は薬機法違反になります**。
+このシステムは `prompt_knowledge/薬機法ルール.md` を毎回読み込み、NG表現を避けて記事を書きます。
+ルールの内容は左パネルの **⚖「薬機法ルールを確認・編集」** から確認・編集できます。
+
+## 貼り付け用の整形
+
+記事の改行・空行は、貼り付け用テキストを作るときに自動で整えます。
+折返し幅・空行の量は左パネルの **⚙「貼り付けの余白設定」** で調整できます。
+
+コマンドラインからも使えます。
+
+```bash
+python article_formatter.py --list                          # 記事一覧
+python article_formatter.py --file articles/xxx.txt         # 整形して表示
+python article_formatter.py --file articles/xxx.txt --save  # articles/貼り付け用/ に書き出し
+```
 
 ## 動作モードについて
 
-- **フルオート（既定）**：確認なしで記事生成〜下書き投稿まで一気に実行。`start_webapp.bat` が `NAS_ALLOW_FULL=1` を設定して有効化します
+- **フルオート（既定）**：確認なしで記事生成〜保存まで一気に実行。`start_webapp.bat` が `NAS_ALLOW_FULL=1` を設定して有効化します
 - **制限（安全）**：ファイル操作・リサーチ・python実行など必要なツールのみ許可
 - **自動 / 計画のみ**：CLI のパーミッションモードに委譲
 
 ## ポート
 
-`8788`（AUTO-content-system の 8787 と被らないようにしています）。
-変更したい場合は `webapp/server.py` の `PORT` を編集してください。
+`8788`。変更したい場合は `webapp/server.py` の `PORT` を編集してください。
 
-## ファイル構成（追加分）
+## ファイル構成
 
 ```
-note-article-system_ver4/
+salon-article-system/
 ├── start_webapp.bat          ← ダブルクリックで起動
-├── webapp/
-│   ├── server.py             ← Flaskサーバ（claude CLI をストリーミング起動）
-│   └── static/index.html     ← 画面
-└── （以下は cli_ver2 から一式コピー）
-    CLAUDE.md / note_poster.py / note_scraper.py / themes.json / articles/ …
+├── CLAUDE.md                 ← Claude Code への指示
+├── config.json               ← サロン情報・予約URL・整形の余白
+├── article_formatter.py      ← 貼り付け用テキストの整形
+├── themes.json               ← テーマキュー
+├── articles/                 ← 生成記事（published/ = 公開済み）
+├── prompt_knowledge/         ← 執筆ナレッジ（薬機法／整形／筆者／手順／ワード）
+└── webapp/
+    ├── server.py             ← Flaskサーバ（claude CLI をストリーミング起動）
+    └── static/index.html     ← 画面
 ```

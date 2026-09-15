@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>note-article-system — Web UI</title>
+<title>よもぎ蒸しサロン 記事生成システム — Web UI</title>
 <style>
   :root{
     color-scheme: dark;
@@ -156,7 +156,7 @@
 </head>
 <body>
 <header>
-  <div class="logo">note-<span>article-system</span> <span style="color:var(--muted);font-weight:400;font-size:11px">Web UI</span></div>
+  <div class="logo">よもぎ蒸しサロン<span>記事生成</span> <span style="color:var(--muted);font-weight:400;font-size:11px">Web UI</span></div>
   <div class="spacer"></div>
   <label>モデル</label>
   <select id="model">
@@ -189,9 +189,6 @@
   <label>📝構成</label>
   <select class="kb-sel" data-cat="手順" onchange="setKbActive('手順', this.value)" title="参照する記事構成"></select>
   <span class="hdiv"></span>
-  <label>👤</label>
-  <select id="account" onchange="switchAccount(this.value)" title="投稿アカウント" style="max-width:130px"></select>
-  <button class="refresh" onclick="addAccount()" title="アカウントを追加">＋</button>
   <button class="refresh" onclick="openHistory()" title="会話履歴">🕘 履歴</button>
   <button class="refresh" onclick="newChat()" title="新しい会話">🗘 新規</button>
 </header>
@@ -201,27 +198,28 @@
   <div class="sec-title">はじめに（初回セットアップ）</div>
   <button class="act setup" onclick="quick('セットアップ')"><span class="k">🚀</span> セットアップ（初回設定をガイド）</button>
   <button class="act" onclick="quick('セットアップ状況をチェックしてください。')"><span class="k">✓</span> 環境チェック</button>
-  <button class="act login" onclick="doLogin()"><span class="k">🔑</span> note.com にログイン</button>
+  <button class="act" onclick="openSalon()"><span class="k">🏠</span> サロン情報を登録・編集</button>
 
   <div class="sec-title">記事をつくる</div>
-  <button class="act" onclick="genOne()"><span class="k">1</span> テーマ指定で1件 生成+投稿</button>
-  <button class="act" onclick="quick('note.comの売れ筋からテーマを取得したいです。キーワードを聞いてください。')"><span class="k">2</span> 売れ筋からテーマ取得</button>
+  <button class="act" onclick="genOne()"><span class="k">1</span> テーマ指定で1件 生成（保存のみ）</button>
+  <button class="act" onclick="quick('お客様からよくいただくご質問・季節のご相談から、ブログのテーマ案を20個作って themes.json の pending に追加してください。CLAUDE.md の「テーマの作り方（サロンブログ）」に従い、薬機法ルールを守ったタイトルにしてください。')"><span class="k">2</span> テーマ案を20個つくる</button>
   <button class="act" onclick="openMulti()"><span class="k">3</span> 複数件 生成（一覧から選択）</button>
   <button class="act" onclick="quick('自分でテーマを追加したいです。テーマを聞いて themes.json の pending に追加してください。')"><span class="k">4</span> テーマを追加</button>
-  <button class="act" onclick="openObsidian()"><span class="k">5</span> Obsidianから生成（フォルダ指定）</button>
+  <button class="act" onclick="openObsidian()"><span class="k">5</span> Obsidianのメモから生成（フォルダ指定）</button>
 
   <div class="sec-title">ナレッジ（文体・構成）</div>
   <button class="act" onclick="openKb('筆者')"><span class="k">🎭</span> 筆者ルール<span class="kb-cur" data-cat="筆者"></span></button>
   <button class="act" onclick="openKb('手順')"><span class="k">📝</span> 記事構成<span class="kb-cur" data-cat="手順"></span></button>
   <button class="act primary" onclick="openGen()"><span class="k">✨</span> 参照情報から自動生成</button>
   <button class="act" onclick="openLearn()"><span class="k">🧠</span> 過去記事から筆者ルール学習</button>
+  <button class="act" onclick="openEditor('prompt_knowledge/薬機法ルール.md','⚖ 薬機法ルール（最優先）')"><span class="k">⚖</span> 薬機法ルールを確認・編集</button>
   <button class="act" onclick="openEditor('prompt_knowledge/整形ルール.md','📐 整形ルール（改行・句読点）')"><span class="k">📐</span> 整形ルールを編集</button>
-  <button class="act" onclick="openFmt()"><span class="k">⚙</span> 投稿の余白設定</button>
+  <button class="act" onclick="openFmt()"><span class="k">⚙</span> 貼り付けの余白設定</button>
   <button class="act" onclick="openEditor('prompt_knowledge/ワード/よく使うワード.txt','🏷 よく使うワード（記事にちりばめる）')"><span class="k">🏷</span> よく使うワードをセット</button>
 
   <div class="sec-title">フォルダを開く</div>
   <button class="act" onclick="openFolder('articles')">📂 articles/</button>
-  <button class="act" onclick="openFolder('articles/posted')">📂 投稿済み</button>
+  <button class="act" onclick="openFolder('articles/published')">📂 公開済み</button>
   <button class="act" onclick="openFolder('')">📂 プロジェクト</button>
 </aside>
 
@@ -229,14 +227,15 @@
 <main>
   <div id="chat">
     <div class="welcome">
-      <b>note-article-system Web UI へようこそ 🐙</b><br>
-      左のボタンで操作、または下の入力欄から「<b>○○のテーマで記事を書いて</b>」と指示できます。<br>
+      <b>よもぎ蒸しサロン 記事生成システムへようこそ 🌿</b><br>
+      左のボタンで操作、または下の入力欄から「<b>○○のテーマでブログを書いて</b>」と指示できます。<br>
+      記事は <b>articles/ に保存するだけ</b>です（自動投稿はしません）。<br>
       初めての方は、左上の <b>🚀「セットアップ（初回設定をガイド）」</b> からどうぞ。
     </div>
   </div>
   <div class="composer">
     <div class="wrap">
-      <textarea id="input" rows="1" placeholder="例：副業の始め方をテーマに記事を書いて投稿して（Enterで送信 / Shift+Enterで改行）"></textarea>
+      <textarea id="input" rows="1" placeholder="例：よもぎ蒸しが初めての方向けに、当日の流れの記事を書いて（Enterで送信 / Shift+Enterで改行）"></textarea>
       <button id="send" onclick="sendMsg()">送信</button>
       <button id="stopBtn" class="cbtn stop" onclick="stopMsg()" disabled title="実行中の生成を中断">中断</button>
       <button id="clearBtn" class="cbtn" onclick="clearInput()" title="入力をクリア">キャンセル</button>
@@ -259,16 +258,11 @@
 
   <div class="sec-title">記事 <button class="refresh" onclick="loadArticles()">更新</button></div>
   <div class="countrow">
-    <div class="pill"><b id="arPending">–</b><span>未投稿</span></div>
-    <div class="pill"><b id="arPosted">–</b><span>投稿済</span></div>
+    <div class="pill"><b id="arPending">–</b><span>未公開</span></div>
+    <div class="pill"><b id="arPosted">–</b><span>公開済</span></div>
   </div>
   <div id="articleList"></div>
 
-  <div class="sec-title">反応分析（note）
-    <button class="refresh" onclick="setReactionsUser()">設定</button>
-    <button class="refresh" onclick="loadReactions()">更新</button>
-  </div>
-  <div id="reactionsBox"><div class="mini">読み込み中…</div></div>
 </aside>
 
 <!-- モーダル -->
@@ -351,7 +345,7 @@
     </div>
     <div id="multiList" style="overflow-y:auto; max-height:48vh; padding:12px 18px"></div>
     <div class="foot" style="flex-wrap:wrap; gap:10px">
-      <label class="gen-chk"><input type="checkbox" id="multiPost" checked> 下書き投稿まで行う</label>
+      <span class="mini">記事は articles/ に保存します（自動投稿はしません）</span>
       <span style="flex:1"></span>
       <button class="cancel" onclick="$('multiBg').classList.remove('show')">閉じる</button>
       <button class="save" onclick="multiRun()">📝 選択を生成</button>
@@ -359,10 +353,50 @@
   </div>
 </div>
 
-<!-- 投稿の余白設定モーダル -->
+<!-- 貼り付け用テキスト モーダル -->
+<div class="modal-bg" id="pasteBg">
+  <div class="modal" style="width:min(680px,94vw)">
+    <h3 id="pasteTitle">📋 貼り付け用テキスト</h3>
+    <div style="padding:14px 18px">
+      <div class="mini" style="margin-bottom:6px">下の内容をコピーして、ブログ・UTAGE・SNS に貼り付けてください。</div>
+      <textarea id="pasteText" style="width:100%; min-height:46vh; resize:vertical"></textarea>
+    </div>
+    <div class="foot">
+      <button class="cancel" onclick="$('pasteBg').classList.remove('show')">閉じる</button>
+      <button class="save" onclick="copyPaste()">📋 コピー</button>
+    </div>
+  </div>
+</div>
+
+<!-- サロン情報モーダル -->
+<div class="modal-bg" id="salonBg">
+  <div class="modal" style="width:min(560px,94vw)">
+    <h3>🏠 サロン情報 <span class="mini" style="font-weight:400">— 記事の署名・ご予約導線に使われます</span></h3>
+    <div style="padding:16px 18px; overflow-y:auto; max-height:62vh; display:flex; flex-direction:column; gap:12px">
+      <div><div class="mini" style="margin-bottom:4px">サロン名</div>
+        <input id="slName" class="gen-input" placeholder="例：よもぎ蒸しサロン ○○"></div>
+      <div><div class="mini" style="margin-bottom:4px">エリア・最寄り駅</div>
+        <input id="slArea" class="gen-input" placeholder="例：東京都○○区／○○駅 徒歩5分"></div>
+      <div><div class="mini" style="margin-bottom:4px">営業時間</div>
+        <input id="slHours" class="gen-input" placeholder="例：10:00〜19:00（最終受付 18:00）"></div>
+      <div><div class="mini" style="margin-bottom:4px">ご予約ページのURL（記事の最後に入ります）</div>
+        <input id="slUrl" class="gen-input" placeholder="https://..."></div>
+      <div><div class="mini" style="margin-bottom:4px">メニュー（1行に1つ）</div>
+        <textarea id="slMenu" class="gen-input" style="min-height:90px; resize:vertical; font-family:inherit" placeholder="よもぎ蒸し 40分&#10;よもぎ蒸し 60分"></textarea></div>
+      <div><div class="mini" style="margin-bottom:4px">どんな方に来てほしいか</div>
+        <input id="slTarget" class="gen-input" placeholder="例：冷えや生理前のゆらぎが気になる30〜40代の方"></div>
+    </div>
+    <div class="foot">
+      <button class="cancel" onclick="$('salonBg').classList.remove('show')">閉じる</button>
+      <button class="save" onclick="saveSalon()">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- 貼り付けの余白設定モーダル -->
 <div class="modal-bg" id="fmtBg">
   <div class="modal" style="width:min(480px,94vw)">
-    <h3>⚙ 投稿の余白設定 <span class="mini" style="font-weight:400">— note貼り付け時の空行・折返し</span></h3>
+    <h3>⚙ 貼り付けの余白設定 <span class="mini" style="font-weight:400">— 貼り付け用テキストの空行・折返し</span></h3>
     <div style="padding:18px; display:flex; flex-direction:column; gap:16px">
       <label class="fmt-row">
         <span>空行の本数<br><span class="mini">余白の高さ。あきすぎなら1</span></span>
@@ -376,7 +410,7 @@
         <span>1行の折返し文字数<br><span class="mini">空欄＝整形ルールに従う</span></span>
         <select id="fmtWrap"><option value="">ルールに従う</option><option value="16">16字</option><option value="18">18字</option><option value="20">20字</option><option value="none">折り返しなし</option></select>
       </label>
-      <div class="mini">※ 次の投稿から反映されます。</div>
+      <div class="mini">※ 次に「📋 貼り付け用」を開いたときから反映されます。</div>
     </div>
     <div class="foot">
       <button class="cancel" onclick="$('fmtBg').classList.remove('show')">閉じる</button>
@@ -393,11 +427,11 @@
       <div class="mini" style="margin-bottom:5px">新しい筆者ルール名</div>
       <input id="learnName" class="gen-input" placeholder="例：自分の文体">
       <div style="display:flex; gap:6px; background:var(--panel2); border:1px solid var(--border); border-radius:8px; padding:4px; margin:14px 0 12px">
-        <button class="lseg" id="lsegPosted" onclick="learnMode('posted')">投稿済み記事から</button>
+        <button class="lseg" id="lsegPosted" onclick="learnMode('posted')">公開済み記事から</button>
         <button class="lseg" id="lsegPaste" onclick="learnMode('paste')">文章を貼り付け</button>
       </div>
       <div id="learnPosted"></div>
-      <textarea id="learnPaste" class="gen-input" style="min-height:170px; resize:vertical; display:none; font-family:inherit" placeholder="真似たい自分の文章（過去のnote・ツイート等）を貼り付け…"></textarea>
+      <textarea id="learnPaste" class="gen-input" style="min-height:170px; resize:vertical; display:none; font-family:inherit" placeholder="真似たい自分の文章（過去のブログ・Instagramの投稿など）を貼り付け…"></textarea>
       <label class="gen-chk" style="margin-top:12px"><input type="checkbox" id="learnActivate" checked> 生成後そのまま参照先にする</label>
     </div>
     <div class="foot">
@@ -416,7 +450,6 @@
       <span id="obsOpts" style="display:none; align-items:center; gap:14px; font-size:13px">
         <label class="gen-chk">本数 <input id="obsCount" type="number" min="1"
           style="width:64px; background:var(--bg); color:var(--text); border:1px solid var(--border); border-radius:6px; padding:5px 7px"></label>
-        <label class="gen-chk"><input type="checkbox" id="obsPost" checked> 下書き投稿まで行う</label>
       </span>
       <span style="flex:1"></span>
       <button class="cancel" onclick="$('obsBg').classList.remove('show')">閉じる</button>
@@ -442,7 +475,8 @@ let busy = false;
 let editingPath = null;
 let currentAbort = null;
 let allPending = [];
-let postedArticles = [];
+let pendingArticles = [];
+let publishedArticles = [];
 let convId = null;
 let convs = [];
 
@@ -533,7 +567,7 @@ function charDirective(){
     + `① まず${headsN}本の章立て（●見出し）を決める　`
     + `② 各章を最低${perSec}字、具体例・体験談・一般論との対比・想定反論への回答・手順の分解で密度高く書く（前章と内容を重複させない）　`
     + `③ 全章を書いたら本文の文字数を数え、${minTotal}字に満たなければ、薄い章に具体例やエピソードを追記して到達させる　`
-    + `④ ${minTotal}字に到達してから保存・投稿する。短いまま終わらせないこと。\n`
+    + `④ ${minTotal}字に到達し、薬機法ルールのセルフチェックを通してから保存する。短いまま終わらせないこと。\n`
     + `【禁止】文字数合わせの“水増し”（同義反復・冗長な前置き・無意味な列挙）で字数を稼がない。あくまで情報密度で伸ばす。`;
 }
 // 自由入力にも現在の目標文字数を伝える短い注記（会話途中で変更しても効くように）
@@ -546,7 +580,7 @@ function saveCharlen(){ try{ localStorage.setItem("nas_charlen", $("charlen").va
 function loadCharlen(){ try{ const v=localStorage.getItem("nas_charlen"); if(v!==null && $("charlen")) $("charlen").value=v; }catch{} }
 // テーマ指定で1件生成（[1]ボタン）— 文字数指定を反映
 function genOne(){
-  sendMsg("テーマを指定して記事を1件生成して、note.comに下書き投稿してください。テーマを聞いてください。"+charDirective());
+  sendMsg("テーマを指定してブログ記事を1件生成し、articles/ に保存してください（投稿はしません）。テーマを聞いてください。"+charDirective());
 }
 
 function addMsg(role, text){
@@ -622,10 +656,11 @@ async function loadStatus(){
     };
     let h="";
     h+=row("Python", s.python?"ok":"ng", s.python||"未検出");
-    h+=row("Chrome", s.chrome?"ok":"warn", s.chrome? (s.chrome.split(".")[0]+".x") : "未検出");
-    h+=row("selenium / Pillow", s.packages_ok?"ok":"ng", s.packages_ok?"OK":"未導入");
     h+=row("claude CLI", s.claude_cli?"ok":"ng", s.claude_cli?"OK":"未検出");
-    h+=row("note.com ログイン", s.logged_in?"ok":"ng", s.logged_in?(s.active_account||"済"):"未ログイン");
+    h+=row("サロン名", s.salon_name_ok?"ok":"ng", s.salon_name_ok?esc(s.salon_name):"未設定");
+    h+=row("ご予約URL", s.reserve_url_ok?"ok":"ng", s.reserve_url_ok?"OK":"未設定");
+    h+=row("筆者ルール", s.kb_author?"ok":"warn", esc(s.kb_author||"未選択"));
+    h+=row("記事構成", s.kb_flow?"ok":"warn", esc(s.kb_flow||"未選択"));
     $("statusBox").innerHTML=h;
   }catch{ $("statusBox").innerHTML='<div class="mini">取得失敗</div>'; }
 }
@@ -656,7 +691,7 @@ function renderThemeList(){
     const cb=document.createElement("input"); cb.type="checkbox"; cb.className="th-cb"; cb.value=i; cb.style.marginTop="2px";
     const txt=document.createElement("div"); txt.className="t"; txt.style.cssText="flex:1; cursor:pointer";
     txt.textContent=`${i+1}. ${t}`; txt.title="クリックでこのテーマを生成";
-    txt.onclick=()=>sendMsg(`テーマ「${t}」で記事を1件生成して note.com に下書き投稿してください。`+charDirective(), `テーマ「${t.slice(0,24)}」で生成`);
+    txt.onclick=()=>sendMsg(`テーマ「${t}」でブログ記事を1件生成し、articles/ に保存してください（投稿はしません）。`+charDirective(), `テーマ「${t.slice(0,24)}」で生成`);
     row.appendChild(cb); row.appendChild(txt); box.appendChild(row);
   });
 }
@@ -676,48 +711,91 @@ async function deleteThemes(){
 async function loadArticles(){
   try{
     const d=await (await fetch("/api/articles")).json();
-    const pend=d.pending||[]; postedArticles=d.posted||[];
-    $("arPending").textContent=pend.length; $("arPosted").textContent=postedArticles.length;
+    pendingArticles=d.pending||[]; publishedArticles=d.published||[];
+    $("arPending").textContent=pendingArticles.length; $("arPosted").textContent=publishedArticles.length;
     const box=$("articleList"); box.innerHTML="";
-    if(!pend.length && !postedArticles.length){ box.innerHTML='<div class="mini" style="padding:2px 4px">記事はまだありません</div>'; return; }
+    if(!pendingArticles.length && !publishedArticles.length){ box.innerHTML='<div class="mini" style="padding:2px 4px">記事はまだありません</div>'; return; }
 
-    // 未投稿：まとめて投稿ボタン＋一覧（クリックで編集）
-    if(pend.length){
-      const bar=document.createElement("div"); bar.style.marginBottom="6px";
-      bar.innerHTML=`<button class="cbtn" style="height:auto;padding:6px 10px;font-size:12px;width:100%;color:var(--accent);border-color:#2c6b4d" onclick="postPending(${pend.length})">📤 未投稿 ${pend.length}件 を下書き投稿</button>`;
+    // 未公開：クリックで編集／📋で貼り付け用／チェックして公開済みへ
+    if(pendingArticles.length){
+      const bar=document.createElement("div");
+      bar.style.cssText="display:flex; gap:6px; align-items:center; margin-bottom:6px";
+      bar.innerHTML=`<span class="mini">未公開 ${pendingArticles.length}件</span><span style="flex:1"></span>`
+        +`<button class="cbtn" style="height:auto;padding:4px 8px;font-size:11px" onclick="pendSelAll(true)">全選</button>`
+        +`<button class="cbtn" style="height:auto;padding:4px 8px;font-size:11px" onclick="pendSelAll(false)">解除</button>`
+        +`<button class="cbtn" style="height:auto;padding:4px 8px;font-size:11px;color:var(--accent)" onclick="publishSelected()" title="公開が済んだ記事を articles/published/ へ移動">✅ 公開済みに</button>`;
       box.appendChild(bar);
-      pend.forEach(a=> box.appendChild(articleCard(a,"未投稿","var(--warn)")) );
+      pendingArticles.forEach((a,i)=>{
+        const row=document.createElement("div"); row.className="card";
+        row.style.cssText="display:flex; gap:7px; align-items:flex-start; padding:7px 9px";
+        const cb=document.createElement("input"); cb.type="checkbox"; cb.className="pend-cb"; cb.value=i; cb.style.marginTop="3px";
+        const main=document.createElement("div"); main.style.cssText="flex:1; min-width:0; cursor:pointer";
+        main.innerHTML=`<div class="t">${esc(a.title)}</div><div class="meta"><span style="color:var(--warn)">●未公開</span>　${a.chars}文字</div>`;
+        main.title="クリックで編集"; main.onclick=()=>openEditor(a.path, a.title);
+        const cp=document.createElement("button"); cp.className="cbtn";
+        cp.style.cssText="height:auto;padding:5px 7px;font-size:12px"; cp.textContent="📋";
+        cp.title="貼り付け用に整形して表示"; cp.onclick=(e)=>{ e.stopPropagation(); openPaste(a.path, a.title); };
+        row.appendChild(cb); row.appendChild(main); row.appendChild(cp); box.appendChild(row);
+      });
     }
 
-    // 投稿済：チェックで削除（全件表示）
-    if(postedArticles.length){
+    // 公開済：チェックで削除（全件表示）
+    if(publishedArticles.length){
       const head=document.createElement("div");
       head.style.cssText="display:flex; gap:6px; align-items:center; margin:10px 0 6px";
-      head.innerHTML=`<span class="mini">投稿済み ${postedArticles.length}件</span><span style="flex:1"></span>`
+      head.innerHTML=`<span class="mini">公開済み ${publishedArticles.length}件</span><span style="flex:1"></span>`
         +`<button class="cbtn" style="height:auto;padding:4px 8px;font-size:11px" onclick="postedSelAll(true)">全選</button>`
         +`<button class="cbtn" style="height:auto;padding:4px 8px;font-size:11px" onclick="postedSelAll(false)">解除</button>`
-        +`<button class="cbtn stop" style="height:auto;padding:4px 8px;font-size:11px" onclick="deletePosted()">🗑</button>`;
+        +`<button class="cbtn stop" style="height:auto;padding:4px 8px;font-size:11px" onclick="deletePublished()">🗑</button>`;
       box.appendChild(head);
-      postedArticles.forEach((a,i)=>{
+      publishedArticles.forEach((a,i)=>{
         const row=document.createElement("div"); row.className="card";
         row.style.cssText="display:flex; gap:7px; align-items:flex-start; padding:7px 9px";
         const cb=document.createElement("input"); cb.type="checkbox"; cb.className="posted-cb"; cb.value=i; cb.style.marginTop="2px";
-        const t=document.createElement("div"); t.className="t"; t.style.cssText="flex:1; cursor:pointer";
-        t.textContent=a.title; t.title="クリックで内容を見る"; t.onclick=()=>openEditor(a.path,a.title);
-        row.appendChild(cb); row.appendChild(t); box.appendChild(row);
+        const tx=document.createElement("div"); tx.className="t"; tx.style.cssText="flex:1; cursor:pointer";
+        tx.textContent=a.title; tx.title="クリックで内容を見る"; tx.onclick=()=>openEditor(a.path,a.title);
+        row.appendChild(cb); row.appendChild(tx); box.appendChild(row);
       });
     }
   }catch{}
 }
-function postPending(n){
-  sendMsg(`articles/ にある未投稿の記事 ${n} 件すべてを python note_poster.py --count ${n} で note.com に下書き投稿してください。`,
-          `📤 未投稿 ${n}件 を下書き投稿`);
+function pendSelAll(on){ document.querySelectorAll(".pend-cb").forEach(c=>{c.checked=on;}); }
+async function publishSelected(){
+  const sel=[...document.querySelectorAll(".pend-cb:checked")].map(c=>pendingArticles[parseInt(c.value,10)]);
+  if(!sel.length){ toast("公開済みにする記事にチェックを入れてください"); return; }
+  if(!confirm(`${sel.length} 件を「公開済み」に移動しますか？（articles/published/ へ移動します）`)) return;
+  try{
+    const r=await (await fetch("/api/articles-publish",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({paths:sel.map(a=>a.path)})})).json();
+    if(r.error){ toast(r.error); return; }
+    toast(`${(r.moved||[]).length}件を公開済みにしました`); loadArticles();
+  }catch{ toast("移動失敗（サーバー未起動かも）"); }
+}
+// ---- 貼り付け用テキスト ----
+async function openPaste(path, title){
+  $("pasteTitle").textContent="📋 貼り付け用テキスト";
+  $("pasteText").value="読み込み中…";
+  $("pasteBg").classList.add("show");
+  try{
+    const d=await (await fetch("/api/format-preview?path="+encodeURIComponent(path))).json();
+    if(d.error){ $("pasteText").value=d.error; return; }
+    $("pasteTitle").textContent="📋 "+(d.title||title||"貼り付け用テキスト");
+    $("pasteText").value=(d.title? d.title+"\n\n":"")+d.text;
+  }catch{ $("pasteText").value="整形に失敗しました（サーバー未起動かも）"; }
+}
+function copyPaste(){
+  const el=$("pasteText"); el.select(); el.setSelectionRange(0, el.value.length);
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(el.value); }
+    else{ document.execCommand("copy"); }
+    toast("コピーしました");
+  }catch{ toast("コピーできませんでした。手動で選択してください"); }
 }
 function postedSelAll(on){ document.querySelectorAll(".posted-cb").forEach(c=>{c.checked=on;}); }
-async function deletePosted(){
-  const sel=[...document.querySelectorAll(".posted-cb:checked")].map(c=>postedArticles[parseInt(c.value,10)]);
-  if(!sel.length){ toast("削除する投稿済み記事にチェックを入れてください"); return; }
-  if(!confirm(`投稿済み ${sel.length} 件のローカルファイルを削除しますか？（note.com 上の下書きは消えません）`)) return;
+async function deletePublished(){
+  const sel=[...document.querySelectorAll(".posted-cb:checked")].map(c=>publishedArticles[parseInt(c.value,10)]);
+  if(!sel.length){ toast("削除する公開済み記事にチェックを入れてください"); return; }
+  if(!confirm(`公開済み ${sel.length} 件のファイルを削除しますか？（公開先の記事は消えません）`)) return;
   try{
     const r=await (await fetch("/api/articles-delete",{method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({paths:sel.map(a=>a.path)})})).json();
@@ -751,14 +829,6 @@ async function saveModal(){
   }catch{ toast("保存失敗"); }
 }
 
-async function doLogin(){
-  toast("ログイン窓を起動中…");
-  try{
-    const r=await (await fetch("/api/login",{method:"POST"})).json();
-    if(r.error){ addMsg("assistant","⚠ "+r.error); return; }
-    addMsg("assistant","🔑 "+r.message+"\n\n※ 普段使いのChromeではなく、今開いた専用ウィンドウでログインしてください。完了すると自動で閉じます。");
-  }catch{ toast("起動失敗"); }
-}
 
 async function openFolder(path){
   try{ await fetch("/api/open-folder",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({path})}); }
@@ -920,7 +990,7 @@ function runGen(){
   if(!doA && !doS){ toast("生成対象を1つ以上選んでください"); return; }
   const targets=[]; if(doA) targets.push("筆者ルール"); if(doS) targets.push("記事構成");
 
-  let p = `以下の【参照情報】を分析し、note記事生成用のナレッジを新規作成してください。\n\n`;
+  let p = `以下の【参照情報】を分析し、サロンのブログ記事生成用のナレッジを新規作成してください。\n\n`;
   p += `【作成対象】${targets.join(" と ")}\n【名前】${name}\n\n`;
   p += `【最重要・既存ナレッジの“構造と必要要素”を踏襲する】\n`;
   if(doA) p += `- 筆者ルール: まず prompt_knowledge/筆者/.active が指す既存ファイルを Read し、その章立て・必要要素・粒度を「型」として踏襲する。中身（文体・語彙・語尾・思考パターン・たとえの傾向など）は【参照情報】から抽出した特徴に置き換えて書く。\n`;
@@ -953,7 +1023,7 @@ async function openMulti(){
 }
 function renderMulti(){
   const box=$("multiList"); box.innerHTML="";
-  if(!multiThemes.length){ box.innerHTML='<div class="mini">未着手テーマがありません（左の「テーマを追加」や「売れ筋テーマ取得」で追加できます）</div>'; updateMultiInfo(); return; }
+  if(!multiThemes.length){ box.innerHTML='<div class="mini">未着手テーマがありません（左の「テーマを追加」や「テーマ案を20個つくる」で追加できます）</div>'; updateMultiInfo(); return; }
   multiThemes.forEach((t,i)=>{
     const lab=document.createElement("label"); lab.className="card click";
     lab.style.cssText="display:flex; gap:9px; align-items:flex-start";
@@ -972,24 +1042,19 @@ function multiRun(){
   const idxs=[...document.querySelectorAll(".multi-cb:checked")].map(c=>parseInt(c.value,10));
   if(!idxs.length){ toast("生成するテーマを選択してください"); return; }
   const themes=idxs.map(i=>multiThemes[i]);
-  const post=$("multiPost").checked;
   $("multiBg").classList.remove("show");
-  let p = `次の【選択されたテーマ】について、記事生成`
-    + (post ? "→保存→note.com下書き投稿まで" : "→articles/ に保存まで")
+  let p = `次の【選択されたテーマ】について、記事生成→articles/ に保存まで`
     + `を**一気通貫（途中で確認を挟まずノンストップ）**で実行してください。\n\n`
     + `【選択されたテーマ】（${themes.length}件）:\n`
     + themes.map((t,i)=>`${i+1}. ${t}`).join("\n") + `\n\n`
     + `手順:\n`
-    + `1. 上記の各テーマを、選択中の筆者ルール・記事構成（prompt_knowledge/筆者・手順 の .active が指すファイル）に沿って記事生成し、articles/article_{テーマ名}.txt に「記事ファイル形式」で保存する\n`;
-  if(post){
-    p += `2. ${themes.length}件すべて保存したら python note_poster.py --count ${themes.length} を実行して note.com に下書き投稿する`
-       + `（投稿成功で themes.json が pending→done に自動更新される）\n`
-       + `3. 生成・投稿した件数と各タイトルを報告する`;
-  }else{
-    p += `2. 保存した件数と各タイトルを報告する（※今回は投稿しない＝保存のみ。pending のまま）`;
-  }
+    + `1. prompt_knowledge/薬機法ルール.md を読み、効果・効能を断定しないことを最優先で守る\n`
+    + `2. 上記の各テーマを、選択中の筆者ルール・記事構成（prompt_knowledge/筆者・手順 の .active が指すファイル）に沿って記事生成し、articles/article_{テーマ名}.txt に「記事ファイル形式」で保存する\n`
+    + `3. 各記事の最後に config.json の salon（サロン名・エリア・予約URL）からご予約導線を入れる\n`
+    + `4. 保存できたテーマを themes.json の pending から done へ移動する\n`
+    + `5. 保存した件数と各タイトル、薬機法チェックの結果を報告する（※投稿はしない＝保存のみ）`;
   p += charDirective();
-  sendMsg(p, `📝 複数件${post?'生成＋下書き投稿':'生成（保存のみ）'}: ${themes.length}件`);
+  sendMsg(p, `📝 複数件 生成（保存のみ）: ${themes.length}件`);
 }
 
 // ---- Obsidianから生成（フォルダ指定）----
@@ -1060,84 +1125,26 @@ async function obsSaveRoot(){
   }catch{ toast("保存失敗"); }
 }
 function obsGenerate(){
-  const post = $("obsPost").checked;
   let n = parseInt($("obsCount").value, 10);
   if(!Number.isFinite(n) || n < 1) n = 0;   // 0 = 全件
   $("obsBg").classList.remove("show");
 
   const scope = n > 0 ? `先頭${n}件` : "全件";
-  let p = `Obsidian の次のフォルダ内の .md メモから note 記事を作成`
-    + (post ? "し、note.com に下書き投稿するまで" : "して articles/ に保存するまで")
+  let p = `Obsidian の次のフォルダ内の .md メモからブログ記事を作成して articles/ に保存するまで`
     + `を**一気通貫（途中で確認を挟まずノンストップ）**で実行してください。\n`
     + `対象フォルダ: ${obsAbs}\n`
     + `対象範囲: フォルダ直下の .md を名前順で ${scope}\n\n`
     + `手順:\n`
     + `1. そのフォルダ直下の *.md を Glob で列挙し、${scope}を対象にする\n`
-    + `2. 各 .md を Read し、選択中の筆者ルール・記事構成（prompt_knowledge/筆者・手順 の .active が指すファイル）に沿って記事生成（メモ1つ→記事1本が基本／関連メモは統合可）\n`
-    + `3. 各記事を articles/article_{わかりやすい名前}.txt に「記事ファイル形式」で保存する\n`;
-  if(post){
-    p += `4. すべて保存したら python note_poster.py --count {生成した本数} を実行して note.com に下書き投稿する\n`
-       + `5. 生成・投稿した本数と各タイトルを報告する`;
-  }else{
-    p += `4. 保存した本数と各タイトルを報告する（※今回は投稿しない。保存のみ）`;
-  }
+    + `2. prompt_knowledge/薬機法ルール.md を読み、効果・効能を断定しないことを最優先で守る\n`
+    + `3. 各 .md を Read し、選択中の筆者ルール・記事構成（prompt_knowledge/筆者・手順 の .active が指すファイル）に沿って記事生成（メモ1つ→記事1本が基本／関連メモは統合可）\n`
+    + `4. 各記事を articles/article_{わかりやすい名前}.txt に「記事ファイル形式」で保存し、最後に config.json の salon からご予約導線を入れる\n`
+    + `5. 保存した本数と各タイトルを報告する（※投稿はしない。保存のみ）`;
   p += charDirective();
-  const label = post ? "📒 Obsidian→note下書きまで一気通貫" : "📒 Obsidian→記事保存のみ";
-  sendMsg(p, `${label}: ${obsAbs}（${scope}）`);
+  sendMsg(p, `📒 Obsidian→記事保存: ${obsAbs}（${scope}）`);
 }
 
-// ---- 反応分析（note反応データ取り込み）----
-async function loadReactions(){
-  const box=$("reactionsBox"); box.innerHTML='<div class="mini">読み込み中…</div>';
-  try{
-    const d=await (await fetch("/api/reactions")).json();
-    if(d.error){ box.innerHTML=`<div class="mini">${esc(d.error)}</div>`; return; }
-    if(!d.configured){
-      box.innerHTML='<div class="mini">未設定です。「設定」から note のユーザー名（note.com/◯◯ の ◯◯）を登録してください。</div>';
-      return;
-    }
-    const top=d.top||[];
-    const max=top.length?Math.max(...top.map(t=>t.likes),1):1;
-    let h=`<div class="countrow">
-        <div class="pill"><b>${d.total_likes.toLocaleString()}</b><span>総スキ</span></div>
-        <div class="pill"><b>${d.avg}</b><span>平均/記事</span></div>
-        <div class="pill"><b>${d.count}</b><span>記事数</span></div>
-      </div>
-      <div class="mini" style="margin:2px 0 6px">@${esc(d.urlname)}・スキ上位</div>`;
-    top.slice(0,6).forEach(t=>{
-      const w=Math.round(t.likes/max*100);
-      h+=`<div style="margin-bottom:6px">
-        <div style="display:flex; justify-content:space-between; gap:6px; font-size:11px; margin-bottom:3px">
-          <span style="flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">${esc(t.title)}</span>
-          <span style="color:var(--accent-bright)">♡${t.likes}</span></div>
-        <div style="height:6px; background:var(--panel2); border-radius:999px"><div style="width:${w}%; height:6px; background:var(--accent); border-radius:999px"></div></div>
-      </div>`;
-    });
-    h+=`<button class="cbtn" style="height:auto;padding:7px 10px;font-size:12px;width:100%;margin-top:6px" onclick="reactionsToThemes()"><i></i>📈 この傾向でテーマ生成</button>`;
-    box.innerHTML=h;
-  }catch{ box.innerHTML='<div class="mini">取得失敗（サーバー未起動かも）</div>'; }
-}
-async function setReactionsUser(){
-  const u=prompt("note のユーザー名（note.com/◯◯ の ◯◯ 部分）"); if(!u) return;
-  try{
-    const r=await (await fetch("/api/reactions-config",{method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({urlname:u})})).json();
-    if(r.error){ toast(r.error); return; }
-    toast(`@${r.urlname} を設定`); loadReactions();
-  }catch{ toast("設定失敗"); }
-}
-function reactionsToThemes(){
-  sendMsg(`自分のnote記事の反応データ（スキ数）から「当たり傾向」を分析し、新テーマを20個作って themes.json の pending に追加してください。\n`
-    +`手順:\n`
-    +`1. config.json の "note_urlname" を読む\n`
-    +`2. python note_scraper.py --author {その値} を実行し、反応データ（スキ上位の記事・傾向）を取得\n`
-    +`3. スキの多い記事に共通する切り口・テーマの“型”を抽出する\n`
-    +`4. その型を踏襲しつつ丸かぶりしない新テーマを20個生成し、themes.json の pending に追加\n`
-    +`5. どんな傾向が見えたか・追加したテーマを報告`,
-    `📈 反応の当たり傾向からテーマ生成`);
-}
-
-// ---- 投稿の余白設定 ----
+// ---- 貼り付けの余白設定 ----
 async function openFmt(){
   $("fmtBg").classList.add("show");
   try{
@@ -1169,9 +1176,9 @@ async function openLearn(){
   $("learnPosted").innerHTML='<div class="mini">読み込み中…</div>';
   try{
     const d=await (await fetch("/api/articles")).json();
-    learnPosted=d.posted||[];
+    learnPosted=(d.published||[]).concat(d.pending||[]);
     const box=$("learnPosted"); box.innerHTML="";
-    if(!learnPosted.length){ box.innerHTML='<div class="mini">投稿済み記事がありません。「文章を貼り付け」をお使いください。</div>'; return; }
+    if(!learnPosted.length){ box.innerHTML='<div class="mini">記事がまだありません。「文章を貼り付け」をお使いください。</div>'; return; }
     learnPosted.forEach((a,i)=>{
       const lab=document.createElement("label"); lab.className="card click";
       lab.style.cssText="display:flex; gap:8px; align-items:flex-start; padding:8px 10px";
@@ -1195,7 +1202,7 @@ function learnRun(){
   if(learnSrc==="posted"){
     const sel=[...document.querySelectorAll(".learn-cb:checked")].map(c=>learnPosted[parseInt(c.value,10)]);
     if(!sel.length){ toast("学習する記事にチェックを入れてください"); return; }
-    src=`【学習元：投稿済み記事】次のファイルを Read して文体を学習する:\n`+sel.map(a=>`- ${a.path}`).join("\n");
+    src=`【学習元：公開済み記事】次のファイルを Read して文体を学習する:\n`+sel.map(a=>`- ${a.path}`).join("\n");
   }else{
     const txt=$("learnPaste").value.trim();
     if(!txt){ toast("文章を貼り付けてください"); return; }
@@ -1203,45 +1210,45 @@ function learnRun(){
   }
   $("learnBg").classList.remove("show");
   let p=`以下の文章群を分析し、その人の「筆者ルール（文体・思考・語彙・語尾・たとえ・ネガポジの振りなどの特徴）」を抽出して、`
-    +`note記事生成用の筆者ルールを新規作成してください。\n\n`
+    +`サロンのブログ記事生成用の筆者ルールを新規作成してください。\n\n`
     +`【作り方】既存の筆者ルール（prompt_knowledge/筆者/.active が指すファイル）を Read し、その章立て・粒度を“型”として踏襲する。`
     +`中身は学習元から抽出した特徴に置き換える（具体例の語彙・口調をできるだけ忠実に再現）。\n`
     +`【保存先】prompt_knowledge/筆者/${name}.txt（Writeで保存）\n`;
   if(activate) p+=`【参照先設定】保存後、prompt_knowledge/筆者/.active の中身を「${name}.txt」だけに上書き保存して参照中にする。\n`;
   p+=`【完了報告】抽出した文体の要点を箇条書きで報告する。\n\n`+src;
-  sendMsg(p, `🧠 筆者ルール学習: ${name}（${learnSrc==="posted"?"投稿済み記事":"貼り付け"}）`);
+  sendMsg(p, `🧠 筆者ルール学習: ${name}（${learnSrc==="posted"?"公開済み記事":"貼り付け"}）`);
 }
 
-// ---- 投稿アカウント切替 ----
-async function loadAccounts(){
+// ---- サロン情報 ----
+async function openSalon(){
+  $("salonBg").classList.add("show");
   try{
-    const d=await (await fetch("/api/accounts")).json();
-    const sel=$("account"); if(!sel) return;
-    sel.innerHTML="";
-    (d.accounts||[]).forEach(a=>{
-      const o=document.createElement("option"); o.value=a.name; o.textContent=a.name;
-      if(a.name===d.active) o.selected=true; sel.appendChild(o);
-    });
-  }catch{}
+    const d=await (await fetch("/api/salon")).json();
+    const s=d.salon||{};
+    const clean=v=>{ v=(v||"").trim(); return v.startsWith("（")&&v.endsWith("）") ? "" : v; };
+    $("slName").value   = clean(s.name);
+    $("slArea").value   = clean(s.area);
+    $("slHours").value  = clean(s.business_hours);
+    $("slUrl").value    = (s.reserve_url||"").trim();
+    $("slMenu").value   = (s.menu||[]).join("\n");
+    $("slTarget").value = clean(s.target);
+  }catch{ toast("読み込み失敗（サーバー未起動かも）"); }
 }
-async function switchAccount(name){
+async function saveSalon(){
+  const salon={
+    name: $("slName").value.trim(),
+    area: $("slArea").value.trim(),
+    business_hours: $("slHours").value.trim(),
+    reserve_url: $("slUrl").value.trim(),
+    menu: $("slMenu").value.split("\n").map(s=>s.trim()).filter(Boolean),
+    target: $("slTarget").value.trim(),
+  };
   try{
-    const r=await (await fetch("/api/account-switch",{method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({name})})).json();
+    const r=await (await fetch("/api/salon",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({salon})})).json();
     if(r.error){ toast(r.error); return; }
-    toast(`アカウント「${name}」に切替`); loadStatus();
-  }catch{ toast("切替失敗"); }
-}
-async function addAccount(){
-  const name=prompt("追加するアカウント名（例：サブ垢A）"); if(!name) return;
-  const pen=prompt("ペンネーム（任意・空でOK）")||"";
-  try{
-    const r=await (await fetch("/api/account-add",{method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({name:name.trim(), pen_name:pen.trim()})})).json();
-    if(r.error){ toast(r.error); return; }
-    toast(`「${name}」を追加。専用ウィンドウでログインしてください`);
-    await loadAccounts(); loadStatus(); doLogin();
-  }catch{ toast("追加失敗"); }
+    toast("サロン情報を保存しました"); $("salonBg").classList.remove("show"); loadStatus();
+  }catch{ toast("保存失敗"); }
 }
 
 function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
@@ -1262,7 +1269,7 @@ async function checkServer(){
 loadCharlen();
 updateSessHint();
 loadConvsFromStorage();
-checkServer().then(ok=>{ if(ok){ loadStatus(); loadThemes(); loadArticles(); loadKbBadges(); loadAccounts(); loadReactions(); } });
+checkServer().then(ok=>{ if(ok){ loadStatus(); loadThemes(); loadArticles(); loadKbBadges(); } });
 setInterval(loadStatus, 30000);
 </script>
 </body>

@@ -1,7 +1,3 @@
-# --- note.com ログインセッション（Chromeプロファイル）: 認証情報を含むので絶対にコミットしない ---
-chrome_data_*/
-cloned_chrome_data/
-
 # --- Python ---
 __pycache__/
 *.py[cod]
@@ -11,6 +7,9 @@ venv/
 # --- 生成物 ---
 thumbs/*
 !thumbs/.gitkeep
+articles/貼り付け用/
+診断結果.txt
+_server_test.log
 *.log
 
 # --- OS ---

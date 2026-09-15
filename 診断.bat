@@ -4,7 +4,7 @@ cd /d "%~dp0"
 set "LOG=%~dp0診断結果.txt"
 
 echo ============================================================
-echo   note-article-system 診断
+echo   salon-article-system 診断
 echo   15秒ほどかかります。そのままお待ちください...
 echo ============================================================
 
@@ -23,7 +23,7 @@ exit /b
 
 :diag
 echo ============================================
-echo   note-article-system 診断結果
+echo   salon-article-system 診断結果
 echo   %DATE% %TIME%
 echo ============================================
 echo.

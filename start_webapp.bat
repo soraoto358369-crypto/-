@@ -2,8 +2,8 @@
 chcp 65001 >nul
 cd /d "%~dp0"
 echo ============================================================
-echo   note-article-system  Web UI  (default: FULL-AUTO)
-echo   フルオート: 確認なしで記事生成〜下書き投稿まで実行します
+echo   salon-article-system  Web UI  (default: FULL-AUTO)
+echo   フルオート: 確認なしで記事生成〜保存まで実行します（自動投稿はしません）
 echo   ブラウザで開く: http://127.0.0.1:8788
 echo ============================================================
 
