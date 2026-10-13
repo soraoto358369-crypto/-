@@ -1,0 +1,6 @@
+interface:
+  display_name: "Manga LP Maker"
+  short_description: "漫画LPを戦略設計から公開用HTMLまで作成"
+  default_prompt: "Use $manga-lp-maker to create a strategic manga landing page from my answers and real proof assets."
+policy:
+  allow_implicit_invocation: true
