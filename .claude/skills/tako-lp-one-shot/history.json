@@ -1,5 +1,14 @@
 [
   {
+    "site": "tourplus-cbd",
+    "title": "琥珀の環",
+    "structure": "letter",
+    "world": "eclipse",
+    "signature": "spotlight",
+    "use": "letter",
+    "created": "2026-11-11"
+  },
+  {
     "site": "cs60-iroha",
     "title": "湯気が晴れる",
     "structure": "letter",

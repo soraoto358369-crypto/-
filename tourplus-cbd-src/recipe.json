@@ -1,0 +1,18 @@
+{
+  "title": "琥珀の環",
+  "use": "letter",
+  "subject": "product",
+  "structure": "letter",
+  "world": "eclipse",
+  "world_no": 8,
+  "signature": "spotlight",
+  "ambient": [],
+  "voice": "感覚表現。効能は書かない",
+  "images": "supplied",
+  "icon": "none",
+  "cta": "line",
+  "lang": "ja",
+  "idea": "日蝕の環＝琥珀のガラスを通した光",
+  "status": "done",
+  "created": "2026-11-11"
+}
